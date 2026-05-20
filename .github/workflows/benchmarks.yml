@@ -1,0 +1,60 @@
+name: Benchmarks
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * 1'
+
+jobs:
+  run-benchmarks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6.0.2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@2.37.1
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+
+      - name: Validate Composer configuration
+        run: composer validate --no-check-publish
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress
+
+      - name: Run benchmark suite
+        run: |
+          composer bench
+          composer bench:json
+
+      - name: Add benchmark summary
+        run: |
+          php -r '
+          $data = json_decode(file_get_contents("build/benchmark-results.json"), true);
+          if (!is_array($data)) {
+              fwrite(STDERR, "Unable to read benchmark results.\n");
+              exit(1);
+          }
+          file_put_contents(getenv("GITHUB_STEP_SUMMARY"), "## Benchmark summary\n\n", FILE_APPEND);
+          foreach ($data["comparisons"] as $comparison) {
+              $line = sprintf(
+                  "- `%s`: **%s** (%.2fx faster than %s)\n",
+                  $comparison["benchmark"],
+                  $comparison["winner"],
+                  $comparison["speedup_ratio"],
+                  $comparison["loser"]
+              );
+              file_put_contents(getenv("GITHUB_STEP_SUMMARY"), $line, FILE_APPEND);
+          }'
+
+      - name: Upload benchmark artifacts
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: benchmark-results
+          path: build/benchmark-results.json
