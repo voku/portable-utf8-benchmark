@@ -173,12 +173,17 @@ function buildComparisons(array $groupedResults): array
 
         $winner = $entries[0];
         $runnerUp = $entries[1];
+        $speedupRatio = 0.0;
+
+        if ($winner['total_seconds'] > 0 && $runnerUp['total_seconds'] > 0) {
+            $speedupRatio = $runnerUp['total_seconds'] / $winner['total_seconds'];
+        }
 
         $comparisons[] = array(
             'benchmark' => $benchmarkName,
             'winner' => $winner['library'],
             'loser' => $runnerUp['library'],
-            'speedup_ratio' => $runnerUp['total_seconds'] > 0 ? $runnerUp['total_seconds'] / $winner['total_seconds'] : 0.0,
+            'speedup_ratio' => $speedupRatio,
         );
     }
 
