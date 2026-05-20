@@ -29,8 +29,12 @@ class Benchmark {
    *   The human readable memory usage string.
    */
   public function format_memory_usage($size) {
+    if ($size <= 0) {
+      return '0b';
+    }
+
     $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
-    return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 10) . $unit[$i];
+    return round($size / pow(1024, ($i = floor(log($size, 1024)))), 10) . $unit[$i];
   }
 
   /**
