@@ -96,7 +96,7 @@ names/concatenations/sentinels, manual validation, and support result ordering. 
 behavioral comparisons, not another general public-API smoke test with swallowed warnings.
 
 Native suites: final ASCII 336 tests / 3,370 assertions (two opt-in performance skips);
-UTF8 2,004 tests / 429,266 assertions. Four existing
+UTF8 2,004 tests / 429,268 assertions. Four existing
 PHPUnit deprecations and the legacy UTF8 XML/coverage-driver warning remain distinct from
 failures. No zero-test run is counted as validation.
 
