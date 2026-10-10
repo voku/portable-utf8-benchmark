@@ -1,0 +1,14 @@
+{
+  "candidate_vendor": {
+    "logical_bytes": 3299640,
+    "allocated_bytes": 4100096,
+    "files": 330
+  },
+  "mandatory_split_vendor": {
+    "logical_bytes": 3301201,
+    "allocated_bytes": 4116480,
+    "files": 332
+  },
+  "decision": "NO-GO: mandatory extraction moves mappings and adds overhead; intl cannot replace non-strict data.",
+  "scope": "Dist prototype with unchanged data, required child packages, matching public consumer smoke. This is a local experimental package boundary, not an approved or published package."
+}

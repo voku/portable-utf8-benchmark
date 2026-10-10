@@ -1,0 +1,58 @@
+name: Mapping representation contract
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['tools/footprint/**', '.github/workflows/mapping-contract.yml']
+permissions:
+  contents: read
+jobs:
+  compatibility:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.1', '7.4', '8.4', '8.5']
+        native: [true, false]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: portable-utf8-benchmark
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-ascii
+          ref: 5133a6643e28f71770338a9c3e32fe31d24d55e7
+          path: portable-ascii
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-utf8
+          ref: 4303a126130782bef38ce9cb1b69b492b9b9f605
+          path: portable-utf8
+          fetch-depth: 0
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: ${{ matrix.native && 'intl, mbstring, iconv' || ':intl, :mbstring, :iconv' }}
+          coverage: none
+          tools: composer:v2
+      - name: Prepare pinned baselines and supported production dependencies
+        run: |
+          mkdir -p baselines/portable-ascii-baseline baselines/portable-utf8-baseline
+          git -C portable-ascii archive 180a8d12055eb350859b628c64066a90a895bd10 | tar -x -C baselines/portable-ascii-baseline
+          git -C portable-utf8 archive 28cb685c22cd829aba819406295c0763204c5c09 | tar -x -C baselines/portable-utf8-baseline
+          mkdir consumer
+          echo '{"require":{"voku/portable-utf8":"6.1.1"}}' > consumer/composer.json
+          # Resolve against the actual PHP version; newer polyfills do not support PHP 7.1.
+          composer update --working-dir=consumer --no-dev --no-interaction --prefer-dist
+      - name: Compare signatures, outputs and diagnostics
+        run: |
+          python3 portable-utf8-benchmark/tools/footprint/verify.py --workspace "$GITHUB_WORKSPACE" --baselines "$GITHUB_WORKSPACE/baselines" --output "$GITHUB_WORKSPACE/results" --autoload-root "$GITHUB_WORKSPACE/consumer"
+          php portable-ascii/build/footprint/compact.php
+          php portable-utf8/build/footprint/compact.php
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mapping-php-${{ matrix.php }}-native-${{ matrix.native }}
+          path: |
+            results/
+            consumer/composer.lock

@@ -1,0 +1,593 @@
+[
+  {
+    "repo": "portable-ascii",
+    "profile": "native",
+    "scenario": "ascii",
+    "before": {
+      "cold_us": 602.9605865478516,
+      "warm_median_us": 1.138925552368164,
+      "retained_bytes": 106656,
+      "peak_bytes": 1994456,
+      "output_sha256": "7e15d7efe469328443b6d7b76df20125eec2d70bba0f026551eec8c5a8b78992",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 453.948974609375,
+      "warm_median_us": 1.055002212524414,
+      "retained_bytes": 105136,
+      "peak_bytes": 1994352,
+      "output_sha256": "7e15d7efe469328443b6d7b76df20125eec2d70bba0f026551eec8c5a8b78992",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "native",
+    "scenario": "chr",
+    "before": {
+      "cold_us": 8.106231689453125,
+      "warm_median_us": 0.26702880859375,
+      "retained_bytes": 856,
+      "peak_bytes": 3121688,
+      "output_sha256": "d7662bb010c576acd76d4bceaf63a0854c69a7a3ffc3df4157cb3e673082f19a",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 8.106231689453125,
+      "warm_median_us": 0.2620220184326172,
+      "retained_bytes": 856,
+      "peak_bytes": 3125088,
+      "output_sha256": "d7662bb010c576acd76d4bceaf63a0854c69a7a3ffc3df4157cb3e673082f19a",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "native",
+    "scenario": "ord",
+    "before": {
+      "cold_us": 65.08827209472656,
+      "warm_median_us": 0.18787384033203125,
+      "retained_bytes": 29344,
+      "peak_bytes": 3121688,
+      "output_sha256": "a0dbdd12d06f825292f05b985fd94abe11af616257d4f293fda7e179361af2de",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 77.96287536621094,
+      "warm_median_us": 0.3628730773925781,
+      "retained_bytes": 21440,
+      "peak_bytes": 3125088,
+      "output_sha256": "a0dbdd12d06f825292f05b985fd94abe11af616257d4f293fda7e179361af2de",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "native",
+    "scenario": "repair",
+    "before": {
+      "cold_us": 188.8275146484375,
+      "warm_median_us": 14.5721435546875,
+      "retained_bytes": 45392,
+      "peak_bytes": 3121688,
+      "output_sha256": "af75cedba36164aced449128cf386c1cb1b61131cc107ad0bd877c799e878fb4",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 100.85105895996094,
+      "warm_median_us": 11.989116668701172,
+      "retained_bytes": 29264,
+      "peak_bytes": 3125088,
+      "output_sha256": "af75cedba36164aced449128cf386c1cb1b61131cc107ad0bd877c799e878fb4",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "native",
+    "scenario": "emoji",
+    "before": {
+      "cold_us": 3834.962844848633,
+      "warm_median_us": 93.92976760864258,
+      "retained_bytes": 889168,
+      "peak_bytes": 3121688,
+      "output_sha256": "77db001f964b325a2cf10ff450ce2ff66e034b382b5cf060970f344ddd1a29e3",
+      "metadata_includes": [],
+      "iterations": 100,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 4197.120666503906,
+      "warm_median_us": 95.59154510498047,
+      "retained_bytes": 938816,
+      "peak_bytes": 3125088,
+      "output_sha256": "77db001f964b325a2cf10ff450ce2ff66e034b382b5cf060970f344ddd1a29e3",
+      "metadata_includes": [],
+      "iterations": 100,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "native",
+    "scenario": "support",
+    "before": {
+      "cold_us": 123.9776611328125,
+      "warm_median_us": 0.18215179443359375,
+      "retained_bytes": 46760,
+      "peak_bytes": 3121688,
+      "output_sha256": "eff89c1a51a4b18c86475e15ed50a721accaf1f8a8afbd6fa841df8ab45ad34a",
+      "metadata_includes": [
+        "transliterator_list.php"
+      ],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 5.0067901611328125,
+      "warm_median_us": 0.19788742065429688,
+      "retained_bytes": 0,
+      "peak_bytes": 3125088,
+      "output_sha256": "eff89c1a51a4b18c86475e15ed50a721accaf1f8a8afbd6fa841df8ab45ad34a",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "native",
+    "scenario": "locale",
+    "before": {
+      "cold_us": 7791.042327880859,
+      "warm_median_us": 32.18698501586914,
+      "retained_bytes": 47216,
+      "peak_bytes": 3121688,
+      "output_sha256": "2a7c1c0460f700cb1a3dda406aa66cadd673320ca2aa4e809a95fe002e043e23",
+      "metadata_includes": [
+        "transliterator_list.php"
+      ],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 7095.098495483398,
+      "warm_median_us": 29.968976974487305,
+      "retained_bytes": 47184,
+      "peak_bytes": 3125088,
+      "output_sha256": "2a7c1c0460f700cb1a3dda406aa66cadd673320ca2aa4e809a95fe002e043e23",
+      "metadata_includes": [
+        "transliterator_list.php"
+      ],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-ascii",
+    "profile": "polyfills",
+    "scenario": "ascii",
+    "before": {
+      "cold_us": 595.0927734375,
+      "warm_median_us": 1.0988712310791016,
+      "retained_bytes": 106656,
+      "peak_bytes": 1994984,
+      "output_sha256": "7e15d7efe469328443b6d7b76df20125eec2d70bba0f026551eec8c5a8b78992",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 379.0855407714844,
+      "warm_median_us": 1.1279582977294922,
+      "retained_bytes": 105136,
+      "peak_bytes": 1994880,
+      "output_sha256": "7e15d7efe469328443b6d7b76df20125eec2d70bba0f026551eec8c5a8b78992",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "polyfills",
+    "scenario": "chr",
+    "before": {
+      "cold_us": 74.86343383789062,
+      "warm_median_us": 0.2810955047607422,
+      "retained_bytes": 17408,
+      "peak_bytes": 3126536,
+      "output_sha256": "d7662bb010c576acd76d4bceaf63a0854c69a7a3ffc3df4157cb3e673082f19a",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 49.114227294921875,
+      "warm_median_us": 0.2701282501220703,
+      "retained_bytes": 9184,
+      "peak_bytes": 3129936,
+      "output_sha256": "d7662bb010c576acd76d4bceaf63a0854c69a7a3ffc3df4157cb3e673082f19a",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "polyfills",
+    "scenario": "ord",
+    "before": {
+      "cold_us": 82.96966552734375,
+      "warm_median_us": 0.1990795135498047,
+      "retained_bytes": 29344,
+      "peak_bytes": 3126536,
+      "output_sha256": "a0dbdd12d06f825292f05b985fd94abe11af616257d4f293fda7e179361af2de",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 63.89617919921875,
+      "warm_median_us": 0.20194053649902344,
+      "retained_bytes": 21440,
+      "peak_bytes": 3129936,
+      "output_sha256": "a0dbdd12d06f825292f05b985fd94abe11af616257d4f293fda7e179361af2de",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "polyfills",
+    "scenario": "repair",
+    "before": {
+      "cold_us": 159.97886657714844,
+      "warm_median_us": 10.164976119995117,
+      "retained_bytes": 45392,
+      "peak_bytes": 3126536,
+      "output_sha256": "af75cedba36164aced449128cf386c1cb1b61131cc107ad0bd877c799e878fb4",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 82.0159912109375,
+      "warm_median_us": 9.317874908447266,
+      "retained_bytes": 29264,
+      "peak_bytes": 3129936,
+      "output_sha256": "af75cedba36164aced449128cf386c1cb1b61131cc107ad0bd877c799e878fb4",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "polyfills",
+    "scenario": "emoji",
+    "before": {
+      "cold_us": 3938.913345336914,
+      "warm_median_us": 87.74995803833008,
+      "retained_bytes": 889168,
+      "peak_bytes": 3478072,
+      "output_sha256": "77db001f964b325a2cf10ff450ce2ff66e034b382b5cf060970f344ddd1a29e3",
+      "metadata_includes": [],
+      "iterations": 100,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 3182.1727752685547,
+      "warm_median_us": 89.13993835449219,
+      "retained_bytes": 938816,
+      "peak_bytes": 3451240,
+      "output_sha256": "77db001f964b325a2cf10ff450ce2ff66e034b382b5cf060970f344ddd1a29e3",
+      "metadata_includes": [],
+      "iterations": 100,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "polyfills",
+    "scenario": "support",
+    "before": {
+      "cold_us": 148.0579376220703,
+      "warm_median_us": 0.18405914306640625,
+      "retained_bytes": 46760,
+      "peak_bytes": 3126536,
+      "output_sha256": "d7558fd9aaedfc894dc306ac51a78789346aa9bc93e6a7d3505decf02cedd0d7",
+      "metadata_includes": [
+        "transliterator_list.php"
+      ],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 5.0067901611328125,
+      "warm_median_us": 0.2071857452392578,
+      "retained_bytes": 0,
+      "peak_bytes": 3129936,
+      "output_sha256": "d7558fd9aaedfc894dc306ac51a78789346aa9bc93e6a7d3505decf02cedd0d7",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "polyfills",
+    "scenario": "locale",
+    "before": {
+      "cold_us": 329.9713134765625,
+      "warm_median_us": 2.3131370544433594,
+      "retained_bytes": 171264,
+      "peak_bytes": 3126536,
+      "output_sha256": "5f17ca8ec94745daee90935a2dc6e2c8d79d9962af8ad1d0cbd79b6f234a4946",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": [
+        [
+          512,
+          "UTF8::strtolower() without intl cannot handle the \"lang\" parameter: tr"
+        ]
+      ]
+    },
+    "after": {
+      "cold_us": 265.8367156982422,
+      "warm_median_us": 2.2149085998535156,
+      "retained_bytes": 171264,
+      "peak_bytes": 3129936,
+      "output_sha256": "5f17ca8ec94745daee90935a2dc6e2c8d79d9962af8ad1d0cbd79b6f234a4946",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": [
+        [
+          512,
+          "UTF8::strtolower() without intl cannot handle the \"lang\" parameter: tr"
+        ]
+      ]
+    }
+  },
+  {
+    "repo": "portable-ascii",
+    "profile": "opcache",
+    "scenario": "ascii",
+    "before": {
+      "cold_us": 650.1674652099609,
+      "warm_median_us": 1.0170936584472656,
+      "retained_bytes": 3184,
+      "peak_bytes": 1380832,
+      "output_sha256": "7e15d7efe469328443b6d7b76df20125eec2d70bba0f026551eec8c5a8b78992",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 503.77845764160156,
+      "warm_median_us": 1.0221004486083984,
+      "retained_bytes": 23448,
+      "peak_bytes": 1380760,
+      "output_sha256": "7e15d7efe469328443b6d7b76df20125eec2d70bba0f026551eec8c5a8b78992",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "opcache",
+    "scenario": "chr",
+    "before": {
+      "cold_us": 8.106231689453125,
+      "warm_median_us": 0.2110004425048828,
+      "retained_bytes": 856,
+      "peak_bytes": 3869576,
+      "output_sha256": "d7662bb010c576acd76d4bceaf63a0854c69a7a3ffc3df4157cb3e673082f19a",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 7.8678131103515625,
+      "warm_median_us": 0.2288818359375,
+      "retained_bytes": 856,
+      "peak_bytes": 3871928,
+      "output_sha256": "d7662bb010c576acd76d4bceaf63a0854c69a7a3ffc3df4157cb3e673082f19a",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "opcache",
+    "scenario": "ord",
+    "before": {
+      "cold_us": 91.07589721679688,
+      "warm_median_us": 0.19216537475585938,
+      "retained_bytes": 936,
+      "peak_bytes": 3869576,
+      "output_sha256": "a0dbdd12d06f825292f05b985fd94abe11af616257d4f293fda7e179361af2de",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 75.10185241699219,
+      "warm_median_us": 0.1900196075439453,
+      "retained_bytes": 21440,
+      "peak_bytes": 3871928,
+      "output_sha256": "a0dbdd12d06f825292f05b985fd94abe11af616257d4f293fda7e179361af2de",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "opcache",
+    "scenario": "repair",
+    "before": {
+      "cold_us": 169.99244689941406,
+      "warm_median_us": 9.591102600097656,
+      "retained_bytes": 544,
+      "peak_bytes": 3869576,
+      "output_sha256": "af75cedba36164aced449128cf386c1cb1b61131cc107ad0bd877c799e878fb4",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 111.81831359863281,
+      "warm_median_us": 9.491920471191406,
+      "retained_bytes": 29264,
+      "peak_bytes": 3871928,
+      "output_sha256": "af75cedba36164aced449128cf386c1cb1b61131cc107ad0bd877c799e878fb4",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "opcache",
+    "scenario": "emoji",
+    "before": {
+      "cold_us": 4440.069198608398,
+      "warm_median_us": 106.15110397338867,
+      "retained_bytes": 571400,
+      "peak_bytes": 3869576,
+      "output_sha256": "77db001f964b325a2cf10ff450ce2ff66e034b382b5cf060970f344ddd1a29e3",
+      "metadata_includes": [],
+      "iterations": 100,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 4060.983657836914,
+      "warm_median_us": 100.35037994384766,
+      "retained_bytes": 848632,
+      "peak_bytes": 3871928,
+      "output_sha256": "77db001f964b325a2cf10ff450ce2ff66e034b382b5cf060970f344ddd1a29e3",
+      "metadata_includes": [],
+      "iterations": 100,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "opcache",
+    "scenario": "support",
+    "before": {
+      "cold_us": 216.96090698242188,
+      "warm_median_us": 0.16808509826660156,
+      "retained_bytes": 128,
+      "peak_bytes": 3869576,
+      "output_sha256": "eff89c1a51a4b18c86475e15ed50a721accaf1f8a8afbd6fa841df8ab45ad34a",
+      "metadata_includes": [
+        "transliterator_list.php"
+      ],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 5.0067901611328125,
+      "warm_median_us": 0.17690658569335938,
+      "retained_bytes": 0,
+      "peak_bytes": 3871928,
+      "output_sha256": "eff89c1a51a4b18c86475e15ed50a721accaf1f8a8afbd6fa841df8ab45ad34a",
+      "metadata_includes": [],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  },
+  {
+    "repo": "portable-utf8",
+    "profile": "opcache",
+    "scenario": "locale",
+    "before": {
+      "cold_us": 7905.006408691406,
+      "warm_median_us": 34.13891792297363,
+      "retained_bytes": 584,
+      "peak_bytes": 3869576,
+      "output_sha256": "2a7c1c0460f700cb1a3dda406aa66cadd673320ca2aa4e809a95fe002e043e23",
+      "metadata_includes": [
+        "transliterator_list.php"
+      ],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    },
+    "after": {
+      "cold_us": 7740.020751953125,
+      "warm_median_us": 34.57999229431152,
+      "retained_bytes": 552,
+      "peak_bytes": 3871928,
+      "output_sha256": "2a7c1c0460f700cb1a3dda406aa66cadd673320ca2aa4e809a95fe002e043e23",
+      "metadata_includes": [
+        "transliterator_list.php"
+      ],
+      "iterations": 1000,
+      "rounds": 5,
+      "warnings": []
+    }
+  }
+]

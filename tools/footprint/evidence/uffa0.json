@@ -1,0 +1,20 @@
+{
+  "stable": {
+    "to_ascii": " ",
+    "to_transliterate": " ",
+    "slug": "",
+    "clean": " "
+  },
+  "master": {
+    "to_ascii": " ",
+    "to_transliterate": "",
+    "slug": "",
+    "clean": " "
+  },
+  "candidate": {
+    "to_ascii": " ",
+    "to_transliterate": "",
+    "slug": "",
+    "clean": " "
+  }
+}

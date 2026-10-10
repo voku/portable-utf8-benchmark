@@ -1,0 +1,77 @@
+PHPUnit 11.5.57 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.26
+Configuration: /workspace/portable-ascii/phpunit.xml
+
+.
+portable-ascii performance profile (median µs/op)
+- to_ascii_ascii_short                           0.135
+- to_transliterate_ascii_short                   0.196
+- to_ascii_latin_short                           1.153
+- to_transliterate_latin_short                   0.850
+- to_ascii_german_short                          0.925
+- to_ascii_mixed_short                           1.396
+- to_slugify_ascii_short                         0.892
+- to_slugify_latin_short                         2.303
+- to_ascii_ascii_long                            1.506
+- to_transliterate_ascii_long                    1.580
+- to_ascii_greek_long                           56.533
+- to_ascii_greek_long_single_char_only          49.949
+- to_ascii_myanmar_long                         64.245
+- to_ascii_myanmar_long_single_char_only        30.226
+- to_ascii_chinese_long_transliterate           17.211
+- to_transliterate_chinese_long                 17.264
+- to_transliterate_unknown_long_fixed_fallback    10.805
+- to_transliterate_unknown_long_changing_fallback    80.735
+- to_slugify_en_n1                               0.954
+- to_slugify_en_n10                              0.787
+- to_slugify_en_n100                             0.770
+- to_slugify_en_n1000                            1.023
+- to_slugify_en_n10000                           0.962
+- to_slugify_de_n1                               1.907
+- to_slugify_de_n10                              1.693
+- to_slugify_de_n100                             1.731
+- to_slugify_de_n1000                            2.120
+- to_slugify_de_n10000                           2.214
+- to_slugify_fr_n1                               1.907
+- to_slugify_fr_n10                              1.907
+- to_slugify_fr_n100                             2.160
+- to_slugify_fr_n1000                            2.422
+- to_slugify_fr_n10000                           2.526
+- to_slugify_es_n1                               1.907
+- to_slugify_es_n10                              1.907
+- to_slugify_es_n100                             3.579
+- to_slugify_es_n1000                            2.517
+- to_slugify_es_n10000                           2.424
+- to_slugify_ru_n1                               6.914
+- to_slugify_ru_n10                              6.795
+- to_slugify_ru_n100                             7.329
+- to_slugify_ru_n1000                            6.601
+- to_slugify_ru_n10000                           7.631
+- to_slugify_tr_n1                               1.907
+- to_slugify_tr_n10                              1.788
+- to_slugify_tr_n100                             1.991
+- to_slugify_tr_n1000                            2.155
+- to_slugify_tr_n10000                           2.206
+
+F
+portable-ascii performance profile (median µs/op)
+- mapping_decode_ascii_ord.php                  15.790
+- mapping_decode_x000.php                        8.528
+- mapping_decode_x04e.php                        9.705
+- mapping_decode_x1f1.php                       20.248
+
+.                                                                 3 / 3 (100%)
+
+Time: 00:04.189, Memory: 18.00 MB
+
+There was 1 failure:
+
+1) voku\tests\PerformanceRegressionTest::testPerformanceRatiosForRepresentativeInputs
+Short Latin/accented to_ascii() inputs regressed relative to direct transliteration.
+Failed asserting that 1.3565792279803797 is less than 1.25.
+
+/workspace/portable-ascii/tests/PerformanceRegressionTest.php:254
+
+FAILURES!
+Tests: 3, Assertions: 23, Failures: 1, PHPUnit Deprecations: 4.

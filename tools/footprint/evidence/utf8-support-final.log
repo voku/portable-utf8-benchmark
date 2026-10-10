@@ -1,0 +1,13 @@
+PHPUnit 9.6.38 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.26
+Configuration: /workspace/portable-utf8/phpunit.xml
+Warning:       No code coverage driver available
+Warning:       Your XML configuration validates against a deprecated schema.
+Suggestion:    Migrate your XML configuration using "--migrate-configuration"!
+
+...                                                                 3 / 3 (100%)
+
+Time: 00:00.160, Memory: 16.00 MB
+
+OK (3 tests, 31 assertions)

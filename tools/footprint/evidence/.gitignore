@@ -1,0 +1,2 @@
+# Reviewed, reproducible validation logs are evidence, not transient application logs.
+!*.log

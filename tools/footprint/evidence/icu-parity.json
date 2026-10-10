@@ -1,0 +1,5560 @@
+{
+    "php": "8.4.26",
+    "icu": "76.1",
+    "icu_data": "76.1",
+    "rules": "NFKC; [:Nonspacing Mark:] Remove; NFKC; Any-Latin; Latin-ASCII;",
+    "comparison": "Native output is raw ICU; strict includes the library cleanup/table fallback policy.",
+    "banks": {
+        "x000.php": {
+            "keys": 256,
+            "table_vs_native": 81,
+            "strict_vs_table": 11,
+            "examples": [
+                {
+                    "codepoint": "U+0000",
+                    "input": "\u0000",
+                    "table": "",
+                    "strict": "",
+                    "native": "\u0000"
+                },
+                {
+                    "codepoint": "U+0001",
+                    "input": "\u0001",
+                    "table": "",
+                    "strict": "",
+                    "native": "\u0001"
+                },
+                {
+                    "codepoint": "U+0002",
+                    "input": "\u0002",
+                    "table": "",
+                    "strict": "",
+                    "native": "\u0002"
+                }
+            ]
+        },
+        "x001.php": {
+            "keys": 256,
+            "table_vs_native": 39,
+            "strict_vs_table": 6,
+            "examples": [
+                {
+                    "codepoint": "U+0138",
+                    "input": "ĸ",
+                    "table": "k",
+                    "strict": "q",
+                    "native": "q"
+                },
+                {
+                    "codepoint": "U+013F",
+                    "input": "Ŀ",
+                    "table": "L",
+                    "strict": "L*",
+                    "native": "L·"
+                },
+                {
+                    "codepoint": "U+0140",
+                    "input": "ŀ",
+                    "table": "l",
+                    "strict": "l*",
+                    "native": "l·"
+                }
+            ]
+        },
+        "x002.php": {
+            "keys": 255,
+            "table_vs_native": 124,
+            "strict_vs_table": 13,
+            "examples": [
+                {
+                    "codepoint": "U+021C",
+                    "input": "Ȝ",
+                    "table": "Y",
+                    "strict": "Y",
+                    "native": "Ȝ"
+                },
+                {
+                    "codepoint": "U+021D",
+                    "input": "ȝ",
+                    "table": "y",
+                    "strict": "y",
+                    "native": "ȝ"
+                },
+                {
+                    "codepoint": "U+0220",
+                    "input": "Ƞ",
+                    "table": "N",
+                    "strict": "N",
+                    "native": "Ƞ"
+                }
+            ]
+        },
+        "x003.php": {
+            "keys": 255,
+            "table_vs_native": 110,
+            "strict_vs_table": 60,
+            "examples": [
+                {
+                    "codepoint": "U+034F",
+                    "input": "͏",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0350",
+                    "input": "͐",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0351",
+                    "input": "͑",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                }
+            ]
+        },
+        "x004.php": {
+            "keys": 255,
+            "table_vs_native": 172,
+            "strict_vs_table": 69,
+            "examples": [
+                {
+                    "codepoint": "U+0400",
+                    "input": "Ѐ",
+                    "table": "Ie",
+                    "strict": "E",
+                    "native": "E"
+                },
+                {
+                    "codepoint": "U+0401",
+                    "input": "Ё",
+                    "table": "Io",
+                    "strict": "E",
+                    "native": "E"
+                },
+                {
+                    "codepoint": "U+0402",
+                    "input": "Ђ",
+                    "table": "Dj",
+                    "strict": "D",
+                    "native": "D"
+                }
+            ]
+        },
+        "x005.php": {
+            "keys": 255,
+            "table_vs_native": 144,
+            "strict_vs_table": 53,
+            "examples": [
+                {
+                    "codepoint": "U+0500",
+                    "input": "Ԁ",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "Ԁ"
+                },
+                {
+                    "codepoint": "U+0501",
+                    "input": "ԁ",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "ԁ"
+                },
+                {
+                    "codepoint": "U+0502",
+                    "input": "Ԃ",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "Ԃ"
+                }
+            ]
+        },
+        "x006.php": {
+            "keys": 256,
+            "table_vs_native": 174,
+            "strict_vs_table": 87,
+            "examples": [
+                {
+                    "codepoint": "U+0600",
+                    "input": "؀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "؀"
+                },
+                {
+                    "codepoint": "U+0601",
+                    "input": "؁",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "؁"
+                },
+                {
+                    "codepoint": "U+0602",
+                    "input": "؂",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "؂"
+                }
+            ]
+        },
+        "x007.php": {
+            "keys": 255,
+            "table_vs_native": 202,
+            "strict_vs_table": 60,
+            "examples": [
+                {
+                    "codepoint": "U+0700",
+                    "input": "܀",
+                    "table": "//",
+                    "strict": "//",
+                    "native": "܀"
+                },
+                {
+                    "codepoint": "U+0701",
+                    "input": "܁",
+                    "table": "/",
+                    "strict": "/",
+                    "native": "܁"
+                },
+                {
+                    "codepoint": "U+0702",
+                    "input": "܂",
+                    "table": ",",
+                    "strict": ",",
+                    "native": "܂"
+                }
+            ]
+        },
+        "x009.php": {
+            "keys": 255,
+            "table_vs_native": 215,
+            "strict_vs_table": 152,
+            "examples": [
+                {
+                    "codepoint": "U+0900",
+                    "input": "ऀ",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0901",
+                    "input": "ँ",
+                    "table": "N",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0902",
+                    "input": "ं",
+                    "table": "N",
+                    "strict": "",
+                    "native": ""
+                }
+            ]
+        },
+        "x00a.php": {
+            "keys": 255,
+            "table_vs_native": 218,
+            "strict_vs_table": 124,
+            "examples": [
+                {
+                    "codepoint": "U+0A00",
+                    "input": "਀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "਀"
+                },
+                {
+                    "codepoint": "U+0A01",
+                    "input": "ਁ",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0A02",
+                    "input": "ਂ",
+                    "table": "N",
+                    "strict": "",
+                    "native": ""
+                }
+            ]
+        },
+        "x00b.php": {
+            "keys": 255,
+            "table_vs_native": 218,
+            "strict_vs_table": 101,
+            "examples": [
+                {
+                    "codepoint": "U+0B00",
+                    "input": "଀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "଀"
+                },
+                {
+                    "codepoint": "U+0B01",
+                    "input": "ଁ",
+                    "table": "N",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0B02",
+                    "input": "ଂ",
+                    "table": "N",
+                    "strict": "m",
+                    "native": "m"
+                }
+            ]
+        },
+        "x00c.php": {
+            "keys": 255,
+            "table_vs_native": 219,
+            "strict_vs_table": 130,
+            "examples": [
+                {
+                    "codepoint": "U+0C00",
+                    "input": "ఀ",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0C01",
+                    "input": "ఁ",
+                    "table": "N",
+                    "strict": "m",
+                    "native": "m"
+                },
+                {
+                    "codepoint": "U+0C02",
+                    "input": "ం",
+                    "table": "N",
+                    "strict": "m",
+                    "native": "m"
+                }
+            ]
+        },
+        "x00d.php": {
+            "keys": 255,
+            "table_vs_native": 236,
+            "strict_vs_table": 74,
+            "examples": [
+                {
+                    "codepoint": "U+0D00",
+                    "input": "ഀ",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0D01",
+                    "input": "ഁ",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+0D02",
+                    "input": "ം",
+                    "table": "N",
+                    "strict": "m",
+                    "native": "m"
+                }
+            ]
+        },
+        "x00e.php": {
+            "keys": 255,
+            "table_vs_native": 190,
+            "strict_vs_table": 39,
+            "examples": [
+                {
+                    "codepoint": "U+0E00",
+                    "input": "฀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "฀"
+                },
+                {
+                    "codepoint": "U+0E05",
+                    "input": "ฅ",
+                    "table": "kh",
+                    "strict": "k'h",
+                    "native": "k'h"
+                },
+                {
+                    "codepoint": "U+0E08",
+                    "input": "จ",
+                    "table": "cch",
+                    "strict": "c",
+                    "native": "c"
+                }
+            ]
+        },
+        "x00f.php": {
+            "keys": 255,
+            "table_vs_native": 247,
+            "strict_vs_table": 73,
+            "examples": [
+                {
+                    "codepoint": "U+0F00",
+                    "input": "ༀ",
+                    "table": "AUM",
+                    "strict": "AUM",
+                    "native": "ༀ"
+                },
+                {
+                    "codepoint": "U+0F01",
+                    "input": "༁",
+                    "table": "",
+                    "strict": "",
+                    "native": "༁"
+                },
+                {
+                    "codepoint": "U+0F02",
+                    "input": "༂",
+                    "table": "",
+                    "strict": "",
+                    "native": "༂"
+                }
+            ]
+        },
+        "x010.php": {
+            "keys": 255,
+            "table_vs_native": 200,
+            "strict_vs_table": 72,
+            "examples": [
+                {
+                    "codepoint": "U+1001",
+                    "input": "ခ",
+                    "table": "kh",
+                    "strict": "hk",
+                    "native": "hk"
+                },
+                {
+                    "codepoint": "U+1005",
+                    "input": "စ",
+                    "table": "c",
+                    "strict": "hc",
+                    "native": "hc"
+                },
+                {
+                    "codepoint": "U+1006",
+                    "input": "ဆ",
+                    "table": "ch",
+                    "strict": "s",
+                    "native": "s"
+                }
+            ]
+        },
+        "x011.php": {
+            "keys": 255,
+            "table_vs_native": 197,
+            "strict_vs_table": 9,
+            "examples": [
+                {
+                    "codepoint": "U+1101",
+                    "input": "ᄁ",
+                    "table": "gg",
+                    "strict": "kk",
+                    "native": "kk"
+                },
+                {
+                    "codepoint": "U+1104",
+                    "input": "ᄄ",
+                    "table": "dd",
+                    "strict": "tt",
+                    "native": "tt"
+                },
+                {
+                    "codepoint": "U+1105",
+                    "input": "ᄅ",
+                    "table": "r",
+                    "strict": "l",
+                    "native": "l"
+                }
+            ]
+        },
+        "x012.php": {
+            "keys": 256,
+            "table_vs_native": 192,
+            "strict_vs_table": 146,
+            "examples": [
+                {
+                    "codepoint": "U+1203",
+                    "input": "ሃ",
+                    "table": "haa",
+                    "strict": "ha",
+                    "native": "ha"
+                },
+                {
+                    "codepoint": "U+1204",
+                    "input": "ሄ",
+                    "table": "hee",
+                    "strict": "he",
+                    "native": "he"
+                },
+                {
+                    "codepoint": "U+1205",
+                    "input": "ህ",
+                    "table": "he",
+                    "strict": "h",
+                    "native": "h"
+                }
+            ]
+        },
+        "x013.php": {
+            "keys": 255,
+            "table_vs_native": 228,
+            "strict_vs_table": 84,
+            "examples": [
+                {
+                    "codepoint": "U+1300",
+                    "input": "ጀ",
+                    "table": "ja",
+                    "strict": "ga",
+                    "native": "ga"
+                },
+                {
+                    "codepoint": "U+1301",
+                    "input": "ጁ",
+                    "table": "ju",
+                    "strict": "gu",
+                    "native": "gu"
+                },
+                {
+                    "codepoint": "U+1302",
+                    "input": "ጂ",
+                    "table": "ji",
+                    "strict": "gi",
+                    "native": "gi"
+                }
+            ]
+        },
+        "x014.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+1400",
+                    "input": "᐀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "᐀"
+                },
+                {
+                    "codepoint": "U+1401",
+                    "input": "ᐁ",
+                    "table": "e",
+                    "strict": "e",
+                    "native": "ᐁ"
+                },
+                {
+                    "codepoint": "U+1402",
+                    "input": "ᐂ",
+                    "table": "aai",
+                    "strict": "aai",
+                    "native": "ᐂ"
+                }
+            ]
+        },
+        "x015.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+1500",
+                    "input": "ᔀ",
+                    "table": "swa",
+                    "strict": "swa",
+                    "native": "ᔀ"
+                },
+                {
+                    "codepoint": "U+1501",
+                    "input": "ᔁ",
+                    "table": "swa",
+                    "strict": "swa",
+                    "native": "ᔁ"
+                },
+                {
+                    "codepoint": "U+1502",
+                    "input": "ᔂ",
+                    "table": "swaa",
+                    "strict": "swaa",
+                    "native": "ᔂ"
+                }
+            ]
+        },
+        "x016.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+1600",
+                    "input": "ᘀ",
+                    "table": "kka",
+                    "strict": "kka",
+                    "native": "ᘀ"
+                },
+                {
+                    "codepoint": "U+1601",
+                    "input": "ᘁ",
+                    "table": "kk",
+                    "strict": "kk",
+                    "native": "ᘁ"
+                },
+                {
+                    "codepoint": "U+1602",
+                    "input": "ᘂ",
+                    "table": "nu",
+                    "strict": "nu",
+                    "native": "ᘂ"
+                }
+            ]
+        },
+        "x017.php": {
+            "keys": 255,
+            "table_vs_native": 246,
+            "strict_vs_table": 22,
+            "examples": [
+                {
+                    "codepoint": "U+1700",
+                    "input": "ᜀ",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "ᜀ"
+                },
+                {
+                    "codepoint": "U+1701",
+                    "input": "ᜁ",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "ᜁ"
+                },
+                {
+                    "codepoint": "U+1702",
+                    "input": "ᜂ",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "ᜂ"
+                }
+            ]
+        },
+        "x018.php": {
+            "keys": 255,
+            "table_vs_native": 252,
+            "strict_vs_table": 4,
+            "examples": [
+                {
+                    "codepoint": "U+1800",
+                    "input": "᠀",
+                    "table": " @ ",
+                    "strict": " @ ",
+                    "native": "᠀"
+                },
+                {
+                    "codepoint": "U+1801",
+                    "input": "᠁",
+                    "table": " ... ",
+                    "strict": " ... ",
+                    "native": "᠁"
+                },
+                {
+                    "codepoint": "U+1802",
+                    "input": "᠂",
+                    "table": ", ",
+                    "strict": ", ",
+                    "native": "᠂"
+                }
+            ]
+        },
+        "x01d.php": {
+            "keys": 255,
+            "table_vs_native": 106,
+            "strict_vs_table": 58,
+            "examples": [
+                {
+                    "codepoint": "U+1D02",
+                    "input": "ᴂ",
+                    "table": "ae",
+                    "strict": "ae",
+                    "native": "ᴂ"
+                },
+                {
+                    "codepoint": "U+1D08",
+                    "input": "ᴈ",
+                    "table": "e",
+                    "strict": "e",
+                    "native": "ᴈ"
+                },
+                {
+                    "codepoint": "U+1D09",
+                    "input": "ᴉ",
+                    "table": "i",
+                    "strict": "i",
+                    "native": "ᴉ"
+                }
+            ]
+        },
+        "x01e.php": {
+            "keys": 256,
+            "table_vs_native": 3,
+            "strict_vs_table": 2,
+            "examples": [
+                {
+                    "codepoint": "U+1E9A",
+                    "input": "ẚ",
+                    "table": "a",
+                    "strict": "a`",
+                    "native": "aʾ"
+                },
+                {
+                    "codepoint": "U+1E9E",
+                    "input": "ẞ",
+                    "table": "Ss",
+                    "strict": "SS",
+                    "native": "SS"
+                },
+                {
+                    "codepoint": "U+1E9F",
+                    "input": "ẟ",
+                    "table": "d",
+                    "strict": "d",
+                    "native": "ẟ"
+                }
+            ]
+        },
+        "x01f.php": {
+            "keys": 256,
+            "table_vs_native": 171,
+            "strict_vs_table": 148,
+            "examples": [
+                {
+                    "codepoint": "U+1F01",
+                    "input": "ἁ",
+                    "table": "a",
+                    "strict": "ha",
+                    "native": "ha"
+                },
+                {
+                    "codepoint": "U+1F03",
+                    "input": "ἃ",
+                    "table": "a",
+                    "strict": "ha",
+                    "native": "ha"
+                },
+                {
+                    "codepoint": "U+1F05",
+                    "input": "ἅ",
+                    "table": "a",
+                    "strict": "ha",
+                    "native": "ha"
+                }
+            ]
+        },
+        "x020.php": {
+            "keys": 255,
+            "table_vs_native": 155,
+            "strict_vs_table": 19,
+            "examples": [
+                {
+                    "codepoint": "U+200B",
+                    "input": "​",
+                    "table": " ",
+                    "strict": " ",
+                    "native": "​"
+                },
+                {
+                    "codepoint": "U+200C",
+                    "input": "‌",
+                    "table": "",
+                    "strict": "",
+                    "native": "‌"
+                },
+                {
+                    "codepoint": "U+200D",
+                    "input": "‍",
+                    "table": "",
+                    "strict": "",
+                    "native": "‍"
+                }
+            ]
+        },
+        "x021.php": {
+            "keys": 255,
+            "table_vs_native": 188,
+            "strict_vs_table": 43,
+            "examples": [
+                {
+                    "codepoint": "U+2100",
+                    "input": "℀",
+                    "table": " a/c ",
+                    "strict": "a/c",
+                    "native": "a/c"
+                },
+                {
+                    "codepoint": "U+2101",
+                    "input": "℁",
+                    "table": " a/s ",
+                    "strict": "a/s",
+                    "native": "a/s"
+                },
+                {
+                    "codepoint": "U+2103",
+                    "input": "℃",
+                    "table": "",
+                    "strict": "degC",
+                    "native": "°C"
+                }
+            ]
+        },
+        "x022.php": {
+            "keys": 255,
+            "table_vs_native": 251,
+            "strict_vs_table": 7,
+            "examples": [
+                {
+                    "codepoint": "U+2200",
+                    "input": "∀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "∀"
+                },
+                {
+                    "codepoint": "U+2201",
+                    "input": "∁",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "∁"
+                },
+                {
+                    "codepoint": "U+2202",
+                    "input": "∂",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "∂"
+                }
+            ]
+        },
+        "x023.php": {
+            "keys": 255,
+            "table_vs_native": 254,
+            "strict_vs_table": 1,
+            "examples": [
+                {
+                    "codepoint": "U+2300",
+                    "input": "⌀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "⌀"
+                },
+                {
+                    "codepoint": "U+2301",
+                    "input": "⌁",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "⌁"
+                },
+                {
+                    "codepoint": "U+2302",
+                    "input": "⌂",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "⌂"
+                }
+            ]
+        },
+        "x024.php": {
+            "keys": 256,
+            "table_vs_native": 117,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+2400",
+                    "input": "␀",
+                    "table": "",
+                    "strict": "",
+                    "native": "␀"
+                },
+                {
+                    "codepoint": "U+2401",
+                    "input": "␁",
+                    "table": "",
+                    "strict": "",
+                    "native": "␁"
+                },
+                {
+                    "codepoint": "U+2402",
+                    "input": "␂",
+                    "table": "",
+                    "strict": "",
+                    "native": "␂"
+                }
+            ]
+        },
+        "x025.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+2500",
+                    "input": "─",
+                    "table": "-",
+                    "strict": "-",
+                    "native": "─"
+                },
+                {
+                    "codepoint": "U+2501",
+                    "input": "━",
+                    "table": "-",
+                    "strict": "-",
+                    "native": "━"
+                },
+                {
+                    "codepoint": "U+2502",
+                    "input": "│",
+                    "table": "|",
+                    "strict": "|",
+                    "native": "│"
+                }
+            ]
+        },
+        "x026.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+2600",
+                    "input": "☀",
+                    "table": "",
+                    "strict": "",
+                    "native": "☀"
+                },
+                {
+                    "codepoint": "U+2601",
+                    "input": "☁",
+                    "table": "",
+                    "strict": "",
+                    "native": "☁"
+                },
+                {
+                    "codepoint": "U+2602",
+                    "input": "☂",
+                    "table": "",
+                    "strict": "",
+                    "native": "☂"
+                }
+            ]
+        },
+        "x027.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+2700",
+                    "input": "✀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "✀"
+                },
+                {
+                    "codepoint": "U+2701",
+                    "input": "✁",
+                    "table": "",
+                    "strict": "",
+                    "native": "✁"
+                },
+                {
+                    "codepoint": "U+2702",
+                    "input": "✂",
+                    "table": "",
+                    "strict": "",
+                    "native": "✂"
+                }
+            ]
+        },
+        "x028.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+2800",
+                    "input": "⠀",
+                    "table": " ",
+                    "strict": " ",
+                    "native": "⠀"
+                },
+                {
+                    "codepoint": "U+2801",
+                    "input": "⠁",
+                    "table": "a",
+                    "strict": "a",
+                    "native": "⠁"
+                },
+                {
+                    "codepoint": "U+2802",
+                    "input": "⠂",
+                    "table": "1",
+                    "strict": "1",
+                    "native": "⠂"
+                }
+            ]
+        },
+        "x029.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 2,
+            "examples": [
+                {
+                    "codepoint": "U+2900",
+                    "input": "⤀",
+                    "table": "",
+                    "strict": "",
+                    "native": "⤀"
+                },
+                {
+                    "codepoint": "U+2901",
+                    "input": "⤁",
+                    "table": "",
+                    "strict": "",
+                    "native": "⤁"
+                },
+                {
+                    "codepoint": "U+2902",
+                    "input": "⤂",
+                    "table": "",
+                    "strict": "",
+                    "native": "⤂"
+                }
+            ]
+        },
+        "x02a.php": {
+            "keys": 255,
+            "table_vs_native": 252,
+            "strict_vs_table": 1,
+            "examples": [
+                {
+                    "codepoint": "U+2A00",
+                    "input": "⨀",
+                    "table": "",
+                    "strict": "",
+                    "native": "⨀"
+                },
+                {
+                    "codepoint": "U+2A01",
+                    "input": "⨁",
+                    "table": "",
+                    "strict": "",
+                    "native": "⨁"
+                },
+                {
+                    "codepoint": "U+2A02",
+                    "input": "⨂",
+                    "table": "",
+                    "strict": "",
+                    "native": "⨂"
+                }
+            ]
+        },
+        "x02c.php": {
+            "keys": 255,
+            "table_vs_native": 238,
+            "strict_vs_table": 10,
+            "examples": [
+                {
+                    "codepoint": "U+2C00",
+                    "input": "Ⰰ",
+                    "table": "",
+                    "strict": "",
+                    "native": "Ⰰ"
+                },
+                {
+                    "codepoint": "U+2C01",
+                    "input": "Ⰱ",
+                    "table": "",
+                    "strict": "",
+                    "native": "Ⰱ"
+                },
+                {
+                    "codepoint": "U+2C02",
+                    "input": "Ⰲ",
+                    "table": "",
+                    "strict": "",
+                    "native": "Ⰲ"
+                }
+            ]
+        },
+        "x02e.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 103,
+            "examples": [
+                {
+                    "codepoint": "U+2E00",
+                    "input": "⸀",
+                    "table": "r",
+                    "strict": "r",
+                    "native": "⸀"
+                },
+                {
+                    "codepoint": "U+2E01",
+                    "input": "⸁",
+                    "table": "r.",
+                    "strict": "r.",
+                    "native": "⸁"
+                },
+                {
+                    "codepoint": "U+2E02",
+                    "input": "⸂",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "⸂"
+                }
+            ]
+        },
+        "x02f.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 214,
+            "examples": [
+                {
+                    "codepoint": "U+2F00",
+                    "input": "⼀",
+                    "table": "?",
+                    "strict": "yi",
+                    "native": "yi"
+                },
+                {
+                    "codepoint": "U+2F01",
+                    "input": "⼁",
+                    "table": "?",
+                    "strict": "gun",
+                    "native": "gun"
+                },
+                {
+                    "codepoint": "U+2F02",
+                    "input": "⼂",
+                    "table": "?",
+                    "strict": "zhu",
+                    "native": "zhu"
+                }
+            ]
+        },
+        "x030.php": {
+            "keys": 255,
+            "table_vs_native": 101,
+            "strict_vs_table": 53,
+            "examples": [
+                {
+                    "codepoint": "U+3001",
+                    "input": "、",
+                    "table": ", ",
+                    "strict": ",",
+                    "native": ","
+                },
+                {
+                    "codepoint": "U+3002",
+                    "input": "。",
+                    "table": ". ",
+                    "strict": ".",
+                    "native": "."
+                },
+                {
+                    "codepoint": "U+3003",
+                    "input": "〃",
+                    "table": "\"",
+                    "strict": "\"",
+                    "native": "〃"
+                }
+            ]
+        },
+        "x031.php": {
+            "keys": 255,
+            "table_vs_native": 213,
+            "strict_vs_table": 58,
+            "examples": [
+                {
+                    "codepoint": "U+3100",
+                    "input": "㄀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "㄀"
+                },
+                {
+                    "codepoint": "U+3101",
+                    "input": "㄁",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "㄁"
+                },
+                {
+                    "codepoint": "U+3102",
+                    "input": "㄂",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "㄂"
+                }
+            ]
+        },
+        "x032.php": {
+            "keys": 255,
+            "table_vs_native": 154,
+            "strict_vs_table": 144,
+            "examples": [
+                {
+                    "codepoint": "U+3203",
+                    "input": "㈃",
+                    "table": "(r)",
+                    "strict": "(l)",
+                    "native": "(l)"
+                },
+                {
+                    "codepoint": "U+3209",
+                    "input": "㈉",
+                    "table": "(c)",
+                    "strict": "(ch)",
+                    "native": "(ch)"
+                },
+                {
+                    "codepoint": "U+3211",
+                    "input": "㈑",
+                    "table": "(ra)",
+                    "strict": "(la)",
+                    "native": "(la)"
+                }
+            ]
+        },
+        "x033.php": {
+            "keys": 256,
+            "table_vs_native": 166,
+            "strict_vs_table": 166,
+            "examples": [
+                {
+                    "codepoint": "U+3300",
+                    "input": "㌀",
+                    "table": "apartment",
+                    "strict": "apato",
+                    "native": "apato"
+                },
+                {
+                    "codepoint": "U+3301",
+                    "input": "㌁",
+                    "table": "alpha",
+                    "strict": "arufa",
+                    "native": "arufa"
+                },
+                {
+                    "codepoint": "U+3302",
+                    "input": "㌂",
+                    "table": "ampere",
+                    "strict": "anpea",
+                    "native": "anpea"
+                }
+            ]
+        },
+        "x04d.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 179,
+            "examples": [
+                {
+                    "codepoint": "U+4D00",
+                    "input": "䴀",
+                    "table": "?",
+                    "strict": "tong",
+                    "native": "tong"
+                },
+                {
+                    "codepoint": "U+4D01",
+                    "input": "䴁",
+                    "table": "?",
+                    "strict": "yu",
+                    "native": "yu"
+                },
+                {
+                    "codepoint": "U+4D02",
+                    "input": "䴂",
+                    "table": "?",
+                    "strict": "xiang",
+                    "native": "xiang"
+                }
+            ]
+        },
+        "x04e.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+4E00",
+                    "input": "一",
+                    "table": "Yi ",
+                    "strict": "yi",
+                    "native": "yi"
+                },
+                {
+                    "codepoint": "U+4E01",
+                    "input": "丁",
+                    "table": "Ding ",
+                    "strict": "ding",
+                    "native": "ding"
+                },
+                {
+                    "codepoint": "U+4E02",
+                    "input": "丂",
+                    "table": "Kao ",
+                    "strict": "kao",
+                    "native": "kao"
+                }
+            ]
+        },
+        "x04f.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+4F00",
+                    "input": "伀",
+                    "table": "Zhong ",
+                    "strict": "zhong",
+                    "native": "zhong"
+                },
+                {
+                    "codepoint": "U+4F01",
+                    "input": "企",
+                    "table": "Qi ",
+                    "strict": "qi",
+                    "native": "qi"
+                },
+                {
+                    "codepoint": "U+4F02",
+                    "input": "伂",
+                    "table": "Pei ",
+                    "strict": "pei",
+                    "native": "pei"
+                }
+            ]
+        },
+        "x050.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5000",
+                    "input": "倀",
+                    "table": "Chang ",
+                    "strict": "chang",
+                    "native": "chang"
+                },
+                {
+                    "codepoint": "U+5001",
+                    "input": "倁",
+                    "table": "Chi ",
+                    "strict": "zhi",
+                    "native": "zhi"
+                },
+                {
+                    "codepoint": "U+5002",
+                    "input": "倂",
+                    "table": "Bing ",
+                    "strict": "bing",
+                    "native": "bing"
+                }
+            ]
+        },
+        "x051.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 254,
+            "examples": [
+                {
+                    "codepoint": "U+5100",
+                    "input": "儀",
+                    "table": "Yi ",
+                    "strict": "yi",
+                    "native": "yi"
+                },
+                {
+                    "codepoint": "U+5101",
+                    "input": "儁",
+                    "table": "Jun ",
+                    "strict": "jun",
+                    "native": "jun"
+                },
+                {
+                    "codepoint": "U+5102",
+                    "input": "儂",
+                    "table": "Nong ",
+                    "strict": "nong",
+                    "native": "nong"
+                }
+            ]
+        },
+        "x052.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5200",
+                    "input": "刀",
+                    "table": "Dao ",
+                    "strict": "dao",
+                    "native": "dao"
+                },
+                {
+                    "codepoint": "U+5201",
+                    "input": "刁",
+                    "table": "Diao ",
+                    "strict": "diao",
+                    "native": "diao"
+                },
+                {
+                    "codepoint": "U+5202",
+                    "input": "刂",
+                    "table": "Dao ",
+                    "strict": "dao",
+                    "native": "dao"
+                }
+            ]
+        },
+        "x053.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5300",
+                    "input": "匀",
+                    "table": "Yun ",
+                    "strict": "yun",
+                    "native": "yun"
+                },
+                {
+                    "codepoint": "U+5301",
+                    "input": "匁",
+                    "table": "Mwun ",
+                    "strict": "wen",
+                    "native": "wen"
+                },
+                {
+                    "codepoint": "U+5302",
+                    "input": "匂",
+                    "table": "Nay ",
+                    "strict": "xiong",
+                    "native": "xiong"
+                }
+            ]
+        },
+        "x054.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5400",
+                    "input": "吀",
+                    "table": "Mie ",
+                    "strict": "mie",
+                    "native": "mie"
+                },
+                {
+                    "codepoint": "U+5401",
+                    "input": "吁",
+                    "table": "Xu ",
+                    "strict": "xu",
+                    "native": "xu"
+                },
+                {
+                    "codepoint": "U+5402",
+                    "input": "吂",
+                    "table": "Mang ",
+                    "strict": "mang",
+                    "native": "mang"
+                }
+            ]
+        },
+        "x055.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 255,
+            "examples": [
+                {
+                    "codepoint": "U+5500",
+                    "input": "唀",
+                    "table": "You ",
+                    "strict": "you",
+                    "native": "you"
+                },
+                {
+                    "codepoint": "U+5501",
+                    "input": "唁",
+                    "table": "Yan ",
+                    "strict": "yan",
+                    "native": "yan"
+                },
+                {
+                    "codepoint": "U+5502",
+                    "input": "唂",
+                    "table": "Gu ",
+                    "strict": "gu",
+                    "native": "gu"
+                }
+            ]
+        },
+        "x056.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5600",
+                    "input": "嘀",
+                    "table": "Di ",
+                    "strict": "di",
+                    "native": "di"
+                },
+                {
+                    "codepoint": "U+5601",
+                    "input": "嘁",
+                    "table": "Qi ",
+                    "strict": "qi",
+                    "native": "qi"
+                },
+                {
+                    "codepoint": "U+5602",
+                    "input": "嘂",
+                    "table": "Jiao ",
+                    "strict": "jiao",
+                    "native": "jiao"
+                }
+            ]
+        },
+        "x057.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5700",
+                    "input": "圀",
+                    "table": "Guo ",
+                    "strict": "guo",
+                    "native": "guo"
+                },
+                {
+                    "codepoint": "U+5701",
+                    "input": "圁",
+                    "table": "Yin ",
+                    "strict": "yin",
+                    "native": "yin"
+                },
+                {
+                    "codepoint": "U+5702",
+                    "input": "圂",
+                    "table": "Hun ",
+                    "strict": "hun",
+                    "native": "hun"
+                }
+            ]
+        },
+        "x058.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5800",
+                    "input": "堀",
+                    "table": "Ku ",
+                    "strict": "ku",
+                    "native": "ku"
+                },
+                {
+                    "codepoint": "U+5801",
+                    "input": "堁",
+                    "table": "Ke ",
+                    "strict": "ke",
+                    "native": "ke"
+                },
+                {
+                    "codepoint": "U+5802",
+                    "input": "堂",
+                    "table": "Tang ",
+                    "strict": "tang",
+                    "native": "tang"
+                }
+            ]
+        },
+        "x059.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5900",
+                    "input": "夀",
+                    "table": "Shou ",
+                    "strict": "shou",
+                    "native": "shou"
+                },
+                {
+                    "codepoint": "U+5901",
+                    "input": "夁",
+                    "table": "Yi ",
+                    "strict": "yi",
+                    "native": "yi"
+                },
+                {
+                    "codepoint": "U+5902",
+                    "input": "夂",
+                    "table": "Zhi ",
+                    "strict": "zhi",
+                    "native": "zhi"
+                }
+            ]
+        },
+        "x05a.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5A00",
+                    "input": "娀",
+                    "table": "Song ",
+                    "strict": "song",
+                    "native": "song"
+                },
+                {
+                    "codepoint": "U+5A01",
+                    "input": "威",
+                    "table": "Wei ",
+                    "strict": "wei",
+                    "native": "wei"
+                },
+                {
+                    "codepoint": "U+5A02",
+                    "input": "娂",
+                    "table": "Hong ",
+                    "strict": "hong",
+                    "native": "hong"
+                }
+            ]
+        },
+        "x05b.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5B00",
+                    "input": "嬀",
+                    "table": "Gui ",
+                    "strict": "gui",
+                    "native": "gui"
+                },
+                {
+                    "codepoint": "U+5B01",
+                    "input": "嬁",
+                    "table": "Deng ",
+                    "strict": "deng",
+                    "native": "deng"
+                },
+                {
+                    "codepoint": "U+5B02",
+                    "input": "嬂",
+                    "table": "Zhi ",
+                    "strict": "zhi",
+                    "native": "zhi"
+                }
+            ]
+        },
+        "x05c.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5C00",
+                    "input": "尀",
+                    "table": "Po ",
+                    "strict": "po",
+                    "native": "po"
+                },
+                {
+                    "codepoint": "U+5C01",
+                    "input": "封",
+                    "table": "Feng ",
+                    "strict": "feng",
+                    "native": "feng"
+                },
+                {
+                    "codepoint": "U+5C02",
+                    "input": "専",
+                    "table": "Zhuan ",
+                    "strict": "zhuan",
+                    "native": "zhuan"
+                }
+            ]
+        },
+        "x05d.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5D00",
+                    "input": "崀",
+                    "table": "Lang ",
+                    "strict": "lang",
+                    "native": "lang"
+                },
+                {
+                    "codepoint": "U+5D01",
+                    "input": "崁",
+                    "table": "Kan ",
+                    "strict": "kan",
+                    "native": "kan"
+                },
+                {
+                    "codepoint": "U+5D02",
+                    "input": "崂",
+                    "table": "Lao ",
+                    "strict": "lao",
+                    "native": "lao"
+                }
+            ]
+        },
+        "x05e.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5E00",
+                    "input": "帀",
+                    "table": "Za ",
+                    "strict": "za",
+                    "native": "za"
+                },
+                {
+                    "codepoint": "U+5E01",
+                    "input": "币",
+                    "table": "Bi ",
+                    "strict": "bi",
+                    "native": "bi"
+                },
+                {
+                    "codepoint": "U+5E02",
+                    "input": "市",
+                    "table": "Shi ",
+                    "strict": "shi",
+                    "native": "shi"
+                }
+            ]
+        },
+        "x05f.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+5F00",
+                    "input": "开",
+                    "table": "Kai ",
+                    "strict": "kai",
+                    "native": "kai"
+                },
+                {
+                    "codepoint": "U+5F01",
+                    "input": "弁",
+                    "table": "Bian ",
+                    "strict": "bian",
+                    "native": "bian"
+                },
+                {
+                    "codepoint": "U+5F02",
+                    "input": "异",
+                    "table": "Yi ",
+                    "strict": "yi",
+                    "native": "yi"
+                }
+            ]
+        },
+        "x060.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6000",
+                    "input": "怀",
+                    "table": "Huai ",
+                    "strict": "huai",
+                    "native": "huai"
+                },
+                {
+                    "codepoint": "U+6001",
+                    "input": "态",
+                    "table": "Tai ",
+                    "strict": "tai",
+                    "native": "tai"
+                },
+                {
+                    "codepoint": "U+6002",
+                    "input": "怂",
+                    "table": "Song ",
+                    "strict": "song",
+                    "native": "song"
+                }
+            ]
+        },
+        "x061.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6100",
+                    "input": "愀",
+                    "table": "Qiao ",
+                    "strict": "qiao",
+                    "native": "qiao"
+                },
+                {
+                    "codepoint": "U+6101",
+                    "input": "愁",
+                    "table": "Chou ",
+                    "strict": "chou",
+                    "native": "chou"
+                },
+                {
+                    "codepoint": "U+6102",
+                    "input": "愂",
+                    "table": "Bei ",
+                    "strict": "bei",
+                    "native": "bei"
+                }
+            ]
+        },
+        "x062.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6200",
+                    "input": "戀",
+                    "table": "Lian ",
+                    "strict": "lian",
+                    "native": "lian"
+                },
+                {
+                    "codepoint": "U+6201",
+                    "input": "戁",
+                    "table": "Nan ",
+                    "strict": "nan",
+                    "native": "nan"
+                },
+                {
+                    "codepoint": "U+6202",
+                    "input": "戂",
+                    "table": "Mi ",
+                    "strict": "mi",
+                    "native": "mi"
+                }
+            ]
+        },
+        "x063.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6300",
+                    "input": "挀",
+                    "table": "Bo ",
+                    "strict": "bai",
+                    "native": "bai"
+                },
+                {
+                    "codepoint": "U+6301",
+                    "input": "持",
+                    "table": "Chi ",
+                    "strict": "chi",
+                    "native": "chi"
+                },
+                {
+                    "codepoint": "U+6302",
+                    "input": "挂",
+                    "table": "Gua ",
+                    "strict": "gua",
+                    "native": "gua"
+                }
+            ]
+        },
+        "x064.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6400",
+                    "input": "搀",
+                    "table": "Chan ",
+                    "strict": "chan",
+                    "native": "chan"
+                },
+                {
+                    "codepoint": "U+6401",
+                    "input": "搁",
+                    "table": "Ge ",
+                    "strict": "ge",
+                    "native": "ge"
+                },
+                {
+                    "codepoint": "U+6402",
+                    "input": "搂",
+                    "table": "Lou ",
+                    "strict": "lou",
+                    "native": "lou"
+                }
+            ]
+        },
+        "x065.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6500",
+                    "input": "攀",
+                    "table": "Pan ",
+                    "strict": "pan",
+                    "native": "pan"
+                },
+                {
+                    "codepoint": "U+6501",
+                    "input": "攁",
+                    "table": "Yang ",
+                    "strict": "yang",
+                    "native": "yang"
+                },
+                {
+                    "codepoint": "U+6502",
+                    "input": "攂",
+                    "table": "Lei ",
+                    "strict": "lei",
+                    "native": "lei"
+                }
+            ]
+        },
+        "x066.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6600",
+                    "input": "昀",
+                    "table": "Yun ",
+                    "strict": "yun",
+                    "native": "yun"
+                },
+                {
+                    "codepoint": "U+6601",
+                    "input": "昁",
+                    "table": "Bei ",
+                    "strict": "bei",
+                    "native": "bei"
+                },
+                {
+                    "codepoint": "U+6602",
+                    "input": "昂",
+                    "table": "Ang ",
+                    "strict": "ang",
+                    "native": "ang"
+                }
+            ]
+        },
+        "x067.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6700",
+                    "input": "最",
+                    "table": "Zui ",
+                    "strict": "zui",
+                    "native": "zui"
+                },
+                {
+                    "codepoint": "U+6701",
+                    "input": "朁",
+                    "table": "Can ",
+                    "strict": "can",
+                    "native": "can"
+                },
+                {
+                    "codepoint": "U+6702",
+                    "input": "朂",
+                    "table": "Xu ",
+                    "strict": "xu",
+                    "native": "xu"
+                }
+            ]
+        },
+        "x068.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 255,
+            "examples": [
+                {
+                    "codepoint": "U+6800",
+                    "input": "栀",
+                    "table": "Zhi ",
+                    "strict": "zhi",
+                    "native": "zhi"
+                },
+                {
+                    "codepoint": "U+6801",
+                    "input": "栁",
+                    "table": "Liu ",
+                    "strict": "liu",
+                    "native": "liu"
+                },
+                {
+                    "codepoint": "U+6802",
+                    "input": "栂",
+                    "table": "Mei ",
+                    "strict": "mei",
+                    "native": "mei"
+                }
+            ]
+        },
+        "x069.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6900",
+                    "input": "椀",
+                    "table": "Wan ",
+                    "strict": "wan",
+                    "native": "wan"
+                },
+                {
+                    "codepoint": "U+6901",
+                    "input": "椁",
+                    "table": "Guo ",
+                    "strict": "guo",
+                    "native": "guo"
+                },
+                {
+                    "codepoint": "U+6902",
+                    "input": "椂",
+                    "table": "Lu ",
+                    "strict": "lu",
+                    "native": "lu"
+                }
+            ]
+        },
+        "x06a.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6A00",
+                    "input": "樀",
+                    "table": "Di ",
+                    "strict": "di",
+                    "native": "di"
+                },
+                {
+                    "codepoint": "U+6A01",
+                    "input": "樁",
+                    "table": "Zhuang ",
+                    "strict": "zhuang",
+                    "native": "zhuang"
+                },
+                {
+                    "codepoint": "U+6A02",
+                    "input": "樂",
+                    "table": "Le ",
+                    "strict": "le",
+                    "native": "le"
+                }
+            ]
+        },
+        "x06b.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6B00",
+                    "input": "欀",
+                    "table": "Xiang ",
+                    "strict": "xiang",
+                    "native": "xiang"
+                },
+                {
+                    "codepoint": "U+6B01",
+                    "input": "欁",
+                    "table": "Nong ",
+                    "strict": "nong",
+                    "native": "nong"
+                },
+                {
+                    "codepoint": "U+6B02",
+                    "input": "欂",
+                    "table": "Bo ",
+                    "strict": "bo",
+                    "native": "bo"
+                }
+            ]
+        },
+        "x06c.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6C00",
+                    "input": "氀",
+                    "table": "Lu ",
+                    "strict": "lu",
+                    "native": "lu"
+                },
+                {
+                    "codepoint": "U+6C01",
+                    "input": "氁",
+                    "table": "Mu ",
+                    "strict": "mu",
+                    "native": "mu"
+                },
+                {
+                    "codepoint": "U+6C02",
+                    "input": "氂",
+                    "table": "Li ",
+                    "strict": "mao",
+                    "native": "mao"
+                }
+            ]
+        },
+        "x06d.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6D00",
+                    "input": "洀",
+                    "table": "Zhou ",
+                    "strict": "pan",
+                    "native": "pan"
+                },
+                {
+                    "codepoint": "U+6D01",
+                    "input": "洁",
+                    "table": "Ji ",
+                    "strict": "jie",
+                    "native": "jie"
+                },
+                {
+                    "codepoint": "U+6D02",
+                    "input": "洂",
+                    "table": "Yi ",
+                    "strict": "ye",
+                    "native": "ye"
+                }
+            ]
+        },
+        "x06e.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6E00",
+                    "input": "渀",
+                    "table": "Ben ",
+                    "strict": "ben",
+                    "native": "ben"
+                },
+                {
+                    "codepoint": "U+6E01",
+                    "input": "渁",
+                    "table": "Yuan ",
+                    "strict": "yuan",
+                    "native": "yuan"
+                },
+                {
+                    "codepoint": "U+6E02",
+                    "input": "渂",
+                    "table": "Wen ",
+                    "strict": "wen",
+                    "native": "wen"
+                }
+            ]
+        },
+        "x06f.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+6F00",
+                    "input": "漀",
+                    "table": "Qing ",
+                    "strict": "qing",
+                    "native": "qing"
+                },
+                {
+                    "codepoint": "U+6F01",
+                    "input": "漁",
+                    "table": "Yu ",
+                    "strict": "yu",
+                    "native": "yu"
+                },
+                {
+                    "codepoint": "U+6F02",
+                    "input": "漂",
+                    "table": "Piao ",
+                    "strict": "piao",
+                    "native": "piao"
+                }
+            ]
+        },
+        "x070.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 255,
+            "examples": [
+                {
+                    "codepoint": "U+7000",
+                    "input": "瀀",
+                    "table": "You ",
+                    "strict": "you",
+                    "native": "you"
+                },
+                {
+                    "codepoint": "U+7001",
+                    "input": "瀁",
+                    "table": "Yang ",
+                    "strict": "yang",
+                    "native": "yang"
+                },
+                {
+                    "codepoint": "U+7002",
+                    "input": "瀂",
+                    "table": "Lu ",
+                    "strict": "lu",
+                    "native": "lu"
+                }
+            ]
+        },
+        "x071.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7100",
+                    "input": "焀",
+                    "table": "Hu ",
+                    "strict": "hu",
+                    "native": "hu"
+                },
+                {
+                    "codepoint": "U+7101",
+                    "input": "焁",
+                    "table": "Xi ",
+                    "strict": "xi",
+                    "native": "xi"
+                },
+                {
+                    "codepoint": "U+7102",
+                    "input": "焂",
+                    "table": "Shu ",
+                    "strict": "shu",
+                    "native": "shu"
+                }
+            ]
+        },
+        "x072.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7200",
+                    "input": "爀",
+                    "table": "He ",
+                    "strict": "he",
+                    "native": "he"
+                },
+                {
+                    "codepoint": "U+7201",
+                    "input": "爁",
+                    "table": "Lan ",
+                    "strict": "lan",
+                    "native": "lan"
+                },
+                {
+                    "codepoint": "U+7202",
+                    "input": "爂",
+                    "table": "Biao ",
+                    "strict": "biao",
+                    "native": "biao"
+                }
+            ]
+        },
+        "x073.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7300",
+                    "input": "猀",
+                    "table": "Sha ",
+                    "strict": "sha",
+                    "native": "sha"
+                },
+                {
+                    "codepoint": "U+7301",
+                    "input": "猁",
+                    "table": "Li ",
+                    "strict": "li",
+                    "native": "li"
+                },
+                {
+                    "codepoint": "U+7302",
+                    "input": "猂",
+                    "table": "Han ",
+                    "strict": "han",
+                    "native": "han"
+                }
+            ]
+        },
+        "x074.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 252,
+            "examples": [
+                {
+                    "codepoint": "U+7400",
+                    "input": "琀",
+                    "table": "Han ",
+                    "strict": "han",
+                    "native": "han"
+                },
+                {
+                    "codepoint": "U+7401",
+                    "input": "琁",
+                    "table": "Xuan ",
+                    "strict": "xuan",
+                    "native": "xuan"
+                },
+                {
+                    "codepoint": "U+7402",
+                    "input": "琂",
+                    "table": "Yan ",
+                    "strict": "yan",
+                    "native": "yan"
+                }
+            ]
+        },
+        "x075.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 255,
+            "examples": [
+                {
+                    "codepoint": "U+7500",
+                    "input": "甀",
+                    "table": "Zhui ",
+                    "strict": "zhui",
+                    "native": "zhui"
+                },
+                {
+                    "codepoint": "U+7501",
+                    "input": "甁",
+                    "table": "Ping ",
+                    "strict": "ping",
+                    "native": "ping"
+                },
+                {
+                    "codepoint": "U+7502",
+                    "input": "甂",
+                    "table": "Bian ",
+                    "strict": "bian",
+                    "native": "bian"
+                }
+            ]
+        },
+        "x076.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7600",
+                    "input": "瘀",
+                    "table": "Yu ",
+                    "strict": "yu",
+                    "native": "yu"
+                },
+                {
+                    "codepoint": "U+7601",
+                    "input": "瘁",
+                    "table": "Cui ",
+                    "strict": "cui",
+                    "native": "cui"
+                },
+                {
+                    "codepoint": "U+7602",
+                    "input": "瘂",
+                    "table": "Ya ",
+                    "strict": "ya",
+                    "native": "ya"
+                }
+            ]
+        },
+        "x077.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7700",
+                    "input": "眀",
+                    "table": "Ming ",
+                    "strict": "ming",
+                    "native": "ming"
+                },
+                {
+                    "codepoint": "U+7701",
+                    "input": "省",
+                    "table": "Sheng ",
+                    "strict": "sheng",
+                    "native": "sheng"
+                },
+                {
+                    "codepoint": "U+7702",
+                    "input": "眂",
+                    "table": "Shi ",
+                    "strict": "shi",
+                    "native": "shi"
+                }
+            ]
+        },
+        "x078.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7800",
+                    "input": "砀",
+                    "table": "Dang ",
+                    "strict": "dang",
+                    "native": "dang"
+                },
+                {
+                    "codepoint": "U+7801",
+                    "input": "码",
+                    "table": "Ma ",
+                    "strict": "ma",
+                    "native": "ma"
+                },
+                {
+                    "codepoint": "U+7802",
+                    "input": "砂",
+                    "table": "Sha ",
+                    "strict": "sha",
+                    "native": "sha"
+                }
+            ]
+        },
+        "x079.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7900",
+                    "input": "礀",
+                    "table": "Tani ",
+                    "strict": "jian",
+                    "native": "jian"
+                },
+                {
+                    "codepoint": "U+7901",
+                    "input": "礁",
+                    "table": "Jiao ",
+                    "strict": "jiao",
+                    "native": "jiao"
+                },
+                {
+                    "codepoint": "U+7902",
+                    "input": "礂",
+                    "table": "?",
+                    "strict": "xi",
+                    "native": "xi"
+                }
+            ]
+        },
+        "x07a.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7A00",
+                    "input": "稀",
+                    "table": "Xi ",
+                    "strict": "xi",
+                    "native": "xi"
+                },
+                {
+                    "codepoint": "U+7A01",
+                    "input": "稁",
+                    "table": "Kao ",
+                    "strict": "gao",
+                    "native": "gao"
+                },
+                {
+                    "codepoint": "U+7A02",
+                    "input": "稂",
+                    "table": "Lang ",
+                    "strict": "lang",
+                    "native": "lang"
+                }
+            ]
+        },
+        "x07b.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7B00",
+                    "input": "笀",
+                    "table": "Mang ",
+                    "strict": "mang",
+                    "native": "mang"
+                },
+                {
+                    "codepoint": "U+7B01",
+                    "input": "笁",
+                    "table": "Zhu ",
+                    "strict": "zhu",
+                    "native": "zhu"
+                },
+                {
+                    "codepoint": "U+7B02",
+                    "input": "笂",
+                    "table": "Utsubo ",
+                    "strict": "wan",
+                    "native": "wan"
+                }
+            ]
+        },
+        "x07c.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7C00",
+                    "input": "簀",
+                    "table": "Ze ",
+                    "strict": "ze",
+                    "native": "ze"
+                },
+                {
+                    "codepoint": "U+7C01",
+                    "input": "簁",
+                    "table": "Xi ",
+                    "strict": "shai",
+                    "native": "shai"
+                },
+                {
+                    "codepoint": "U+7C02",
+                    "input": "簂",
+                    "table": "Guo ",
+                    "strict": "gui",
+                    "native": "gui"
+                }
+            ]
+        },
+        "x07d.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7D00",
+                    "input": "紀",
+                    "table": "Ji ",
+                    "strict": "ji",
+                    "native": "ji"
+                },
+                {
+                    "codepoint": "U+7D01",
+                    "input": "紁",
+                    "table": "Cha ",
+                    "strict": "cha",
+                    "native": "cha"
+                },
+                {
+                    "codepoint": "U+7D02",
+                    "input": "紂",
+                    "table": "Zhou ",
+                    "strict": "zhou",
+                    "native": "zhou"
+                }
+            ]
+        },
+        "x07e.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7E00",
+                    "input": "縀",
+                    "table": "Xia ",
+                    "strict": "xia",
+                    "native": "xia"
+                },
+                {
+                    "codepoint": "U+7E01",
+                    "input": "縁",
+                    "table": "Yuan ",
+                    "strict": "yuan",
+                    "native": "yuan"
+                },
+                {
+                    "codepoint": "U+7E02",
+                    "input": "縂",
+                    "table": "Zong ",
+                    "strict": "zong",
+                    "native": "zong"
+                }
+            ]
+        },
+        "x07f.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+7F00",
+                    "input": "缀",
+                    "table": "Zhui ",
+                    "strict": "zhui",
+                    "native": "zhui"
+                },
+                {
+                    "codepoint": "U+7F01",
+                    "input": "缁",
+                    "table": "Zi ",
+                    "strict": "zi",
+                    "native": "zi"
+                },
+                {
+                    "codepoint": "U+7F02",
+                    "input": "缂",
+                    "table": "Ke ",
+                    "strict": "ke",
+                    "native": "ke"
+                }
+            ]
+        },
+        "x080.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8000",
+                    "input": "耀",
+                    "table": "Yao ",
+                    "strict": "yao",
+                    "native": "yao"
+                },
+                {
+                    "codepoint": "U+8001",
+                    "input": "老",
+                    "table": "Lao ",
+                    "strict": "lao",
+                    "native": "lao"
+                },
+                {
+                    "codepoint": "U+8002",
+                    "input": "耂",
+                    "table": "?",
+                    "strict": "lao",
+                    "native": "lao"
+                }
+            ]
+        },
+        "x081.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8100",
+                    "input": "脀",
+                    "table": "Cheng ",
+                    "strict": "cheng",
+                    "native": "cheng"
+                },
+                {
+                    "codepoint": "U+8101",
+                    "input": "脁",
+                    "table": "Tiao ",
+                    "strict": "tiao",
+                    "native": "tiao"
+                },
+                {
+                    "codepoint": "U+8102",
+                    "input": "脂",
+                    "table": "Zhi ",
+                    "strict": "zhi",
+                    "native": "zhi"
+                }
+            ]
+        },
+        "x082.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8200",
+                    "input": "舀",
+                    "table": "Yao ",
+                    "strict": "yao",
+                    "native": "yao"
+                },
+                {
+                    "codepoint": "U+8201",
+                    "input": "舁",
+                    "table": "Yu ",
+                    "strict": "yu",
+                    "native": "yu"
+                },
+                {
+                    "codepoint": "U+8202",
+                    "input": "舂",
+                    "table": "Chong ",
+                    "strict": "chong",
+                    "native": "chong"
+                }
+            ]
+        },
+        "x083.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8300",
+                    "input": "茀",
+                    "table": "Fu ",
+                    "strict": "fu",
+                    "native": "fu"
+                },
+                {
+                    "codepoint": "U+8301",
+                    "input": "茁",
+                    "table": "Zhuo ",
+                    "strict": "zhuo",
+                    "native": "zhuo"
+                },
+                {
+                    "codepoint": "U+8302",
+                    "input": "茂",
+                    "table": "Mao ",
+                    "strict": "mao",
+                    "native": "mao"
+                }
+            ]
+        },
+        "x084.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8400",
+                    "input": "萀",
+                    "table": "Hu ",
+                    "strict": "hu",
+                    "native": "hu"
+                },
+                {
+                    "codepoint": "U+8401",
+                    "input": "萁",
+                    "table": "Qi ",
+                    "strict": "qi",
+                    "native": "qi"
+                },
+                {
+                    "codepoint": "U+8402",
+                    "input": "萂",
+                    "table": "He ",
+                    "strict": "he",
+                    "native": "he"
+                }
+            ]
+        },
+        "x085.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8500",
+                    "input": "蔀",
+                    "table": "Bu ",
+                    "strict": "bu",
+                    "native": "bu"
+                },
+                {
+                    "codepoint": "U+8501",
+                    "input": "蔁",
+                    "table": "Zhang ",
+                    "strict": "zhang",
+                    "native": "zhang"
+                },
+                {
+                    "codepoint": "U+8502",
+                    "input": "蔂",
+                    "table": "Luo ",
+                    "strict": "lei",
+                    "native": "lei"
+                }
+            ]
+        },
+        "x086.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8600",
+                    "input": "蘀",
+                    "table": "Tuo ",
+                    "strict": "tuo",
+                    "native": "tuo"
+                },
+                {
+                    "codepoint": "U+8601",
+                    "input": "蘁",
+                    "table": "Wu ",
+                    "strict": "wu",
+                    "native": "wu"
+                },
+                {
+                    "codepoint": "U+8602",
+                    "input": "蘂",
+                    "table": "Rui ",
+                    "strict": "rui",
+                    "native": "rui"
+                }
+            ]
+        },
+        "x087.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8700",
+                    "input": "蜀",
+                    "table": "Shu ",
+                    "strict": "shu",
+                    "native": "shu"
+                },
+                {
+                    "codepoint": "U+8701",
+                    "input": "蜁",
+                    "table": "Xuan ",
+                    "strict": "xuan",
+                    "native": "xuan"
+                },
+                {
+                    "codepoint": "U+8702",
+                    "input": "蜂",
+                    "table": "Feng ",
+                    "strict": "feng",
+                    "native": "feng"
+                }
+            ]
+        },
+        "x088.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8800",
+                    "input": "蠀",
+                    "table": "Ci ",
+                    "strict": "ci",
+                    "native": "ci"
+                },
+                {
+                    "codepoint": "U+8801",
+                    "input": "蠁",
+                    "table": "Xiang ",
+                    "strict": "xiang",
+                    "native": "xiang"
+                },
+                {
+                    "codepoint": "U+8802",
+                    "input": "蠂",
+                    "table": "She ",
+                    "strict": "she",
+                    "native": "she"
+                }
+            ]
+        },
+        "x089.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8900",
+                    "input": "褀",
+                    "table": "Ji ",
+                    "strict": "qi",
+                    "native": "qi"
+                },
+                {
+                    "codepoint": "U+8901",
+                    "input": "褁",
+                    "table": "Zhi ",
+                    "strict": "guo",
+                    "native": "guo"
+                },
+                {
+                    "codepoint": "U+8902",
+                    "input": "褂",
+                    "table": "Gua ",
+                    "strict": "gua",
+                    "native": "gua"
+                }
+            ]
+        },
+        "x08a.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8A00",
+                    "input": "言",
+                    "table": "Yan ",
+                    "strict": "yan",
+                    "native": "yan"
+                },
+                {
+                    "codepoint": "U+8A01",
+                    "input": "訁",
+                    "table": "Yan ",
+                    "strict": "yan",
+                    "native": "yan"
+                },
+                {
+                    "codepoint": "U+8A02",
+                    "input": "訂",
+                    "table": "Ding ",
+                    "strict": "ding",
+                    "native": "ding"
+                }
+            ]
+        },
+        "x08b.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8B00",
+                    "input": "謀",
+                    "table": "Mou ",
+                    "strict": "mou",
+                    "native": "mou"
+                },
+                {
+                    "codepoint": "U+8B01",
+                    "input": "謁",
+                    "table": "Ye ",
+                    "strict": "ye",
+                    "native": "ye"
+                },
+                {
+                    "codepoint": "U+8B02",
+                    "input": "謂",
+                    "table": "Wei ",
+                    "strict": "wei",
+                    "native": "wei"
+                }
+            ]
+        },
+        "x08c.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8C00",
+                    "input": "谀",
+                    "table": "Yu ",
+                    "strict": "yu",
+                    "native": "yu"
+                },
+                {
+                    "codepoint": "U+8C01",
+                    "input": "谁",
+                    "table": "Shui ",
+                    "strict": "shei",
+                    "native": "shei"
+                },
+                {
+                    "codepoint": "U+8C02",
+                    "input": "谂",
+                    "table": "Shen ",
+                    "strict": "shen",
+                    "native": "shen"
+                }
+            ]
+        },
+        "x08d.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8D00",
+                    "input": "贀",
+                    "table": "Wei ",
+                    "strict": "yi",
+                    "native": "yi"
+                },
+                {
+                    "codepoint": "U+8D01",
+                    "input": "贁",
+                    "table": "Bai ",
+                    "strict": "bai",
+                    "native": "bai"
+                },
+                {
+                    "codepoint": "U+8D02",
+                    "input": "贂",
+                    "table": "Chen ",
+                    "strict": "chen",
+                    "native": "chen"
+                }
+            ]
+        },
+        "x08e.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8E00",
+                    "input": "踀",
+                    "table": "Chu ",
+                    "strict": "chu",
+                    "native": "chu"
+                },
+                {
+                    "codepoint": "U+8E01",
+                    "input": "踁",
+                    "table": "Jing ",
+                    "strict": "jing",
+                    "native": "jing"
+                },
+                {
+                    "codepoint": "U+8E02",
+                    "input": "踂",
+                    "table": "Nie ",
+                    "strict": "nie",
+                    "native": "nie"
+                }
+            ]
+        },
+        "x08f.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+8F00",
+                    "input": "輀",
+                    "table": "Er ",
+                    "strict": "er",
+                    "native": "er"
+                },
+                {
+                    "codepoint": "U+8F01",
+                    "input": "輁",
+                    "table": "Qiong ",
+                    "strict": "gong",
+                    "native": "gong"
+                },
+                {
+                    "codepoint": "U+8F02",
+                    "input": "輂",
+                    "table": "Ju ",
+                    "strict": "ju",
+                    "native": "ju"
+                }
+            ]
+        },
+        "x090.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9000",
+                    "input": "退",
+                    "table": "Tui ",
+                    "strict": "tui",
+                    "native": "tui"
+                },
+                {
+                    "codepoint": "U+9001",
+                    "input": "送",
+                    "table": "Song ",
+                    "strict": "song",
+                    "native": "song"
+                },
+                {
+                    "codepoint": "U+9002",
+                    "input": "适",
+                    "table": "Gua ",
+                    "strict": "shi",
+                    "native": "shi"
+                }
+            ]
+        },
+        "x091.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9100",
+                    "input": "鄀",
+                    "table": "Ruo ",
+                    "strict": "ruo",
+                    "native": "ruo"
+                },
+                {
+                    "codepoint": "U+9101",
+                    "input": "鄁",
+                    "table": "Bei ",
+                    "strict": "bei",
+                    "native": "bei"
+                },
+                {
+                    "codepoint": "U+9102",
+                    "input": "鄂",
+                    "table": "E ",
+                    "strict": "e",
+                    "native": "e"
+                }
+            ]
+        },
+        "x092.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9200",
+                    "input": "鈀",
+                    "table": "Ba ",
+                    "strict": "ba",
+                    "native": "ba"
+                },
+                {
+                    "codepoint": "U+9201",
+                    "input": "鈁",
+                    "table": "Fang ",
+                    "strict": "fang",
+                    "native": "fang"
+                },
+                {
+                    "codepoint": "U+9202",
+                    "input": "鈂",
+                    "table": "Chen ",
+                    "strict": "chen",
+                    "native": "chen"
+                }
+            ]
+        },
+        "x093.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9300",
+                    "input": "錀",
+                    "table": "Lun ",
+                    "strict": "lun",
+                    "native": "lun"
+                },
+                {
+                    "codepoint": "U+9301",
+                    "input": "錁",
+                    "table": "Kua ",
+                    "strict": "guo",
+                    "native": "guo"
+                },
+                {
+                    "codepoint": "U+9302",
+                    "input": "錂",
+                    "table": "Ling ",
+                    "strict": "ling",
+                    "native": "ling"
+                }
+            ]
+        },
+        "x094.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9400",
+                    "input": "鐀",
+                    "table": "Kui ",
+                    "strict": "kui",
+                    "native": "kui"
+                },
+                {
+                    "codepoint": "U+9401",
+                    "input": "鐁",
+                    "table": "Si ",
+                    "strict": "si",
+                    "native": "si"
+                },
+                {
+                    "codepoint": "U+9402",
+                    "input": "鐂",
+                    "table": "Liu ",
+                    "strict": "liu",
+                    "native": "liu"
+                }
+            ]
+        },
+        "x095.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9500",
+                    "input": "销",
+                    "table": "Xiao ",
+                    "strict": "xiao",
+                    "native": "xiao"
+                },
+                {
+                    "codepoint": "U+9501",
+                    "input": "锁",
+                    "table": "Suo ",
+                    "strict": "suo",
+                    "native": "suo"
+                },
+                {
+                    "codepoint": "U+9502",
+                    "input": "锂",
+                    "table": "Li ",
+                    "strict": "li",
+                    "native": "li"
+                }
+            ]
+        },
+        "x096.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9600",
+                    "input": "阀",
+                    "table": "Fa ",
+                    "strict": "fa",
+                    "native": "fa"
+                },
+                {
+                    "codepoint": "U+9601",
+                    "input": "阁",
+                    "table": "Ge ",
+                    "strict": "ge",
+                    "native": "ge"
+                },
+                {
+                    "codepoint": "U+9602",
+                    "input": "阂",
+                    "table": "He ",
+                    "strict": "he",
+                    "native": "he"
+                }
+            ]
+        },
+        "x097.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9700",
+                    "input": "需",
+                    "table": "Xu ",
+                    "strict": "xu",
+                    "native": "xu"
+                },
+                {
+                    "codepoint": "U+9701",
+                    "input": "霁",
+                    "table": "Ji ",
+                    "strict": "ji",
+                    "native": "ji"
+                },
+                {
+                    "codepoint": "U+9702",
+                    "input": "霂",
+                    "table": "Mu ",
+                    "strict": "mu",
+                    "native": "mu"
+                }
+            ]
+        },
+        "x098.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9800",
+                    "input": "頀",
+                    "table": "Hu ",
+                    "strict": "hu",
+                    "native": "hu"
+                },
+                {
+                    "codepoint": "U+9801",
+                    "input": "頁",
+                    "table": "Ye ",
+                    "strict": "ye",
+                    "native": "ye"
+                },
+                {
+                    "codepoint": "U+9802",
+                    "input": "頂",
+                    "table": "Ding ",
+                    "strict": "ding",
+                    "native": "ding"
+                }
+            ]
+        },
+        "x099.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9900",
+                    "input": "餀",
+                    "table": "Hai ",
+                    "strict": "hai",
+                    "native": "hai"
+                },
+                {
+                    "codepoint": "U+9901",
+                    "input": "餁",
+                    "table": "Ren ",
+                    "strict": "ren",
+                    "native": "ren"
+                },
+                {
+                    "codepoint": "U+9902",
+                    "input": "餂",
+                    "table": "Tian ",
+                    "strict": "tian",
+                    "native": "tian"
+                }
+            ]
+        },
+        "x09a.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9A00",
+                    "input": "騀",
+                    "table": "E ",
+                    "strict": "e",
+                    "native": "e"
+                },
+                {
+                    "codepoint": "U+9A01",
+                    "input": "騁",
+                    "table": "Cheng ",
+                    "strict": "cheng",
+                    "native": "cheng"
+                },
+                {
+                    "codepoint": "U+9A02",
+                    "input": "騂",
+                    "table": "Xin ",
+                    "strict": "xing",
+                    "native": "xing"
+                }
+            ]
+        },
+        "x09b.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9B00",
+                    "input": "鬀",
+                    "table": "Ti ",
+                    "strict": "ti",
+                    "native": "ti"
+                },
+                {
+                    "codepoint": "U+9B01",
+                    "input": "鬁",
+                    "table": "Li ",
+                    "strict": "li",
+                    "native": "li"
+                },
+                {
+                    "codepoint": "U+9B02",
+                    "input": "鬂",
+                    "table": "Bin ",
+                    "strict": "bin",
+                    "native": "bin"
+                }
+            ]
+        },
+        "x09c.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9C00",
+                    "input": "鰀",
+                    "table": "Huan ",
+                    "strict": "huan",
+                    "native": "huan"
+                },
+                {
+                    "codepoint": "U+9C01",
+                    "input": "鰁",
+                    "table": "Quan ",
+                    "strict": "quan",
+                    "native": "quan"
+                },
+                {
+                    "codepoint": "U+9C02",
+                    "input": "鰂",
+                    "table": "Ze ",
+                    "strict": "zei",
+                    "native": "zei"
+                }
+            ]
+        },
+        "x09d.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9D00",
+                    "input": "鴀",
+                    "table": "Fou ",
+                    "strict": "fou",
+                    "native": "fou"
+                },
+                {
+                    "codepoint": "U+9D01",
+                    "input": "鴁",
+                    "table": "Yiao ",
+                    "strict": "yao",
+                    "native": "yao"
+                },
+                {
+                    "codepoint": "U+9D02",
+                    "input": "鴂",
+                    "table": "Jue ",
+                    "strict": "jue",
+                    "native": "jue"
+                }
+            ]
+        },
+        "x09e.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+9E00",
+                    "input": "鸀",
+                    "table": "Shu ",
+                    "strict": "shu",
+                    "native": "shu"
+                },
+                {
+                    "codepoint": "U+9E01",
+                    "input": "鸁",
+                    "table": "Luo ",
+                    "strict": "luo",
+                    "native": "luo"
+                },
+                {
+                    "codepoint": "U+9E02",
+                    "input": "鸂",
+                    "table": "Qi ",
+                    "strict": "xi",
+                    "native": "xi"
+                }
+            ]
+        },
+        "x09f.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 197,
+            "examples": [
+                {
+                    "codepoint": "U+9F00",
+                    "input": "鼀",
+                    "table": "Cu ",
+                    "strict": "cu",
+                    "native": "cu"
+                },
+                {
+                    "codepoint": "U+9F01",
+                    "input": "鼁",
+                    "table": "Qu ",
+                    "strict": "qu",
+                    "native": "qu"
+                },
+                {
+                    "codepoint": "U+9F02",
+                    "input": "鼂",
+                    "table": "Chao ",
+                    "strict": "chao",
+                    "native": "chao"
+                }
+            ]
+        },
+        "x0a0.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+A000",
+                    "input": "ꀀ",
+                    "table": "it",
+                    "strict": "it",
+                    "native": "ꀀ"
+                },
+                {
+                    "codepoint": "U+A001",
+                    "input": "ꀁ",
+                    "table": "ix",
+                    "strict": "ix",
+                    "native": "ꀁ"
+                },
+                {
+                    "codepoint": "U+A002",
+                    "input": "ꀂ",
+                    "table": "i",
+                    "strict": "i",
+                    "native": "ꀂ"
+                }
+            ]
+        },
+        "x0a1.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+A100",
+                    "input": "ꄀ",
+                    "table": "dit",
+                    "strict": "dit",
+                    "native": "ꄀ"
+                },
+                {
+                    "codepoint": "U+A101",
+                    "input": "ꄁ",
+                    "table": "dix",
+                    "strict": "dix",
+                    "native": "ꄁ"
+                },
+                {
+                    "codepoint": "U+A102",
+                    "input": "ꄂ",
+                    "table": "di",
+                    "strict": "di",
+                    "native": "ꄂ"
+                }
+            ]
+        },
+        "x0a2.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+A200",
+                    "input": "ꈀ",
+                    "table": "kax",
+                    "strict": "kax",
+                    "native": "ꈀ"
+                },
+                {
+                    "codepoint": "U+A201",
+                    "input": "ꈁ",
+                    "table": "ka",
+                    "strict": "ka",
+                    "native": "ꈁ"
+                },
+                {
+                    "codepoint": "U+A202",
+                    "input": "ꈂ",
+                    "table": "kap",
+                    "strict": "kap",
+                    "native": "ꈂ"
+                }
+            ]
+        },
+        "x0a3.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+A300",
+                    "input": "ꌀ",
+                    "table": "nzup",
+                    "strict": "nzup",
+                    "native": "ꌀ"
+                },
+                {
+                    "codepoint": "U+A301",
+                    "input": "ꌁ",
+                    "table": "nzurx",
+                    "strict": "nzurx",
+                    "native": "ꌁ"
+                },
+                {
+                    "codepoint": "U+A302",
+                    "input": "ꌂ",
+                    "table": "nzur",
+                    "strict": "nzur",
+                    "native": "ꌂ"
+                }
+            ]
+        },
+        "x0a4.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+A400",
+                    "input": "ꐀ",
+                    "table": "qiet",
+                    "strict": "qiet",
+                    "native": "ꐀ"
+                },
+                {
+                    "codepoint": "U+A401",
+                    "input": "ꐁ",
+                    "table": "qiex",
+                    "strict": "qiex",
+                    "native": "ꐁ"
+                },
+                {
+                    "codepoint": "U+A402",
+                    "input": "ꐂ",
+                    "table": "qie",
+                    "strict": "qie",
+                    "native": "ꐂ"
+                }
+            ]
+        },
+        "x0ac.php": {
+            "keys": 256,
+            "table_vs_native": 19,
+            "strict_vs_table": 19,
+            "examples": [
+                {
+                    "codepoint": "U+AC02",
+                    "input": "갂",
+                    "table": "gagg",
+                    "strict": "gakk",
+                    "native": "gakk"
+                },
+                {
+                    "codepoint": "U+AC17",
+                    "input": "갗",
+                    "table": "gac",
+                    "strict": "gach",
+                    "native": "gach"
+                },
+                {
+                    "codepoint": "U+AC1E",
+                    "input": "갞",
+                    "table": "gaegg",
+                    "strict": "gaekk",
+                    "native": "gaekk"
+                }
+            ]
+        },
+        "x0ad.php": {
+            "keys": 256,
+            "table_vs_native": 44,
+            "strict_vs_table": 44,
+            "examples": [
+                {
+                    "codepoint": "U+AD13",
+                    "input": "괓",
+                    "table": "gwac",
+                    "strict": "gwach",
+                    "native": "gwach"
+                },
+                {
+                    "codepoint": "U+AD1A",
+                    "input": "괚",
+                    "table": "gwaegg",
+                    "strict": "gwaekk",
+                    "native": "gwaekk"
+                },
+                {
+                    "codepoint": "U+AD2F",
+                    "input": "괯",
+                    "table": "gwaec",
+                    "strict": "gwaech",
+                    "native": "gwaech"
+                }
+            ]
+        },
+        "x0ae.php": {
+            "keys": 256,
+            "table_vs_native": 211,
+            "strict_vs_table": 211,
+            "examples": [
+                {
+                    "codepoint": "U+AE0F",
+                    "input": "긏",
+                    "table": "geuc",
+                    "strict": "geuch",
+                    "native": "geuch"
+                },
+                {
+                    "codepoint": "U+AE14",
+                    "input": "긔",
+                    "table": "gyi",
+                    "strict": "gui",
+                    "native": "gui"
+                },
+                {
+                    "codepoint": "U+AE15",
+                    "input": "긕",
+                    "table": "gyig",
+                    "strict": "guig",
+                    "native": "guig"
+                }
+            ]
+        },
+        "x0af.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+AF00",
+                    "input": "꼀",
+                    "table": "ggyeols",
+                    "strict": "kkyeols",
+                    "native": "kkyeols"
+                },
+                {
+                    "codepoint": "U+AF01",
+                    "input": "꼁",
+                    "table": "ggyeolt",
+                    "strict": "kkyeolt",
+                    "native": "kkyeolt"
+                },
+                {
+                    "codepoint": "U+AF02",
+                    "input": "꼂",
+                    "table": "ggyeolp",
+                    "strict": "kkyeolp",
+                    "native": "kkyeolp"
+                }
+            ]
+        },
+        "x0b0.php": {
+            "keys": 256,
+            "table_vs_native": 159,
+            "strict_vs_table": 159,
+            "examples": [
+                {
+                    "codepoint": "U+B000",
+                    "input": "뀀",
+                    "table": "ggwem",
+                    "strict": "kkwem",
+                    "native": "kkwem"
+                },
+                {
+                    "codepoint": "U+B001",
+                    "input": "뀁",
+                    "table": "ggweb",
+                    "strict": "kkweb",
+                    "native": "kkweb"
+                },
+                {
+                    "codepoint": "U+B002",
+                    "input": "뀂",
+                    "table": "ggwebs",
+                    "strict": "kkwebs",
+                    "native": "kkwebs"
+                }
+            ]
+        },
+        "x0b1.php": {
+            "keys": 256,
+            "table_vs_native": 19,
+            "strict_vs_table": 19,
+            "examples": [
+                {
+                    "codepoint": "U+B103",
+                    "input": "넃",
+                    "table": "nyaec",
+                    "strict": "nyaech",
+                    "native": "nyaech"
+                },
+                {
+                    "codepoint": "U+B10A",
+                    "input": "넊",
+                    "table": "neogg",
+                    "strict": "neokk",
+                    "native": "neokk"
+                },
+                {
+                    "codepoint": "U+B11F",
+                    "input": "넟",
+                    "table": "neoc",
+                    "strict": "neoch",
+                    "native": "neoch"
+                }
+            ]
+        },
+        "x0b2.php": {
+            "keys": 256,
+            "table_vs_native": 70,
+            "strict_vs_table": 70,
+            "examples": [
+                {
+                    "codepoint": "U+B206",
+                    "input": "눆",
+                    "table": "nugg",
+                    "strict": "nukk",
+                    "native": "nukk"
+                },
+                {
+                    "codepoint": "U+B21B",
+                    "input": "눛",
+                    "table": "nuc",
+                    "strict": "nuch",
+                    "native": "nuch"
+                },
+                {
+                    "codepoint": "U+B220",
+                    "input": "눠",
+                    "table": "nweo",
+                    "strict": "nwo",
+                    "native": "nwo"
+                }
+            ]
+        },
+        "x0b3.php": {
+            "keys": 256,
+            "table_vs_native": 19,
+            "strict_vs_table": 19,
+            "examples": [
+                {
+                    "codepoint": "U+B302",
+                    "input": "댂",
+                    "table": "daegg",
+                    "strict": "daekk",
+                    "native": "daekk"
+                },
+                {
+                    "codepoint": "U+B317",
+                    "input": "댗",
+                    "table": "daec",
+                    "strict": "daech",
+                    "native": "daech"
+                },
+                {
+                    "codepoint": "U+B31E",
+                    "input": "댞",
+                    "table": "dyagg",
+                    "strict": "dyakk",
+                    "native": "dyakk"
+                }
+            ]
+        },
+        "x0b4.php": {
+            "keys": 256,
+            "table_vs_native": 51,
+            "strict_vs_table": 51,
+            "examples": [
+                {
+                    "codepoint": "U+B413",
+                    "input": "됓",
+                    "table": "dwaec",
+                    "strict": "dwaech",
+                    "native": "dwaech"
+                },
+                {
+                    "codepoint": "U+B41A",
+                    "input": "됚",
+                    "table": "doegg",
+                    "strict": "doekk",
+                    "native": "doekk"
+                },
+                {
+                    "codepoint": "U+B42F",
+                    "input": "됯",
+                    "table": "doec",
+                    "strict": "doech",
+                    "native": "doech"
+                }
+            ]
+        },
+        "x0b5.php": {
+            "keys": 256,
+            "table_vs_native": 230,
+            "strict_vs_table": 230,
+            "examples": [
+                {
+                    "codepoint": "U+B500",
+                    "input": "딀",
+                    "table": "dyil",
+                    "strict": "duil",
+                    "native": "duil"
+                },
+                {
+                    "codepoint": "U+B501",
+                    "input": "딁",
+                    "table": "dyilg",
+                    "strict": "duilg",
+                    "native": "duilg"
+                },
+                {
+                    "codepoint": "U+B502",
+                    "input": "딂",
+                    "table": "dyilm",
+                    "strict": "duilm",
+                    "native": "duilm"
+                }
+            ]
+        },
+        "x0b6.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+B600",
+                    "input": "똀",
+                    "table": "ddyels",
+                    "strict": "ttyels",
+                    "native": "ttyels"
+                },
+                {
+                    "codepoint": "U+B601",
+                    "input": "똁",
+                    "table": "ddyelt",
+                    "strict": "ttyelt",
+                    "native": "ttyelt"
+                },
+                {
+                    "codepoint": "U+B602",
+                    "input": "똂",
+                    "table": "ddyelp",
+                    "strict": "ttyelp",
+                    "native": "ttyelp"
+                }
+            ]
+        },
+        "x0b7.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+B700",
+                    "input": "뜀",
+                    "table": "ddwim",
+                    "strict": "ttwim",
+                    "native": "ttwim"
+                },
+                {
+                    "codepoint": "U+B701",
+                    "input": "뜁",
+                    "table": "ddwib",
+                    "strict": "ttwib",
+                    "native": "ttwib"
+                },
+                {
+                    "codepoint": "U+B702",
+                    "input": "뜂",
+                    "table": "ddwibs",
+                    "strict": "ttwibs",
+                    "native": "ttwibs"
+                }
+            ]
+        },
+        "x0b8.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+B800",
+                    "input": "렀",
+                    "table": "reoss",
+                    "strict": "leoss",
+                    "native": "leoss"
+                },
+                {
+                    "codepoint": "U+B801",
+                    "input": "렁",
+                    "table": "reong",
+                    "strict": "leong",
+                    "native": "leong"
+                },
+                {
+                    "codepoint": "U+B802",
+                    "input": "렂",
+                    "table": "reoj",
+                    "strict": "leoj",
+                    "native": "leoj"
+                }
+            ]
+        },
+        "x0b9.php": {
+            "keys": 256,
+            "table_vs_native": 204,
+            "strict_vs_table": 204,
+            "examples": [
+                {
+                    "codepoint": "U+B900",
+                    "input": "뤀",
+                    "table": "ruk",
+                    "strict": "luk",
+                    "native": "luk"
+                },
+                {
+                    "codepoint": "U+B901",
+                    "input": "뤁",
+                    "table": "rut",
+                    "strict": "lut",
+                    "native": "lut"
+                },
+                {
+                    "codepoint": "U+B902",
+                    "input": "뤂",
+                    "table": "rup",
+                    "strict": "lup",
+                    "native": "lup"
+                }
+            ]
+        },
+        "x0ba.php": {
+            "keys": 256,
+            "table_vs_native": 19,
+            "strict_vs_table": 19,
+            "examples": [
+                {
+                    "codepoint": "U+BA02",
+                    "input": "먂",
+                    "table": "myagg",
+                    "strict": "myakk",
+                    "native": "myakk"
+                },
+                {
+                    "codepoint": "U+BA17",
+                    "input": "먗",
+                    "table": "myac",
+                    "strict": "myach",
+                    "native": "myach"
+                },
+                {
+                    "codepoint": "U+BA1E",
+                    "input": "먞",
+                    "table": "myaegg",
+                    "strict": "myaekk",
+                    "native": "myaekk"
+                }
+            ]
+        },
+        "x0bb.php": {
+            "keys": 256,
+            "table_vs_native": 70,
+            "strict_vs_table": 70,
+            "examples": [
+                {
+                    "codepoint": "U+BB13",
+                    "input": "묓",
+                    "table": "moec",
+                    "strict": "moech",
+                    "native": "moech"
+                },
+                {
+                    "codepoint": "U+BB1A",
+                    "input": "묚",
+                    "table": "myogg",
+                    "strict": "myokk",
+                    "native": "myokk"
+                },
+                {
+                    "codepoint": "U+BB2F",
+                    "input": "묯",
+                    "table": "myoc",
+                    "strict": "myoch",
+                    "native": "myoch"
+                }
+            ]
+        },
+        "x0bc.php": {
+            "keys": 256,
+            "table_vs_native": 18,
+            "strict_vs_table": 18,
+            "examples": [
+                {
+                    "codepoint": "U+BC0F",
+                    "input": "및",
+                    "table": "mic",
+                    "strict": "mich",
+                    "native": "mich"
+                },
+                {
+                    "codepoint": "U+BC16",
+                    "input": "밖",
+                    "table": "bagg",
+                    "strict": "bakk",
+                    "native": "bakk"
+                },
+                {
+                    "codepoint": "U+BC2B",
+                    "input": "밫",
+                    "table": "bac",
+                    "strict": "bach",
+                    "native": "bach"
+                }
+            ]
+        },
+        "x0bd.php": {
+            "keys": 256,
+            "table_vs_native": 44,
+            "strict_vs_table": 44,
+            "examples": [
+                {
+                    "codepoint": "U+BD0B",
+                    "input": "봋",
+                    "table": "boc",
+                    "strict": "boch",
+                    "native": "boch"
+                },
+                {
+                    "codepoint": "U+BD12",
+                    "input": "봒",
+                    "table": "bwagg",
+                    "strict": "bwakk",
+                    "native": "bwakk"
+                },
+                {
+                    "codepoint": "U+BD27",
+                    "input": "봧",
+                    "table": "bwac",
+                    "strict": "bwach",
+                    "native": "bwach"
+                }
+            ]
+        },
+        "x0be.php": {
+            "keys": 256,
+            "table_vs_native": 193,
+            "strict_vs_table": 193,
+            "examples": [
+                {
+                    "codepoint": "U+BE07",
+                    "input": "븇",
+                    "table": "byuc",
+                    "strict": "byuch",
+                    "native": "byuch"
+                },
+                {
+                    "codepoint": "U+BE0E",
+                    "input": "븎",
+                    "table": "beugg",
+                    "strict": "beukk",
+                    "native": "beukk"
+                },
+                {
+                    "codepoint": "U+BE23",
+                    "input": "븣",
+                    "table": "beuc",
+                    "strict": "beuch",
+                    "native": "beuch"
+                }
+            ]
+        },
+        "x0bf.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+BF00",
+                    "input": "뼀",
+                    "table": "bbess",
+                    "strict": "ppess",
+                    "native": "ppess"
+                },
+                {
+                    "codepoint": "U+BF01",
+                    "input": "뼁",
+                    "table": "bbeng",
+                    "strict": "ppeng",
+                    "native": "ppeng"
+                },
+                {
+                    "codepoint": "U+BF02",
+                    "input": "뼂",
+                    "table": "bbej",
+                    "strict": "ppej",
+                    "native": "ppej"
+                }
+            ]
+        },
+        "x0c0.php": {
+            "keys": 256,
+            "table_vs_native": 178,
+            "strict_vs_table": 178,
+            "examples": [
+                {
+                    "codepoint": "U+C000",
+                    "input": "쀀",
+                    "table": "bbweok",
+                    "strict": "ppwok",
+                    "native": "ppwok"
+                },
+                {
+                    "codepoint": "U+C001",
+                    "input": "쀁",
+                    "table": "bbweot",
+                    "strict": "ppwot",
+                    "native": "ppwot"
+                },
+                {
+                    "codepoint": "U+C002",
+                    "input": "쀂",
+                    "table": "bbweop",
+                    "strict": "ppwop",
+                    "native": "ppwop"
+                }
+            ]
+        },
+        "x0c1.php": {
+            "keys": 256,
+            "table_vs_native": 19,
+            "strict_vs_table": 19,
+            "examples": [
+                {
+                    "codepoint": "U+C102",
+                    "input": "섂",
+                    "table": "syaegg",
+                    "strict": "syaekk",
+                    "native": "syaekk"
+                },
+                {
+                    "codepoint": "U+C117",
+                    "input": "섗",
+                    "table": "syaec",
+                    "strict": "syaech",
+                    "native": "syaech"
+                },
+                {
+                    "codepoint": "U+C11E",
+                    "input": "섞",
+                    "table": "seogg",
+                    "strict": "seokk",
+                    "native": "seokk"
+                }
+            ]
+        },
+        "x0c2.php": {
+            "keys": 256,
+            "table_vs_native": 70,
+            "strict_vs_table": 70,
+            "examples": [
+                {
+                    "codepoint": "U+C213",
+                    "input": "숓",
+                    "table": "syoc",
+                    "strict": "syoch",
+                    "native": "syoch"
+                },
+                {
+                    "codepoint": "U+C21A",
+                    "input": "숚",
+                    "table": "sugg",
+                    "strict": "sukk",
+                    "native": "sukk"
+                },
+                {
+                    "codepoint": "U+C22F",
+                    "input": "숯",
+                    "table": "suc",
+                    "strict": "such",
+                    "native": "such"
+                }
+            ]
+        },
+        "x0c3.php": {
+            "keys": 256,
+            "table_vs_native": 18,
+            "strict_vs_table": 18,
+            "examples": [
+                {
+                    "codepoint": "U+C30F",
+                    "input": "쌏",
+                    "table": "ssac",
+                    "strict": "ssach",
+                    "native": "ssach"
+                },
+                {
+                    "codepoint": "U+C316",
+                    "input": "쌖",
+                    "table": "ssaegg",
+                    "strict": "ssaekk",
+                    "native": "ssaekk"
+                },
+                {
+                    "codepoint": "U+C32B",
+                    "input": "쌫",
+                    "table": "ssaec",
+                    "strict": "ssaech",
+                    "native": "ssaech"
+                }
+            ]
+        },
+        "x0c4.php": {
+            "keys": 256,
+            "table_vs_native": 44,
+            "strict_vs_table": 44,
+            "examples": [
+                {
+                    "codepoint": "U+C40B",
+                    "input": "쐋",
+                    "table": "sswac",
+                    "strict": "sswach",
+                    "native": "sswach"
+                },
+                {
+                    "codepoint": "U+C412",
+                    "input": "쐒",
+                    "table": "sswaegg",
+                    "strict": "sswaekk",
+                    "native": "sswaekk"
+                },
+                {
+                    "codepoint": "U+C427",
+                    "input": "쐧",
+                    "table": "sswaec",
+                    "strict": "sswaech",
+                    "native": "sswaech"
+                }
+            ]
+        },
+        "x0c5.php": {
+            "keys": 256,
+            "table_vs_native": 44,
+            "strict_vs_table": 44,
+            "examples": [
+                {
+                    "codepoint": "U+C507",
+                    "input": "씇",
+                    "table": "sseuc",
+                    "strict": "sseuch",
+                    "native": "sseuch"
+                },
+                {
+                    "codepoint": "U+C50C",
+                    "input": "씌",
+                    "table": "ssyi",
+                    "strict": "ssui",
+                    "native": "ssui"
+                },
+                {
+                    "codepoint": "U+C50D",
+                    "input": "씍",
+                    "table": "ssyig",
+                    "strict": "ssuig",
+                    "native": "ssuig"
+                }
+            ]
+        },
+        "x0c6.php": {
+            "keys": 256,
+            "table_vs_native": 45,
+            "strict_vs_table": 45,
+            "examples": [
+                {
+                    "codepoint": "U+C603",
+                    "input": "옃",
+                    "table": "yeoc",
+                    "strict": "yeoch",
+                    "native": "yeoch"
+                },
+                {
+                    "codepoint": "U+C60A",
+                    "input": "옊",
+                    "table": "yegg",
+                    "strict": "yekk",
+                    "native": "yekk"
+                },
+                {
+                    "codepoint": "U+C61F",
+                    "input": "옟",
+                    "table": "yec",
+                    "strict": "yech",
+                    "native": "yech"
+                }
+            ]
+        },
+        "x0c7.php": {
+            "keys": 256,
+            "table_vs_native": 44,
+            "strict_vs_table": 44,
+            "examples": [
+                {
+                    "codepoint": "U+C706",
+                    "input": "윆",
+                    "table": "wigg",
+                    "strict": "wikk",
+                    "native": "wikk"
+                },
+                {
+                    "codepoint": "U+C71B",
+                    "input": "윛",
+                    "table": "wic",
+                    "strict": "wich",
+                    "native": "wich"
+                },
+                {
+                    "codepoint": "U+C722",
+                    "input": "윢",
+                    "table": "yugg",
+                    "strict": "yukk",
+                    "native": "yukk"
+                }
+            ]
+        },
+        "x0c8.php": {
+            "keys": 256,
+            "table_vs_native": 19,
+            "strict_vs_table": 19,
+            "examples": [
+                {
+                    "codepoint": "U+C802",
+                    "input": "젂",
+                    "table": "jeogg",
+                    "strict": "jeokk",
+                    "native": "jeokk"
+                },
+                {
+                    "codepoint": "U+C817",
+                    "input": "젗",
+                    "table": "jeoc",
+                    "strict": "jeoch",
+                    "native": "jeoch"
+                },
+                {
+                    "codepoint": "U+C81E",
+                    "input": "젞",
+                    "table": "jegg",
+                    "strict": "jekk",
+                    "native": "jekk"
+                }
+            ]
+        },
+        "x0c9.php": {
+            "keys": 256,
+            "table_vs_native": 70,
+            "strict_vs_table": 70,
+            "examples": [
+                {
+                    "codepoint": "U+C913",
+                    "input": "줓",
+                    "table": "juc",
+                    "strict": "juch",
+                    "native": "juch"
+                },
+                {
+                    "codepoint": "U+C918",
+                    "input": "줘",
+                    "table": "jweo",
+                    "strict": "jwo",
+                    "native": "jwo"
+                },
+                {
+                    "codepoint": "U+C919",
+                    "input": "줙",
+                    "table": "jweog",
+                    "strict": "jwog",
+                    "native": "jwog"
+                }
+            ]
+        },
+        "x0ca.php": {
+            "keys": 256,
+            "table_vs_native": 18,
+            "strict_vs_table": 18,
+            "examples": [
+                {
+                    "codepoint": "U+CA0F",
+                    "input": "쨏",
+                    "table": "jjaec",
+                    "strict": "jjaech",
+                    "native": "jjaech"
+                },
+                {
+                    "codepoint": "U+CA16",
+                    "input": "쨖",
+                    "table": "jjyagg",
+                    "strict": "jjyakk",
+                    "native": "jjyakk"
+                },
+                {
+                    "codepoint": "U+CA2B",
+                    "input": "쨫",
+                    "table": "jjyac",
+                    "strict": "jjyach",
+                    "native": "jjyach"
+                }
+            ]
+        },
+        "x0cb.php": {
+            "keys": 256,
+            "table_vs_native": 59,
+            "strict_vs_table": 59,
+            "examples": [
+                {
+                    "codepoint": "U+CB0B",
+                    "input": "쬋",
+                    "table": "jjwaec",
+                    "strict": "jjwaech",
+                    "native": "jjwaech"
+                },
+                {
+                    "codepoint": "U+CB12",
+                    "input": "쬒",
+                    "table": "jjoegg",
+                    "strict": "jjoekk",
+                    "native": "jjoekk"
+                },
+                {
+                    "codepoint": "U+CB27",
+                    "input": "쬧",
+                    "table": "jjoec",
+                    "strict": "jjoech",
+                    "native": "jjoech"
+                }
+            ]
+        },
+        "x0cc.php": {
+            "keys": 256,
+            "table_vs_native": 230,
+            "strict_vs_table": 230,
+            "examples": [
+                {
+                    "codepoint": "U+CC00",
+                    "input": "찀",
+                    "table": "jjyim",
+                    "strict": "jjuim",
+                    "native": "jjuim"
+                },
+                {
+                    "codepoint": "U+CC01",
+                    "input": "찁",
+                    "table": "jjyib",
+                    "strict": "jjuib",
+                    "native": "jjuib"
+                },
+                {
+                    "codepoint": "U+CC02",
+                    "input": "찂",
+                    "table": "jjyibs",
+                    "strict": "jjuibs",
+                    "native": "jjuibs"
+                }
+            ]
+        },
+        "x0cd.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+CD00",
+                    "input": "촀",
+                    "table": "cyess",
+                    "strict": "chyess",
+                    "native": "chyess"
+                },
+                {
+                    "codepoint": "U+CD01",
+                    "input": "촁",
+                    "table": "cyeng",
+                    "strict": "chyeng",
+                    "native": "chyeng"
+                },
+                {
+                    "codepoint": "U+CD02",
+                    "input": "촂",
+                    "table": "cyej",
+                    "strict": "chyej",
+                    "native": "chyej"
+                }
+            ]
+        },
+        "x0ce.php": {
+            "keys": 256,
+            "table_vs_native": 126,
+            "strict_vs_table": 126,
+            "examples": [
+                {
+                    "codepoint": "U+CE00",
+                    "input": "츀",
+                    "table": "cwik",
+                    "strict": "chwik",
+                    "native": "chwik"
+                },
+                {
+                    "codepoint": "U+CE01",
+                    "input": "츁",
+                    "table": "cwit",
+                    "strict": "chwit",
+                    "native": "chwit"
+                },
+                {
+                    "codepoint": "U+CE02",
+                    "input": "츂",
+                    "table": "cwip",
+                    "strict": "chwip",
+                    "native": "chwip"
+                }
+            ]
+        },
+        "x0cf.php": {
+            "keys": 256,
+            "table_vs_native": 22,
+            "strict_vs_table": 22,
+            "examples": [
+                {
+                    "codepoint": "U+CF02",
+                    "input": "켂",
+                    "table": "kegg",
+                    "strict": "kekk",
+                    "native": "kekk"
+                },
+                {
+                    "codepoint": "U+CF17",
+                    "input": "켗",
+                    "table": "kec",
+                    "strict": "kech",
+                    "native": "kech"
+                },
+                {
+                    "codepoint": "U+CF1E",
+                    "input": "켞",
+                    "table": "kyeogg",
+                    "strict": "kyeokk",
+                    "native": "kyeokk"
+                }
+            ]
+        },
+        "x0d0.php": {
+            "keys": 256,
+            "table_vs_native": 67,
+            "strict_vs_table": 67,
+            "examples": [
+                {
+                    "codepoint": "U+D000",
+                    "input": "퀀",
+                    "table": "kweon",
+                    "strict": "kwon",
+                    "native": "kwon"
+                },
+                {
+                    "codepoint": "U+D001",
+                    "input": "퀁",
+                    "table": "kweonj",
+                    "strict": "kwonj",
+                    "native": "kwonj"
+                },
+                {
+                    "codepoint": "U+D002",
+                    "input": "퀂",
+                    "table": "kweonh",
+                    "strict": "kwonh",
+                    "native": "kwonh"
+                }
+            ]
+        },
+        "x0d1.php": {
+            "keys": 256,
+            "table_vs_native": 18,
+            "strict_vs_table": 18,
+            "examples": [
+                {
+                    "codepoint": "U+D10F",
+                    "input": "턏",
+                    "table": "tyac",
+                    "strict": "tyach",
+                    "native": "tyach"
+                },
+                {
+                    "codepoint": "U+D116",
+                    "input": "턖",
+                    "table": "tyaegg",
+                    "strict": "tyaekk",
+                    "native": "tyaekk"
+                },
+                {
+                    "codepoint": "U+D12B",
+                    "input": "턫",
+                    "table": "tyaec",
+                    "strict": "tyaech",
+                    "native": "tyaech"
+                }
+            ]
+        },
+        "x0d2.php": {
+            "keys": 256,
+            "table_vs_native": 70,
+            "strict_vs_table": 70,
+            "examples": [
+                {
+                    "codepoint": "U+D20B",
+                    "input": "툋",
+                    "table": "toec",
+                    "strict": "toech",
+                    "native": "toech"
+                },
+                {
+                    "codepoint": "U+D212",
+                    "input": "툒",
+                    "table": "tyogg",
+                    "strict": "tyokk",
+                    "native": "tyokk"
+                },
+                {
+                    "codepoint": "U+D227",
+                    "input": "툧",
+                    "table": "tyoc",
+                    "strict": "tyoch",
+                    "native": "tyoch"
+                }
+            ]
+        },
+        "x0d3.php": {
+            "keys": 256,
+            "table_vs_native": 18,
+            "strict_vs_table": 18,
+            "examples": [
+                {
+                    "codepoint": "U+D307",
+                    "input": "팇",
+                    "table": "tic",
+                    "strict": "tich",
+                    "native": "tich"
+                },
+                {
+                    "codepoint": "U+D30E",
+                    "input": "팎",
+                    "table": "pagg",
+                    "strict": "pakk",
+                    "native": "pakk"
+                },
+                {
+                    "codepoint": "U+D323",
+                    "input": "팣",
+                    "table": "pac",
+                    "strict": "pach",
+                    "native": "pach"
+                }
+            ]
+        },
+        "x0d4.php": {
+            "keys": 256,
+            "table_vs_native": 45,
+            "strict_vs_table": 45,
+            "examples": [
+                {
+                    "codepoint": "U+D403",
+                    "input": "퐃",
+                    "table": "poc",
+                    "strict": "poch",
+                    "native": "poch"
+                },
+                {
+                    "codepoint": "U+D40A",
+                    "input": "퐊",
+                    "table": "pwagg",
+                    "strict": "pwakk",
+                    "native": "pwakk"
+                },
+                {
+                    "codepoint": "U+D41F",
+                    "input": "퐟",
+                    "table": "pwac",
+                    "strict": "pwach",
+                    "native": "pwach"
+                }
+            ]
+        },
+        "x0d5.php": {
+            "keys": 256,
+            "table_vs_native": 44,
+            "strict_vs_table": 44,
+            "examples": [
+                {
+                    "codepoint": "U+D506",
+                    "input": "픆",
+                    "table": "peugg",
+                    "strict": "peukk",
+                    "native": "peukk"
+                },
+                {
+                    "codepoint": "U+D51B",
+                    "input": "픛",
+                    "table": "peuc",
+                    "strict": "peuch",
+                    "native": "peuch"
+                },
+                {
+                    "codepoint": "U+D520",
+                    "input": "픠",
+                    "table": "pyi",
+                    "strict": "pui",
+                    "native": "pui"
+                }
+            ]
+        },
+        "x0d6.php": {
+            "keys": 256,
+            "table_vs_native": 45,
+            "strict_vs_table": 45,
+            "examples": [
+                {
+                    "codepoint": "U+D602",
+                    "input": "혂",
+                    "table": "hyeogg",
+                    "strict": "hyeokk",
+                    "native": "hyeokk"
+                },
+                {
+                    "codepoint": "U+D617",
+                    "input": "혗",
+                    "table": "hyeoc",
+                    "strict": "hyeoch",
+                    "native": "hyeoch"
+                },
+                {
+                    "codepoint": "U+D61E",
+                    "input": "혞",
+                    "table": "hyegg",
+                    "strict": "hyekk",
+                    "native": "hyekk"
+                }
+            ]
+        },
+        "x0d7.php": {
+            "keys": 255,
+            "table_vs_native": 128,
+            "strict_vs_table": 37,
+            "examples": [
+                {
+                    "codepoint": "U+D713",
+                    "input": "휓",
+                    "table": "hwec",
+                    "strict": "hwech",
+                    "native": "hwech"
+                },
+                {
+                    "codepoint": "U+D71A",
+                    "input": "휚",
+                    "table": "hwigg",
+                    "strict": "hwikk",
+                    "native": "hwikk"
+                },
+                {
+                    "codepoint": "U+D72F",
+                    "input": "휯",
+                    "table": "hwic",
+                    "strict": "hwich",
+                    "native": "hwich"
+                }
+            ]
+        },
+        "x0f9.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 256,
+            "examples": [
+                {
+                    "codepoint": "U+F900",
+                    "input": "豈",
+                    "table": "Kay ",
+                    "strict": "qi",
+                    "native": "qi"
+                },
+                {
+                    "codepoint": "U+F901",
+                    "input": "更",
+                    "table": "Kayng ",
+                    "strict": "geng",
+                    "native": "geng"
+                },
+                {
+                    "codepoint": "U+F902",
+                    "input": "車",
+                    "table": "Ke ",
+                    "strict": "che",
+                    "native": "che"
+                }
+            ]
+        },
+        "x0fa.php": {
+            "keys": 255,
+            "table_vs_native": 255,
+            "strict_vs_table": 199,
+            "examples": [
+                {
+                    "codepoint": "U+FA00",
+                    "input": "切",
+                    "table": "Chey ",
+                    "strict": "qie",
+                    "native": "qie"
+                },
+                {
+                    "codepoint": "U+FA01",
+                    "input": "度",
+                    "table": "Thak ",
+                    "strict": "du",
+                    "native": "du"
+                },
+                {
+                    "codepoint": "U+FA02",
+                    "input": "拓",
+                    "table": "Thak ",
+                    "strict": "ta",
+                    "native": "ta"
+                }
+            ]
+        },
+        "x0fb.php": {
+            "keys": 256,
+            "table_vs_native": 217,
+            "strict_vs_table": 162,
+            "examples": [
+                {
+                    "codepoint": "U+FB07",
+                    "input": "﬇",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "﬇"
+                },
+                {
+                    "codepoint": "U+FB08",
+                    "input": "﬈",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "﬈"
+                },
+                {
+                    "codepoint": "U+FB09",
+                    "input": "﬉",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "﬉"
+                }
+            ]
+        },
+        "x0fc.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 253,
+            "examples": [
+                {
+                    "codepoint": "U+FC00",
+                    "input": "ﰀ",
+                    "table": "",
+                    "strict": "yj",
+                    "native": "yj"
+                },
+                {
+                    "codepoint": "U+FC01",
+                    "input": "ﰁ",
+                    "table": "",
+                    "strict": "yh",
+                    "native": "yh"
+                },
+                {
+                    "codepoint": "U+FC02",
+                    "input": "ﰂ",
+                    "table": "",
+                    "strict": "ym",
+                    "native": "ym"
+                }
+            ]
+        },
+        "x0fd.php": {
+            "keys": 256,
+            "table_vs_native": 256,
+            "strict_vs_table": 193,
+            "examples": [
+                {
+                    "codepoint": "U+FD00",
+                    "input": "ﴀ",
+                    "table": "",
+                    "strict": "hy",
+                    "native": "hy"
+                },
+                {
+                    "codepoint": "U+FD01",
+                    "input": "ﴁ",
+                    "table": "",
+                    "strict": "jy",
+                    "native": "jy"
+                },
+                {
+                    "codepoint": "U+FD02",
+                    "input": "ﴂ",
+                    "table": "",
+                    "strict": "jy",
+                    "native": "jy"
+                }
+            ]
+        },
+        "x0fe.php": {
+            "keys": 256,
+            "table_vs_native": 219,
+            "strict_vs_table": 189,
+            "examples": [
+                {
+                    "codepoint": "U+FE00",
+                    "input": "︀",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+FE01",
+                    "input": "︁",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                },
+                {
+                    "codepoint": "U+FE02",
+                    "input": "︂",
+                    "table": "?",
+                    "strict": "",
+                    "native": ""
+                }
+            ]
+        },
+        "x0ff.php": {
+            "keys": 256,
+            "table_vs_native": 76,
+            "strict_vs_table": 33,
+            "examples": [
+                {
+                    "codepoint": "U+FF00",
+                    "input": "＀",
+                    "table": "?",
+                    "strict": "?",
+                    "native": "＀"
+                },
+                {
+                    "codepoint": "U+FF5F",
+                    "input": "｟",
+                    "table": "?",
+                    "strict": "((",
+                    "native": "(("
+                },
+                {
+                    "codepoint": "U+FF60",
+                    "input": "｠",
+                    "table": "?",
+                    "strict": "))",
+                    "native": "))"
+                }
+            ]
+        },
+        "x1d4.php": {
+            "keys": 260,
+            "table_vs_native": 29,
+            "strict_vs_table": 17,
+            "examples": [
+                {
+                    "codepoint": "U+1D455",
+                    "input": "𝑕",
+                    "table": "h",
+                    "strict": "h",
+                    "native": "𝑕"
+                },
+                {
+                    "codepoint": "U+1D49C",
+                    "input": "𝒜",
+                    "table": "B",
+                    "strict": "A",
+                    "native": "A"
+                },
+                {
+                    "codepoint": "U+1D49D",
+                    "input": "𝒝",
+                    "table": "C",
+                    "strict": "C",
+                    "native": "𝒝"
+                }
+            ]
+        },
+        "x1d5.php": {
+            "keys": 264,
+            "table_vs_native": 12,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+1D506",
+                    "input": "𝔆",
+                    "table": "C",
+                    "strict": "C",
+                    "native": "𝔆"
+                },
+                {
+                    "codepoint": "U+1D50B",
+                    "input": "𝔋",
+                    "table": "H",
+                    "strict": "H",
+                    "native": "𝔋"
+                },
+                {
+                    "codepoint": "U+1D50C",
+                    "input": "𝔌",
+                    "table": "I",
+                    "strict": "I",
+                    "native": "𝔌"
+                }
+            ]
+        },
+        "x1d6.php": {
+            "keys": 256,
+            "table_vs_native": 90,
+            "strict_vs_table": 88,
+            "examples": [
+                {
+                    "codepoint": "U+1D6A6",
+                    "input": "𝚦",
+                    "table": "",
+                    "strict": "",
+                    "native": "𝚦"
+                },
+                {
+                    "codepoint": "U+1D6A7",
+                    "input": "𝚧",
+                    "table": "",
+                    "strict": "",
+                    "native": "𝚧"
+                },
+                {
+                    "codepoint": "U+1D6A8",
+                    "input": "𝚨",
+                    "table": "Alpha",
+                    "strict": "A",
+                    "native": "A"
+                }
+            ]
+        },
+        "x1d7.php": {
+            "keys": 256,
+            "table_vs_native": 206,
+            "strict_vs_table": 204,
+            "examples": [
+                {
+                    "codepoint": "U+1D700",
+                    "input": "𝜀",
+                    "table": "",
+                    "strict": "e",
+                    "native": "e"
+                },
+                {
+                    "codepoint": "U+1D701",
+                    "input": "𝜁",
+                    "table": "",
+                    "strict": "z",
+                    "native": "z"
+                },
+                {
+                    "codepoint": "U+1D702",
+                    "input": "𝜂",
+                    "table": "",
+                    "strict": "e",
+                    "native": "e"
+                }
+            ]
+        },
+        "x1f1.php": {
+            "keys": 146,
+            "table_vs_native": 83,
+            "strict_vs_table": 0,
+            "examples": [
+                {
+                    "codepoint": "U+1F10B",
+                    "input": "🄋",
+                    "table": "",
+                    "strict": "",
+                    "native": "🄋"
+                },
+                {
+                    "codepoint": "U+1F10C",
+                    "input": "🄌",
+                    "table": "",
+                    "strict": "",
+                    "native": "🄌"
+                },
+                {
+                    "codepoint": "U+1F10D",
+                    "input": "🄍",
+                    "table": "",
+                    "strict": "",
+                    "native": "🄍"
+                }
+            ]
+        }
+    },
+    "languages": {
+        "nl": {
+            "keys": 43,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "it": {
+            "keys": 12,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "mk": {
+            "keys": 62,
+            "to_ascii_vs_native": 18,
+            "to_slugify_vs_native_slug": 18
+        },
+        "pt": {
+            "keys": 159,
+            "to_ascii_vs_native": 9,
+            "to_slugify_vs_native_slug": 6
+        },
+        "el__greeklish": {
+            "keys": 111,
+            "to_ascii_vs_native": 20,
+            "to_slugify_vs_native_slug": 16
+        },
+        "el": {
+            "keys": 111,
+            "to_ascii_vs_native": 45,
+            "to_slugify_vs_native_slug": 43
+        },
+        "hi": {
+            "keys": 64,
+            "to_ascii_vs_native": 58,
+            "to_slugify_vs_native_slug": 35
+        },
+        "hy": {
+            "keys": 77,
+            "to_ascii_vs_native": 31,
+            "to_slugify_vs_native_slug": 29
+        },
+        "sv": {
+            "keys": 6,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "tk": {
+            "keys": 16,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "tr": {
+            "keys": 20,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "bg": {
+            "keys": 61,
+            "to_ascii_vs_native": 19,
+            "to_slugify_vs_native_slug": 17
+        },
+        "hu": {
+            "keys": 20,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "my": {
+            "keys": 114,
+            "to_ascii_vs_native": 76,
+            "to_slugify_vs_native_slug": 74
+        },
+        "hr": {
+            "keys": 24,
+            "to_ascii_vs_native": 2,
+            "to_slugify_vs_native_slug": 2
+        },
+        "fi": {
+            "keys": 4,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "ka": {
+            "keys": 33,
+            "to_ascii_vs_native": 8,
+            "to_slugify_vs_native_slug": 3
+        },
+        "ru": {
+            "keys": 66,
+            "to_ascii_vs_native": 22,
+            "to_slugify_vs_native_slug": 18
+        },
+        "ru__gost_2000_b": {
+            "keys": 98,
+            "to_ascii_vs_native": 59,
+            "to_slugify_vs_native_slug": 50
+        },
+        "ru__passport_2013": {
+            "keys": 98,
+            "to_ascii_vs_native": 55,
+            "to_slugify_vs_native_slug": 52
+        },
+        "uk": {
+            "keys": 24,
+            "to_ascii_vs_native": 20,
+            "to_slugify_vs_native_slug": 20
+        },
+        "kk": {
+            "keys": 16,
+            "to_ascii_vs_native": 4,
+            "to_slugify_vs_native_slug": 4
+        },
+        "cs": {
+            "keys": 30,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "da": {
+            "keys": 8,
+            "to_ascii_vs_native": 5,
+            "to_slugify_vs_native_slug": 4
+        },
+        "pl": {
+            "keys": 18,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "ro": {
+            "keys": 14,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "eo": {
+            "keys": 12,
+            "to_ascii_vs_native": 12,
+            "to_slugify_vs_native_slug": 12
+        },
+        "et": {
+            "keys": 12,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "lv": {
+            "keys": 22,
+            "to_ascii_vs_native": 3,
+            "to_slugify_vs_native_slug": 0
+        },
+        "lt": {
+            "keys": 18,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "no": {
+            "keys": 6,
+            "to_ascii_vs_native": 4,
+            "to_slugify_vs_native_slug": 4
+        },
+        "vi": {
+            "keys": 134,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "fa": {
+            "keys": 44,
+            "to_ascii_vs_native": 6,
+            "to_slugify_vs_native_slug": 6
+        },
+        "ar": {
+            "keys": 44,
+            "to_ascii_vs_native": 8,
+            "to_slugify_vs_native_slug": 8
+        },
+        "sr": {
+            "keys": 70,
+            "to_ascii_vs_native": 11,
+            "to_slugify_vs_native_slug": 10
+        },
+        "sr__cyr": {
+            "keys": 60,
+            "to_ascii_vs_native": 9,
+            "to_slugify_vs_native_slug": 8
+        },
+        "sr__lat": {
+            "keys": 10,
+            "to_ascii_vs_native": 2,
+            "to_slugify_vs_native_slug": 2
+        },
+        "az": {
+            "keys": 14,
+            "to_ascii_vs_native": 2,
+            "to_slugify_vs_native_slug": 0
+        },
+        "sk": {
+            "keys": 34,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "fr": {
+            "keys": 36,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "fr_at": {
+            "keys": 38,
+            "to_ascii_vs_native": 2,
+            "to_slugify_vs_native_slug": 2
+        },
+        "fr_ch": {
+            "keys": 38,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "de": {
+            "keys": 14,
+            "to_ascii_vs_native": 12,
+            "to_slugify_vs_native_slug": 12
+        },
+        "de_at": {
+            "keys": 8,
+            "to_ascii_vs_native": 8,
+            "to_slugify_vs_native_slug": 8
+        },
+        "de_ch": {
+            "keys": 8,
+            "to_ascii_vs_native": 6,
+            "to_slugify_vs_native_slug": 6
+        },
+        "bn": {
+            "keys": 227,
+            "to_ascii_vs_native": 212,
+            "to_slugify_vs_native_slug": 206
+        },
+        "en": {
+            "keys": 0,
+            "to_ascii_vs_native": 0,
+            "to_slugify_vs_native_slug": 0
+        },
+        "latin": {
+            "keys": 552,
+            "to_ascii_vs_native": 71,
+            "to_slugify_vs_native_slug": 27
+        },
+        " ": {
+            "keys": 20,
+            "to_ascii_vs_native": 5,
+            "to_slugify_vs_native_slug": 0
+        },
+        "msword": {
+            "keys": 15,
+            "to_ascii_vs_native": 4,
+            "to_slugify_vs_native_slug": 0
+        },
+        "currency_short": {
+            "keys": 45,
+            "to_ascii_vs_native": 36,
+            "to_slugify_vs_native_slug": 8
+        }
+    },
+    "invalid_codepoints_skipped": 0,
+    "sha256": "9188210fd0b3aec1e9ff03a959ec5c5c5fc4e75238ce7984aef152d26beb24ed"
+}
