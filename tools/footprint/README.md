@@ -40,7 +40,8 @@ locked Git commits; TLS, artifact hashes, and verification are not disabled. Loc
 Their file URLs refer to the measured local archives; generate those with `measure.py` at the
 recorded output path or regenerate the harness at a new path. Do not publish these manifests.
 Source URLs reference actual checkout commits. Source measurements include `.git` and tests.
-The complete vendor closure is measured, not just mapping files.
+The complete vendor closure is measured, not just mapping files. Every installed mapping
+array in all eight Dist/Source consumers is verified against its immutable baseline hash.
 
 `verify.py` compares before/after roots in separate PHP processes in the active extension
 profile. `contract.php` captures outputs, warning levels/messages and exception types/messages;

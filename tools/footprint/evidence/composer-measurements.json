@@ -13,7 +13,7 @@
         "portable-utf8": "28cb685c22cd829aba819406295c0763204c5c09"
       },
       "vendor": {
-        "logical_bytes": 601631,
+        "logical_bytes": 601634,
         "allocated_bytes": 1077248,
         "files": 214
       },
@@ -40,9 +40,9 @@
         "portable-utf8": "28cb685c22cd829aba819406295c0763204c5c09"
       },
       "vendor": {
-        "logical_bytes": 2475320,
-        "allocated_bytes": 3964928,
-        "files": 503
+        "logical_bytes": 2482902,
+        "allocated_bytes": 4009984,
+        "files": 513
       },
       "packages": {
         "voku/portable-ascii": {
@@ -52,9 +52,9 @@
         }
       },
       "library": {
-        "logical_bytes": 2434722,
-        "allocated_bytes": 3887104,
-        "files": 491
+        "logical_bytes": 2442301,
+        "allocated_bytes": 3932160,
+        "files": 501
       },
       "library_zip_bytes": 166582
     },
@@ -67,7 +67,7 @@
         "portable-utf8": "28cb685c22cd829aba819406295c0763204c5c09"
       },
       "vendor": {
-        "logical_bytes": 3535169,
+        "logical_bytes": 3535175,
         "allocated_bytes": 4186112,
         "files": 330
       },
@@ -124,9 +124,9 @@
         "portable-utf8": "28cb685c22cd829aba819406295c0763204c5c09"
       },
       "vendor": {
-        "logical_bytes": 31348412,
-        "allocated_bytes": 34078720,
-        "files": 977
+        "logical_bytes": 31361506,
+        "allocated_bytes": 34152448,
+        "files": 994
       },
       "packages": {
         "symfony/polyfill-iconv": {
@@ -166,9 +166,9 @@
         }
       },
       "library": {
-        "logical_bytes": 25270104,
-        "allocated_bytes": 25903104,
-        "files": 222
+        "logical_bytes": 25275613,
+        "allocated_bytes": 25931776,
+        "files": 229
       },
       "library_zip_bytes": 167787
     },
@@ -177,65 +177,65 @@
       "target": "ascii",
       "preference": "dist",
       "refs": {
-        "portable-ascii": "5133a6643e28f71770338a9c3e32fe31d24d55e7",
-        "portable-utf8": "796f90934ee8be1d87a4fd4d4e899127ad7fb0ab"
+        "portable-ascii": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+        "portable-utf8": "4303a126130782bef38ce9cb1b69b492b9b9f605"
       },
       "vendor": {
-        "logical_bytes": 455690,
+        "logical_bytes": 455726,
         "allocated_bytes": 1077248,
         "files": 214
       },
       "packages": {
         "voku/portable-ascii": {
           "version": "2.1.99",
-          "reference": "5133a6643e28f71770338a9c3e32fe31d24d55e7",
+          "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
           "installation_source": "dist"
         }
       },
       "library": {
-        "logical_bytes": 415095,
+        "logical_bytes": 415128,
         "allocated_bytes": 999424,
         "files": 202
       },
-      "library_zip_bytes": 162770
+      "library_zip_bytes": 162780
     },
     {
       "phase": "after",
       "target": "ascii",
       "preference": "source",
       "refs": {
-        "portable-ascii": "5133a6643e28f71770338a9c3e32fe31d24d55e7",
-        "portable-utf8": "796f90934ee8be1d87a4fd4d4e899127ad7fb0ab"
+        "portable-ascii": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+        "portable-utf8": "4303a126130782bef38ce9cb1b69b492b9b9f605"
       },
       "vendor": {
-        "logical_bytes": 2364289,
-        "allocated_bytes": 4009984,
-        "files": 508
+        "logical_bytes": 2372132,
+        "allocated_bytes": 4055040,
+        "files": 518
       },
       "packages": {
         "voku/portable-ascii": {
           "version": "2.1.99",
-          "reference": "5133a6643e28f71770338a9c3e32fe31d24d55e7",
+          "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
           "installation_source": "source"
         }
       },
       "library": {
-        "logical_bytes": 2323692,
-        "allocated_bytes": 3932160,
-        "files": 496
+        "logical_bytes": 2331532,
+        "allocated_bytes": 3977216,
+        "files": 506
       },
-      "library_zip_bytes": 162770
+      "library_zip_bytes": 162780
     },
     {
       "phase": "after",
       "target": "utf8",
       "preference": "dist",
       "refs": {
-        "portable-ascii": "5133a6643e28f71770338a9c3e32fe31d24d55e7",
-        "portable-utf8": "796f90934ee8be1d87a4fd4d4e899127ad7fb0ab"
+        "portable-ascii": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+        "portable-utf8": "4303a126130782bef38ce9cb1b69b492b9b9f605"
       },
       "vendor": {
-        "logical_bytes": 3299640,
+        "logical_bytes": 3299679,
         "allocated_bytes": 4100096,
         "files": 330
       },
@@ -267,12 +267,12 @@
         },
         "voku/portable-ascii": {
           "version": "2.1.99",
-          "reference": "5133a6643e28f71770338a9c3e32fe31d24d55e7",
+          "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
           "installation_source": "dist"
         },
         "voku/portable-utf8": {
           "version": "6.1.99",
-          "reference": "796f90934ee8be1d87a4fd4d4e899127ad7fb0ab",
+          "reference": "4303a126130782bef38ce9cb1b69b492b9b9f605",
           "installation_source": "dist"
         }
       },
@@ -288,13 +288,13 @@
       "target": "utf8",
       "preference": "source",
       "refs": {
-        "portable-ascii": "5133a6643e28f71770338a9c3e32fe31d24d55e7",
-        "portable-utf8": "796f90934ee8be1d87a4fd4d4e899127ad7fb0ab"
+        "portable-ascii": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+        "portable-utf8": "4303a126130782bef38ce9cb1b69b492b9b9f605"
       },
       "vendor": {
-        "logical_bytes": 31157515,
-        "allocated_bytes": 34058240,
-        "files": 987
+        "logical_bytes": 31170919,
+        "allocated_bytes": 34131968,
+        "files": 1004
       },
       "packages": {
         "symfony/polyfill-iconv": {
@@ -324,19 +324,19 @@
         },
         "voku/portable-ascii": {
           "version": "2.1.99",
-          "reference": "5133a6643e28f71770338a9c3e32fe31d24d55e7",
+          "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
           "installation_source": "source"
         },
         "voku/portable-utf8": {
           "version": "6.1.99",
-          "reference": "796f90934ee8be1d87a4fd4d4e899127ad7fb0ab",
+          "reference": "4303a126130782bef38ce9cb1b69b492b9b9f605",
           "installation_source": "source"
         }
       },
       "library": {
-        "logical_bytes": 25190239,
-        "allocated_bytes": 25837568,
-        "files": 227
+        "logical_bytes": 25195797,
+        "allocated_bytes": 25866240,
+        "files": 234
       },
       "library_zip_bytes": 164362
     }

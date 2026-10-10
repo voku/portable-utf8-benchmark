@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f0a8d7b5bdaf616586b3d5b369006a3",
+    "content-hash": "f585f1033b77a6ffd1eb5ef4af78e39b",
     "packages": [
         {
             "name": "voku/portable-ascii",
@@ -16,7 +16,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "file:///workspace/shared/mapping-footprint/consumers-final/portable-ascii-before.zip",
+                "url": "file:///workspace/shared/mapping-footprint/consumers-verified/portable-ascii-before.zip",
                 "reference": "180a8d12055eb350859b628c64066a90a895bd10"
             },
             "require": {

@@ -28,7 +28,7 @@ Composer plugin, synthetic production requirement, or new remote repository was 
 
 | Library | master baseline | published stable | measured runtime candidate |
 | --- | --- | --- | --- |
-| ASCII | `180a8d12055eb350859b628c64066a90a895bd10` | 2.1.1, `8e1051fe39379367aecf014f41744ce7539a856f` | `5133a66` (full SHA in Composer evidence) |
+| ASCII | `180a8d12055eb350859b628c64066a90a895bd10` | 2.1.1, `8e1051fe39379367aecf014f41744ce7539a856f` | `e73c78c` (full SHA in Composer evidence) |
 | UTF8 | `28cb685c22cd829aba819406295c0763204c5c09` | 6.1.1, `837e32cd4b166320cc3e70e3ffe1ba413e81ee46` | `796f909` (full SHA in Composer evidence) |
 
 Evidence/documentation commits follow these runtime candidates. Their build/test files are
@@ -45,17 +45,17 @@ they are not used as a substitute for Dist measurements. File count does not cou
 
 | Consumer / method | Before logical | After logical | Delta | Before allocated | After allocated | Files before → after |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| ASCII / Dist | 601,631 | 455,690 | −145,941 (−24.26%) | 1,077,248 | 1,077,248 | 214 → 214 |
-| UTF8 full closure / Dist | 3,535,169 | 3,299,640 | −235,529 (−6.66%) | 4,186,112 | 4,100,096 | 330 → 330 |
-| ASCII / Source | 2,475,320 | 2,364,289 | −111,031 (−4.49%) | 3,964,928 | 4,009,984 | 503 → 508 |
-| UTF8 full closure / Source | 31,348,412 | 31,157,515 | −190,897 (−0.61%) | 34,078,720 | 34,058,240 | 977 → 987 |
+| ASCII / Dist | 601,634 | 455,726 | −145,908 (−24.25%) | 1,077,248 | 1,077,248 | 214 → 214 |
+| UTF8 full closure / Dist | 3,535,175 | 3,299,679 | −235,496 (−6.66%) | 4,186,112 | 4,100,096 | 330 → 330 |
+| ASCII / Source | 2,482,902 | 2,372,132 | −110,770 (−4.46%) | 4,009,984 | 4,055,040 | 513 → 518 |
+| UTF8 full closure / Source | 31,361,506 | 31,170,919 | −190,587 (−0.61%) | 34,152,448 | 34,131,968 | 994 → 1004 |
 
 The allocated ASCII footprint does **not** improve: many per-bank files already consume one
 filesystem block. The full UTF8 Dist closure saves 86,016 allocated bytes (2.05%). Source file
 counts/allocated size can rise because characterization tests and Git history are retained.
 Do not advertise those as physical source-checkout savings.
 
-ASCII package ZIP: 166,582 → 162,770 bytes (−3,812).
+ASCII package ZIP: 166,582 → 162,780 bytes (−3,802).
 UTF8 package ZIP: 167,787 → 164,362 bytes (−3,425).
 These are local deterministic Git-export ZIP measurements, not observed CDN transfer sizes.
 ZIP compression already removes much of the PHP textual redundancy; logical installed-byte
@@ -70,9 +70,9 @@ the significance using all four size dimensions and the runtime trade-offs.
 
 | Option | Evidence | Decision |
 | --- | --- | --- |
-| In-place representation | Full UTF8 Dist closure saves 235,529 logical / 86,016 allocated bytes; exact mappings and all 8 extension profiles match | Selected candidate |
+| In-place representation | Full UTF8 Dist closure saves 235,496 logical / 86,016 allocated bytes; exact mappings and all 8 extension profiles match | Selected candidate |
 | Replace banks with native ICU | ICU 76.1: 48,248 keys in 189 banks, 37,654 raw-ICU/table mismatches and 29,370 strict/table mismatches; 51 language maps also examined | NO-GO; retain strict/native and non-strict/table policies |
-| Mandatory ASCII + emoji mapping packages | Actual Composer Dist prototype: 3,299,640 → 3,301,201 logical bytes, 4,100,096 → 4,116,480 allocated bytes, 330 → 332 files | NO-GO; moves 315,421 mapping bytes and adds overhead |
+| Mandatory ASCII + emoji mapping packages | Actual Composer Dist prototype: 3,299,679 → 3,301,246 logical bytes, 4,100,096 → 4,116,480 allocated bytes, 330 → 332 files | NO-GO; moves 315,454 mapping bytes and adds overhead |
 | Optional slim/core alternative | Would remove existing guaranteed full-package functionality; not a compatible install mode for the current API | Not selected; needs separate support contract and project approval |
 
 The split prototype installs required children and verifies consumer transliteration/emoji
@@ -84,7 +84,8 @@ Missing extensions still require complete table/emoji functionality.
 ## Compatibility and runtime evidence
 
 All 193 ASCII data files and all 8 UTF8 files match their baseline serialized-array SHA256,
-including key types, order, empty values, sparse keys, and unknown markers. Generators have a
+including key types, order, empty values, sparse keys, and unknown markers. Installed Dist and Source mappings are also checked exhaustively against those hashes,
+including literal line breaks escaped to prevent Git/editor newline conversion. Generators have a
 non-mutating check mode and are idempotent after generation. Public reflection signatures
 also match the published stable releases; no public method was added, removed or changed.
 

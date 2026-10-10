@@ -83,6 +83,10 @@ for phase in ['before', 'after']:
                 smoke += '''if (\\voku\\helper\\UTF8::chr(0x2603) !== '☃' || \\voku\\helper\\UTF8::ord('☃') !== 0x2603 || \\voku\\helper\\UTF8::emoji_decode('CHARACTER_OGRE') !== '👹') {exit(2);}'''
             subprocess.run([args.php, '-r', smoke], cwd=consumer, check=True)
             installed = json.loads((consumer / 'vendor/composer/installed.json').read_text())['packages']
+            # Verify the installed archives/checkouts, not only working-tree arrays.
+            mapping_check = """$expected = json_decode(file_get_contents($argv[2]), true); foreach ($expected as $name => $contract) { $file = $argv[1] . '/' . $name; if (!is_file($file)) {fwrite(STDERR, 'Missing mapping: ' . $name); exit(3);} $map = include $file; if (hash('sha256', serialize($map)) !== $contract['sha256']) {fwrite(STDERR, 'Installed mapping mismatch: ' . $name); exit(4);} }"""
+            for name in ['portable-ascii'] + (['portable-utf8'] if target == 'utf8' else []):
+                subprocess.run([args.php, '-r', mapping_check, str(consumer / 'vendor/voku' / name / 'src/voku/helper/data'), str(base / name / 'tests/fixtures/mapping-contract.json')], check=True)
             methods = {p['name']: p.get('installation-source') for p in installed}
             if any(method != preference for method in methods.values()):
                 raise RuntimeError(f'Requested {preference}, actual methods: {methods}')

@@ -1,11 +1,11 @@
 {
   "candidate_vendor": {
-    "logical_bytes": 3299640,
+    "logical_bytes": 3299679,
     "allocated_bytes": 4100096,
     "files": 330
   },
   "mandatory_split_vendor": {
-    "logical_bytes": 3301201,
+    "logical_bytes": 3301246,
     "allocated_bytes": 4116480,
     "files": 332
   },

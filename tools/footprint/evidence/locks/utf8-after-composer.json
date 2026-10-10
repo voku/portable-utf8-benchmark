@@ -20,13 +20,13 @@
           "version": "2.1.99",
           "dist": {
             "type": "zip",
-            "url": "file:///workspace/shared/mapping-footprint/consumers-final/portable-ascii-after.zip",
-            "reference": "5133a6643e28f71770338a9c3e32fe31d24d55e7"
+            "url": "file:///workspace/shared/mapping-footprint/consumers-verified/portable-ascii-after.zip",
+            "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886"
           },
           "source": {
             "type": "git",
             "url": "/workspace/portable-ascii",
-            "reference": "5133a6643e28f71770338a9c3e32fe31d24d55e7"
+            "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886"
           }
         },
         {
@@ -51,13 +51,13 @@
           "version": "6.1.99",
           "dist": {
             "type": "zip",
-            "url": "file:///workspace/shared/mapping-footprint/consumers-final/portable-utf8-after.zip",
-            "reference": "796f90934ee8be1d87a4fd4d4e899127ad7fb0ab"
+            "url": "file:///workspace/shared/mapping-footprint/consumers-verified/portable-utf8-after.zip",
+            "reference": "4303a126130782bef38ce9cb1b69b492b9b9f605"
           },
           "source": {
             "type": "git",
             "url": "/workspace/portable-utf8",
-            "reference": "796f90934ee8be1d87a4fd4d4e899127ad7fb0ab"
+            "reference": "4303a126130782bef38ce9cb1b69b492b9b9f605"
           }
         },
         {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b4e339426b3b37b9356281474e6d4cc",
+    "content-hash": "4de27af5d1ef644ef6a60e4294108b22",
     "packages": [
         {
             "name": "symfony/polyfill-iconv",
@@ -147,7 +147,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "file:///workspace/shared/mapping-footprint/consumers-final/portable-ascii-before.zip",
+                "url": "file:///workspace/shared/mapping-footprint/consumers-verified/portable-ascii-before.zip",
                 "reference": "180a8d12055eb350859b628c64066a90a895bd10"
             },
             "require": {
@@ -170,7 +170,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "file:///workspace/shared/mapping-footprint/consumers-final/portable-utf8-before.zip",
+                "url": "file:///workspace/shared/mapping-footprint/consumers-verified/portable-utf8-before.zip",
                 "reference": "28cb685c22cd829aba819406295c0763204c5c09"
             },
             "require": {
