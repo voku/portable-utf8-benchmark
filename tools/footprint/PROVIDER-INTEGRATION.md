@@ -86,6 +86,36 @@ metadata can change logical counts slightly. Original mappings remain identical.
 installation is larger; the optional footprint saving is real and conditional on consumers
 accepting reduced functionality. No uniform CPU improvement is claimed for extraction.
 
+## Registered Packagist experiment
+
+[Packagist coordinator CI](https://github.com/voku/portable-utf8-benchmark/actions/runs/38119228774)
+passed all 13 jobs at runtime commit `6f59987`, including all four PHP registry matrices.
+Each registry matrix compares 151,496 full-corpus scenarios and 640 opt-out path probes
+across eight extension profiles, plus all four modes’ lock/reinstall checks.
+
+The subsequent registry experiment uses the same reviewed code, with data metadata and
+Dist URLs supplied by Packagist. PHP 8.4 remote production-closure measurements:
+
+| Installation | Logical bytes | Allocated bytes | Files | Logical saving vs in-place |
+| --- | ---: | ---: | ---: | ---: |
+| In-place baseline | 3,300,497 | 4,100,096 | 330 | — |
+| Full split | 3,354,204 | 4,198,400 | 345 | −53,707 |
+| Omit emoji | 3,228,291 | 4,046,848 | 337 | 72,206 |
+| Omit banks | 3,118,901 | 3,391,488 | 150 | 181,596 |
+| Omit both | 2,992,946 | 3,248,128 | 142 | 307,551 |
+
+The both-omitted saving is 851,968 allocated bytes and 188 files against in-place. Small
+logical differences from the previous fixture registry reflect actual installed metadata.
+Full installation remains larger. Public full/slim examples install successfully and all
+40 fresh-process path comparisons pass under the same local PHP profile. Their resolved
+locks and outputs are retained in [evidence/packagist](evidence/packagist).
+
+The corrected older scratch spike removes a duplicate inherited core alias that could
+bypass its provider requirement. Its future-version rejection now checks dependency
+resolution before installation and verifies the intended contract diagnostic. This
+supersedes the previous scratch spike's version-guard claim; real repository and Packagist
+modes already replaced the duplicate core metadata.
+
 ## Try the development branches through Packagist, without tags
 
 Use [examples/providers-full.composer.json](examples/providers-full.composer.json) for full

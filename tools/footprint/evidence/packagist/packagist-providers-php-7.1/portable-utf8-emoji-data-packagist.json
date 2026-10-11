@@ -1,0 +1,65 @@
+{
+  "minified": "composer/2.0",
+  "packages": {
+    "voku/portable-utf8-emoji-data": [
+      {
+        "name": "voku/portable-utf8-emoji-data",
+        "description": "Ordered emoji mappings for portable-utf8.",
+        "keywords": [],
+        "homepage": "https://github.com/voku/portable-utf8-emoji-data",
+        "version": "dev-main",
+        "version_normalized": "dev-main",
+        "license": [
+          "(Apache-2.0 OR GPL-2.0-only)"
+        ],
+        "authors": [
+          {
+            "name": "Nicolas Grekas",
+            "email": "p@tchwork.com"
+          },
+          {
+            "name": "Hamid Sarfraz",
+            "homepage": "http://pageconfig.com/"
+          },
+          {
+            "name": "Lars Moelleken",
+            "homepage": "http://www.moelleken.org/"
+          }
+        ],
+        "source": {
+          "url": "https://github.com/voku/portable-utf8-emoji-data.git",
+          "type": "git",
+          "reference": "74c440f6dcaeda3daa9fbef9cd513619d3c4aeae"
+        },
+        "dist": {
+          "url": "https://api.github.com/repos/voku/portable-utf8-emoji-data/zipball/74c440f6dcaeda3daa9fbef9cd513619d3c4aeae",
+          "type": "zip",
+          "shasum": "",
+          "reference": "74c440f6dcaeda3daa9fbef9cd513619d3c4aeae"
+        },
+        "type": "library",
+        "support": {
+          "issues": "https://github.com/voku/portable-utf8-emoji-data/issues",
+          "source": "https://github.com/voku/portable-utf8-emoji-data"
+        },
+        "funding": [],
+        "time": "2026-10-11T00:41:39+00:00",
+        "published-time": "2026-10-11T06:26:40+00:00",
+        "autoload": {
+          "psr-4": {
+            "Voku\\PortableUtf8EmojiData\\": "src/"
+          }
+        },
+        "extra": {
+          "branch-alias": {
+            "dev-main": "1.0.x-dev"
+          }
+        },
+        "default-branch": true,
+        "require": {
+          "php": ">=7.1.0"
+        }
+      }
+    ]
+  }
+}

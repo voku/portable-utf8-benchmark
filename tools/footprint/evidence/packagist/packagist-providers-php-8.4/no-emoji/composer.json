@@ -1,0 +1,232 @@
+{
+  "name": "footprint/consumer",
+  "require": {
+    "voku/portable-utf8": "6.1.99",
+    "voku/portable-ascii-mapping-data": "dev-main#3a5ae61a58e31cbad24f7014070e724bf38682fe as 1.0.0"
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": [
+        {
+          "name": "symfony/polyfill-iconv",
+          "version": "v1.43.0",
+          "require": {
+            "php": ">=7.2"
+          },
+          "autoload": {
+            "files": [
+              "bootstrap.php"
+            ],
+            "psr-4": {
+              "Symfony\\Polyfill\\Iconv\\": ""
+            }
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://codeload.github.com/symfony/polyfill-iconv/legacy.zip/254724d95fe01b679cd97d88786e9623ee00bfb7",
+            "reference": "254724d95fe01b679cd97d88786e9623ee00bfb7",
+            "shasum": ""
+          },
+          "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-iconv.git",
+            "reference": "254724d95fe01b679cd97d88786e9623ee00bfb7"
+          }
+        },
+        {
+          "name": "symfony/polyfill-intl-grapheme",
+          "version": "v1.43.0",
+          "require": {
+            "php": ">=7.2"
+          },
+          "autoload": {
+            "files": [
+              "bootstrap.php"
+            ],
+            "psr-4": {
+              "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+            }
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://codeload.github.com/symfony/polyfill-intl-grapheme/legacy.zip/5cac8f4db97208823aa353f59a01faad2da52c75",
+            "reference": "5cac8f4db97208823aa353f59a01faad2da52c75",
+            "shasum": ""
+          },
+          "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
+            "reference": "5cac8f4db97208823aa353f59a01faad2da52c75"
+          }
+        },
+        {
+          "name": "symfony/polyfill-intl-normalizer",
+          "version": "v1.43.0",
+          "require": {
+            "php": ">=7.2"
+          },
+          "autoload": {
+            "files": [
+              "bootstrap.php"
+            ],
+            "psr-4": {
+              "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+            },
+            "classmap": [
+              "Resources/stubs"
+            ]
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://codeload.github.com/symfony/polyfill-intl-normalizer/legacy.zip/ebd57ccc7edb93d632e184efbe7693d2517bab3b",
+            "reference": "ebd57ccc7edb93d632e184efbe7693d2517bab3b",
+            "shasum": ""
+          },
+          "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
+            "reference": "ebd57ccc7edb93d632e184efbe7693d2517bab3b"
+          }
+        },
+        {
+          "name": "symfony/polyfill-mbstring",
+          "version": "v1.43.0",
+          "require": {
+            "ext-iconv": "*",
+            "php": ">=7.2"
+          },
+          "autoload": {
+            "files": [
+              "bootstrap.php"
+            ],
+            "psr-4": {
+              "Symfony\\Polyfill\\Mbstring\\": ""
+            }
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://codeload.github.com/symfony/polyfill-mbstring/legacy.zip/4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
+            "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
+            "shasum": ""
+          },
+          "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-mbstring.git",
+            "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72"
+          }
+        },
+        {
+          "name": "symfony/polyfill-php72",
+          "version": "v1.31.0",
+          "require": {
+            "php": ">=7.2"
+          },
+          "dist": {
+            "type": "zip",
+            "url": "https://codeload.github.com/symfony/polyfill-php72/legacy.zip/fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce",
+            "reference": "fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce",
+            "shasum": ""
+          },
+          "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-php72.git",
+            "reference": "fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce"
+          }
+        },
+        {
+          "name": "voku/portable-ascii",
+          "description": "Portable ASCII library - performance optimized (ascii) string functions for php.",
+          "type": "library",
+          "license": "MIT",
+          "authors": [
+            {
+              "name": "Lars Moelleken",
+              "homepage": "https://www.moelleken.org/"
+            }
+          ],
+          "require": {
+            "php": ">=7.1.0",
+            "voku/portable-ascii-mapping-data": "^1.0"
+          },
+          "autoload": {
+            "psr-4": {
+              "voku\\": "src/voku/"
+            }
+          },
+          "homepage": "https://github.com/voku/portable-ascii",
+          "version": "2.1.99",
+          "dist": {
+            "type": "zip",
+            "url": "file:///home/runner/work/_temp/packagist-integration/portable-ascii.zip",
+            "reference": "e6eaa3caeb3663d2dfe7bb8f72a48c9de3907bee",
+            "shasum": "611d9feafec3d7a98cfbfcb90289ae9c538454d3"
+          },
+          "source": {
+            "type": "git",
+            "url": "https://github.com/voku/portable-ascii.git",
+            "reference": "e6eaa3caeb3663d2dfe7bb8f72a48c9de3907bee"
+          }
+        },
+        {
+          "name": "voku/portable-utf8",
+          "description": "Portable UTF-8 library - performance optimized (unicode) string functions for php.",
+          "type": "library",
+          "license": "(Apache-2.0 or GPL-2.0)",
+          "authors": [
+            {
+              "name": "Nicolas Grekas",
+              "email": "p@tchwork.com"
+            },
+            {
+              "name": "Hamid Sarfraz",
+              "homepage": "http://pageconfig.com/"
+            },
+            {
+              "name": "Lars Moelleken",
+              "homepage": "http://www.moelleken.org/"
+            }
+          ],
+          "require": {
+            "php": ">=7.1.0",
+            "symfony/polyfill-php72": "~1.0",
+            "symfony/polyfill-iconv": "~1.0",
+            "symfony/polyfill-intl-grapheme": "~1.0",
+            "symfony/polyfill-intl-normalizer": "~1.0",
+            "symfony/polyfill-mbstring": "~1.0",
+            "voku/portable-ascii": "~2.1.0",
+            "voku/portable-utf8-emoji-data": "^1.0"
+          },
+          "autoload": {
+            "psr-4": {
+              "voku\\": "src/voku/"
+            },
+            "files": [
+              "bootstrap.php"
+            ]
+          },
+          "homepage": "https://github.com/voku/portable-utf8",
+          "version": "6.1.99",
+          "dist": {
+            "type": "zip",
+            "url": "file:///home/runner/work/_temp/packagist-integration/portable-utf8.zip",
+            "reference": "819c7eb57c28bd1e05dddb2b2377dd22f1a2660e",
+            "shasum": "912e37afbd221d11beea2ea5e28a91ef00cd2ad3"
+          },
+          "source": {
+            "type": "git",
+            "url": "https://github.com/voku/portable-utf8.git",
+            "reference": "819c7eb57c28bd1e05dddb2b2377dd22f1a2660e"
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "allow-plugins": false,
+    "autoloader-suffix": "fa54bba35187cb9d624996658d0cf05a"
+  },
+  "replace": {
+    "voku/portable-utf8-emoji-data": "1.0.0"
+  }
+}

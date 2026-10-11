@@ -1,0 +1,57 @@
+{
+  "minified": "composer/2.0",
+  "packages": {
+    "voku/portable-ascii-mapping-data": [
+      {
+        "name": "voku/portable-ascii-mapping-data",
+        "description": "Lazy Unicode transliteration banks for portable-ascii.",
+        "keywords": [],
+        "homepage": "https://github.com/voku/portable-ascii-mapping-data",
+        "version": "dev-main",
+        "version_normalized": "dev-main",
+        "license": [
+          "MIT"
+        ],
+        "authors": [
+          {
+            "name": "Lars Moelleken",
+            "homepage": "https://www.moelleken.org/"
+          }
+        ],
+        "source": {
+          "url": "https://github.com/voku/portable-ascii-mapping-data.git",
+          "type": "git",
+          "reference": "3a5ae61a58e31cbad24f7014070e724bf38682fe"
+        },
+        "dist": {
+          "url": "https://api.github.com/repos/voku/portable-ascii-mapping-data/zipball/3a5ae61a58e31cbad24f7014070e724bf38682fe",
+          "type": "zip",
+          "shasum": "",
+          "reference": "3a5ae61a58e31cbad24f7014070e724bf38682fe"
+        },
+        "type": "library",
+        "support": {
+          "issues": "https://github.com/voku/portable-ascii-mapping-data/issues",
+          "source": "https://github.com/voku/portable-ascii-mapping-data"
+        },
+        "funding": [],
+        "time": "2026-10-11T00:41:39+00:00",
+        "published-time": "2026-10-11T06:26:32+00:00",
+        "autoload": {
+          "psr-4": {
+            "Voku\\PortableAsciiMappingData\\": "src/"
+          }
+        },
+        "extra": {
+          "branch-alias": {
+            "dev-main": "1.0.x-dev"
+          }
+        },
+        "default-branch": true,
+        "require": {
+          "php": ">=7.1.0"
+        }
+      }
+    ]
+  }
+}
