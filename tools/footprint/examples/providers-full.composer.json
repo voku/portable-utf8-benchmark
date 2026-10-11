@@ -1,8 +1,8 @@
 {
   "name": "footprint/vcs-consumer",
   "require": {
-    "voku/portable-ascii": "dev-mapping-footprint/providers#e6eaa3caeb3663d2dfe7bb8f72a48c9de3907bee as 2.1.99",
-    "voku/portable-utf8": "dev-mapping-footprint/providers#819c7eb57c28bd1e05dddb2b2377dd22f1a2660e as 6.1.99",
+    "voku/portable-ascii": "dev-mapping-footprint/providers#4c5654a8f4bbb3c8fe0269dab15f91c3cd8a365e as 2.1.99",
+    "voku/portable-utf8": "dev-mapping-footprint/providers#ab71d32e38c1e29929b5cab2d80d44a2a6217fd3 as 6.1.99",
     "voku/portable-ascii-mapping-data": "dev-main#3a5ae61a58e31cbad24f7014070e724bf38682fe as 1.0.0",
     "voku/portable-utf8-emoji-data": "dev-main#74c440f6dcaeda3daa9fbef9cd513619d3c4aeae as 1.0.0"
   },

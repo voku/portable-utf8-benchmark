@@ -23,13 +23,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: voku/portable-ascii
-          ref: e745ca2778f90e109275fedb6f23c9ddede400bf
+          ref: 26908ae112324ac424f45f2e9e27ebedd8213014
           path: portable-ascii
           fetch-depth: 0
       - uses: actions/checkout@v4
         with:
           repository: voku/portable-utf8
-          ref: 151ece0a42390c49a301c602c9986aa86cd7a9e6
+          ref: 365355dd175013dfd9319fb5944817172fd92a44
           path: portable-utf8
           fetch-depth: 0
       - uses: shivammathur/setup-php@v2
@@ -81,13 +81,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: voku/portable-ascii
-          ref: e745ca2778f90e109275fedb6f23c9ddede400bf
+          ref: 26908ae112324ac424f45f2e9e27ebedd8213014
           path: portable-ascii
           fetch-depth: 0
       - uses: actions/checkout@v4
         with:
           repository: voku/portable-utf8
-          ref: 151ece0a42390c49a301c602c9986aa86cd7a9e6
+          ref: 365355dd175013dfd9319fb5944817172fd92a44
           path: portable-utf8
           fetch-depth: 0
       - uses: shivammathur/setup-php@v2
@@ -128,13 +128,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: voku/portable-ascii
-          ref: e6eaa3caeb3663d2dfe7bb8f72a48c9de3907bee
+          ref: 4c5654a8f4bbb3c8fe0269dab15f91c3cd8a365e
           path: portable-ascii
           fetch-depth: 0
       - uses: actions/checkout@v4
         with:
           repository: voku/portable-utf8
-          ref: 819c7eb57c28bd1e05dddb2b2377dd22f1a2660e
+          ref: ab71d32e38c1e29929b5cab2d80d44a2a6217fd3
           path: portable-utf8
           fetch-depth: 0
       - uses: actions/checkout@v4
@@ -159,7 +159,7 @@ jobs:
           echo '{"require":{"voku/portable-utf8":"6.1.1"}}' > "$RUNNER_TEMP/provider-inventory/composer.json"
           composer update --working-dir="$RUNNER_TEMP/provider-inventory" --no-dev --no-interaction --prefer-dist
           cp "$RUNNER_TEMP/provider-inventory/composer.lock" portable-utf8/composer.lock
-          python3 portable-utf8-benchmark/tools/footprint/measure.py --workspace "$GITHUB_WORKSPACE" --ascii-candidate-ref e745ca2778f90e109275fedb6f23c9ddede400bf --utf8-candidate-ref 151ece0a42390c49a301c602c9986aa86cd7a9e6 --output "$RUNNER_TEMP/provider-baseline"
+          python3 portable-utf8-benchmark/tools/footprint/measure.py --workspace "$GITHUB_WORKSPACE" --ascii-candidate-ref 26908ae112324ac424f45f2e9e27ebedd8213014 --utf8-candidate-ref 365355dd175013dfd9319fb5944817172fd92a44 --output "$RUNNER_TEMP/provider-baseline"
       - name: Verify real providers, full/slim locks and all eight extension profiles
         run: |
           python3 portable-utf8-benchmark/tools/footprint/opt-out-spike.py --consumers "$RUNNER_TEMP/provider-baseline" --repository-workspace "$GITHUB_WORKSPACE" --output "$RUNNER_TEMP/provider-integration" --php "$(command -v php)" --extension-dir "$(php -r 'echo ini_get("extension_dir");')"

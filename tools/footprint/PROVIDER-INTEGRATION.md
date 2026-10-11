@@ -160,3 +160,24 @@ fails once at 1.2619 versus a 1.25 threshold; it remains an explicit gate, with 
 unchanged and its raw log retained. The legacy formatter limitation in the original ADR also
 remains. These issues are not represented as a green full release gate by successful
 compatibility/integration CI. No core versions, release tags, releases or merges were made.
+
+## CI review follow-up
+
+The five review PRs are ASCII #172/#173, UTF8 #276/#277 and benchmark #4. The provider
+reviews stay stacked on their respective in-place branches. Their full library CI now
+runs on those base branches and selects the existing temporary development manifest to
+install reviewed Packagist data versions, including on Windows. Production dependency
+constraints and global stability remain unchanged.
+
+Review fixes add missing test documentation, correct formatting and make locale assertions
+work on runners without intl. UTF8 encoding conversion casts make existing weak string
+coercions explicit; the legacy PHP-version search guards are retained with a narrowly counted
+PHP 7 static-analysis exception. Intentional repeated array-data includes are documented as
+Sonar false positives: switching them to include_once would return true instead of fresh data
+or invalidate decode benchmarks. PHPMD's static-access warning is scoped out only for the
+deliberately static ASCII provider contract. No assertions or quality thresholds are relaxed.
+
+The coordinator and public examples now pin ASCII in-place `26908ae`, UTF8 in-place
+`365355d`, ASCII provider `4c5654a` and UTF8 provider `ab71d32`. Earlier evidence above
+remains historical evidence for its recorded commits; current pipeline results are checked
+separately. No merges or tags are authorized by this CI follow-up.
