@@ -213,7 +213,10 @@ def main():
         if omitted:
             manifest['replace'] = {name: VERSION for name in omitted}
         save(directory / 'composer.json', manifest)
-        composer(args, directory, 'update', 'resolve')
+        # Resolve first, then compare two clean installs from the same lock. Composer
+        # 2.2 can choose a provisional autoloader suffix during update before lock write.
+        composer(args, directory, 'update', 'resolve', extra=['--no-install'])
+        composer(args, directory, 'install', 'initial-install')
         packages = installed(directory)
         if any(p['installation-source'] != 'dist' for p in packages):
             raise RuntimeError('Non-Dist install')
@@ -227,8 +230,10 @@ def main():
         lock = (directory / 'composer.lock').read_bytes()
         shutil.rmtree(directory / 'vendor')
         composer(args, directory, 'install', 'reinstall')
-        if lock != (directory / 'composer.lock').read_bytes() or packages != installed(directory) or first != footprint(directory / 'vendor') or first_hashes != tree_hashes(directory / 'vendor'):
-            raise RuntimeError('Lock reinstall changed package metadata or footprint: ' + mode)
+        checks = {'lock_match': lock == (directory / 'composer.lock').read_bytes(), 'packages_match': packages == installed(directory), 'footprint_match': first == footprint(directory / 'vendor'), 'tree_match': first_hashes == tree_hashes(directory / 'vendor')}
+        save(directory / 'reinstall-check.json', checks)
+        if not all(checks.values()):
+            raise RuntimeError('Lock reinstall changed package metadata or footprint: ' + mode + ': ' + str(checks))
         verify_mapping_hashes(args, directory, omitted)
         installations[mode] = {'omitted': omitted, 'vendor': first, 'packages': names,
                                'lock_sha256': hashlib.sha256(lock).hexdigest(), 'reinstall_match': True, 'vendor_tree_sha256': hashlib.sha256(json.dumps(first_hashes, sort_keys=True).encode()).hexdigest()}

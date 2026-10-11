@@ -109,6 +109,7 @@ jobs:
           name: explicit-opt-out-php84
           path: |
             ${{ runner.temp }}/mapping-opt-out/opt-out-results.json
+            ${{ runner.temp }}/mapping-opt-out/**/reinstall-check.json
             ${{ runner.temp }}/mapping-opt-out/**/composer.json
             ${{ runner.temp }}/mapping-opt-out/**/composer.lock
             ${{ runner.temp }}/mapping-opt-out/**/*.log
@@ -168,6 +169,7 @@ jobs:
           name: real-providers-php-${{ matrix.php }}
           path: |
             ${{ runner.temp }}/provider-integration/opt-out-results.json
+            ${{ runner.temp }}/provider-integration/**/reinstall-check.json
             ${{ runner.temp }}/provider-integration/**/composer.json
             ${{ runner.temp }}/provider-integration/**/composer.lock
             ${{ runner.temp }}/provider-integration/**/*.log
