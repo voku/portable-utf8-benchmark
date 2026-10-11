@@ -178,6 +178,6 @@ or invalidate decode benchmarks. PHPMD's static-access warning is scoped out onl
 deliberately static ASCII provider contract. No assertions or quality thresholds are relaxed.
 
 The coordinator and public examples now pin ASCII in-place `26908ae`, UTF8 in-place
-`365355d`, ASCII provider `4c5654a` and UTF8 provider `ab71d32`. Earlier evidence above
+`365355d`, ASCII provider `43ca2f9` and UTF8 provider `ab71d32`. Earlier evidence above
 remains historical evidence for its recorded commits; current pipeline results are checked
 separately. No merges or tags are authorized by this CI follow-up.

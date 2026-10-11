@@ -128,7 +128,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: voku/portable-ascii
-          ref: 4c5654a8f4bbb3c8fe0269dab15f91c3cd8a365e
+          ref: 43ca2f9a19feb3a1ea0b1569f96ee525d07782dd
           path: portable-ascii
           fetch-depth: 0
       - uses: actions/checkout@v4

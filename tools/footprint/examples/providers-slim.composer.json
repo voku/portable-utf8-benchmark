@@ -1,7 +1,7 @@
 {
   "name": "footprint/vcs-consumer",
   "require": {
-    "voku/portable-ascii": "dev-mapping-footprint/providers#4c5654a8f4bbb3c8fe0269dab15f91c3cd8a365e as 2.1.99",
+    "voku/portable-ascii": "dev-mapping-footprint/providers#43ca2f9a19feb3a1ea0b1569f96ee525d07782dd as 2.1.99",
     "voku/portable-utf8": "dev-mapping-footprint/providers#ab71d32e38c1e29929b5cab2d80d44a2a6217fd3 as 6.1.99"
   },
   "repositories": [
