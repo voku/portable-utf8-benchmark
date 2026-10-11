@@ -12,14 +12,6 @@
     {
       "type": "vcs",
       "url": "https://github.com/voku/portable-utf8"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/voku/portable-ascii-mapping-data"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/voku/portable-utf8-emoji-data"
     }
   ],
   "config": {

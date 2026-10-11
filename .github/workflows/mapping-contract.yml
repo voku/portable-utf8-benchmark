@@ -163,6 +163,20 @@ jobs:
       - name: Verify real providers, full/slim locks and all eight extension profiles
         run: |
           python3 portable-utf8-benchmark/tools/footprint/opt-out-spike.py --consumers "$RUNNER_TEMP/provider-baseline" --repository-workspace "$GITHUB_WORKSPACE" --output "$RUNNER_TEMP/provider-integration" --php "$(command -v php)" --extension-dir "$(php -r 'echo ini_get("extension_dir");')"
+      - name: Verify registered Packagist data with full/slim locks and eight extension profiles
+        run: |
+          python3 portable-utf8-benchmark/tools/footprint/opt-out-spike.py --consumers "$RUNNER_TEMP/provider-baseline" --repository-workspace "$GITHUB_WORKSPACE" --packagist-data --output "$RUNNER_TEMP/packagist-integration" --php "$(command -v php)" --extension-dir "$(php -r 'echo ini_get("extension_dir");')"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: packagist-providers-php-${{ matrix.php }}
+          path: |
+            ${{ runner.temp }}/packagist-integration/opt-out-results.json
+            ${{ runner.temp }}/packagist-integration/*-packagist.json
+            ${{ runner.temp }}/packagist-integration/**/reinstall-check.json
+            ${{ runner.temp }}/packagist-integration/**/composer.json
+            ${{ runner.temp }}/packagist-integration/**/composer.lock
+            ${{ runner.temp }}/packagist-integration/**/*.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:

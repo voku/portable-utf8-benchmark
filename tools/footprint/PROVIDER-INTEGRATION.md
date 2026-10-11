@@ -2,7 +2,8 @@
 
 The explicit opt-out architecture is implemented on separate development branches. The earlier
 in-place candidates remain available. No library default branch was merged, no version was
-released, and no tags or Packagist registrations were created.
+released, and no tags were created. The owner subsequently registered both data packages
+on Packagist; their reviewed `dev-main` commits are now indexed.
 
 ## Repositories and immutable inputs
 
@@ -85,13 +86,15 @@ metadata can change logical counts slightly. Original mappings remain identical.
 installation is larger; the optional footprint saving is real and conditional on consumers
 accepting reduced functionality. No uniform CPU improvement is claimed for extraction.
 
-## Try the development branches without tags or Packagist
+## Try the development branches through Packagist, without tags
 
 Use [examples/providers-full.composer.json](examples/providers-full.composer.json) for full
 functionality or [examples/providers-slim.composer.json](examples/providers-slim.composer.json)
 for the deliberately restricted application. Copy the selected file to a new application's
 `composer.json`, run `composer update --no-dev`, then commit its generated lockfile. The
-examples pin the four reviewed commits with explicit development aliases and VCS repositories.
+examples pin the four reviewed commits with explicit development aliases. Only the two
+core development branches use VCS repositories; data packages resolve through Packagist,
+with no data repository overrides and no global minimum-stability change.
 Composer reads branch metadata, so retain the reviewed manifests and lock in addition to
 commit pins. Aliases do not turn a development branch into a stable published version.
 
@@ -104,12 +107,21 @@ whitelist. Full and incorrectly reduced installs must be tested separately.
 
 ## Remaining publication and release gates
 
-Packagist returned 404 for both names when checked. This environment has no Packagist account
-credentials or authenticated publishing connector. The account owner must submit the two
-existing repository URLs through [Packagist's submit form](https://packagist.org/packages/submit).
-Registration can index development branches without creating release tags. It does not make
-`^1.0` satisfiable for ordinary stable consumers until an approved stable data version exists;
-the VCS/development examples remain the current integration route.
+Both names are registered and publicly indexed on Packagist at the reviewed data commits.
+Registration exposes `dev-main` and its `1.0.x-dev` branch alias; it does not produce a stable
+release. The examples explicitly allow and pin these development versions. Ordinary stable
+`^1.0` consumers still require a separately approved stable data release. No tag is needed
+for the experiment, and none has been created.
+
+The coordinator now also runs `opt-out-spike.py --packagist-data` on PHP 7.1, 7.4, 8.4 and
+8.5. This enables Packagist, removes both data packages from the fixture registry, checks
+registry source/dist references against the reviewed commits, and verifies the installed
+packages actually match that metadata. Core archives and polyfill inventory remain pinned
+fixtures so this experiment isolates the new registry resolution. All four installation
+modes, byte-identical lock reinstalls, complete behavior corpus, 20 indirect-call probes and
+eight extension profiles are retained. Registry metadata, manifests, locks and logs are
+uploaded in separate `packagist-providers-php-*` artifacts. The public examples additionally
+exercise ordinary core VCS resolution with data packages supplied by Packagist.
 
 The local core suites pass: ASCII 336 tests / 3,370 assertions (two opt-in skips, four existing
 PHPUnit deprecations); UTF8 2,004 tests / 429,268 assertions. ASCII PHPStan passes both configs.

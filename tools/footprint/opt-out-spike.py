@@ -10,6 +10,7 @@ import pathlib
 import shutil
 import subprocess
 import zipfile
+import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
 EMOJI = 'voku/portable-utf8-emoji-data'
@@ -193,6 +194,7 @@ def main():
     parser.add_argument('--composer', default='composer')
     parser.add_argument('--php', default='php', help='Real PHP executable; must honor -n')
     parser.add_argument('--extension-dir', type=pathlib.Path, required=True)
+    parser.add_argument('--packagist-data', action='store_true', help='Resolve SHA-pinned development data packages through Packagist, without data repository overrides')
     parser.add_argument('--repository-workspace', type=pathlib.Path, help='Use four real committed repositories instead of rewriting prototype archives')
     args = parser.parse_args()
     args.consumers = args.consumers.resolve()
@@ -204,12 +206,36 @@ def main():
     if args.repository_workspace:
         args.repository_workspace = args.repository_workspace.resolve()
     archive_evidence = repository_archives(args, original) if args.repository_workspace else archives(args, original)
+    registry_data = {}
+    if args.packagist_data:
+        if not args.repository_workspace:
+            raise RuntimeError('--packagist-data requires --repository-workspace')
+        original['repositories'] = [r for r in original['repositories'] if 'packagist.org' not in r]
+        packages = original['repositories'][0]['package']
+        packages[:] = [p for p in packages if p['name'] not in {BANKS, EMOJI}]
+        for name in [BANKS, EMOJI]:
+            with urllib.request.urlopen('https://repo.packagist.org/p2/' + name + '~dev.json', timeout=30) as response:
+                metadata = json.load(response)
+            save(args.output / (name.split('/')[1] + '-packagist.json'), metadata)
+            package = next(p for p in metadata['packages'][name] if p.get('version') == 'dev-main')
+            expected = next(p['reference'] for p in archive_evidence if p['name'] == name)
+            if package['source']['reference'] != expected:
+                raise RuntimeError('Packagist indexes a different reviewed provider commit: ' + name)
+            registry_data[name] = package
+            entry = next(p for p in archive_evidence if p['name'] == name)
+            entry['local_test_alias'] = None
+            entry['resolution'] = 'Packagist dev-main with SHA-pinned root inline alias'
+            entry['published_version'] = 'dev-main'
     installations = {}
     modes = {'full': [], 'no-emoji': [EMOJI], 'no-banks': [BANKS], 'both': [EMOJI, BANKS]}
     for mode, omitted in modes.items():
         directory = args.output / mode
         directory.mkdir()
         manifest = copy.deepcopy(original)
+        if args.packagist_data:
+            for name, package in registry_data.items():
+                if name not in omitted:
+                    manifest['require'][name] = 'dev-main#' + package['source']['reference'] + ' as ' + VERSION
         if omitted:
             manifest['replace'] = {name: VERSION for name in omitted}
         # Composer 2.2 uses md5(uniqid()) for a clean autoloader unless explicitly
@@ -227,6 +253,13 @@ def main():
         for name in [EMOJI, BANKS]:
             if (name in names) == (name in omitted):
                 raise RuntimeError('Composer did not honor replacement: ' + mode)
+        if args.packagist_data:
+            for name, metadata in registry_data.items():
+                if name in omitted:
+                    continue
+                package = next(p for p in packages if p['name'] == name)
+                if package['version'] != 'dev-main' or package['source'] != metadata['source'] or package['dist']['reference'] != metadata['dist']['reference'] or package['dist']['url'] != metadata['dist']['url']:
+                    raise RuntimeError('Installed provider is not the reviewed Packagist development package: ' + name)
         verify_mapping_hashes(args, directory, omitted)
         first = footprint(directory / 'vendor')
         first_hashes = tree_hashes(directory / 'vendor')
@@ -245,10 +278,14 @@ def main():
     directory = args.output / 'future-version-guard'
     directory.mkdir()
     future = copy.deepcopy(original)
+    if args.packagist_data:
+        future['require'][BANKS] = 'dev-main#' + registry_data[BANKS]['source']['reference'] + ' as ' + VERSION
     future['replace'] = {EMOJI: VERSION}
     next(p for p in future['repositories'][0]['package'] if p['name'] == 'voku/portable-utf8')['require'][EMOJI] = '1.1.0'
     save(directory / 'composer.json', future)
     composer(args, directory, 'update', 'resolve', expect_failure=True)
+    if EMOJI + ' 1.1.0' not in (directory / 'resolve.log').read_text():
+        raise RuntimeError('Future-version guard failed for an unrelated dependency')
     directory = args.output / 'unsafe-wildcard-control'
     directory.mkdir()
     future['replace'][EMOJI] = '*'
@@ -328,10 +365,10 @@ def main():
     for install in installations.values():
         install['saved_against_full'] = {key: full_size[key] - install['vendor'][key] for key in full_size}
         install['saved_against_in_place'] = {key: baseline_size[key] - install['vendor'][key] for key in full_size}
-    result = {'scope': ('Real committed core/provider repositories, actual Dist installs, local version aliases only; no tags or Packagist versions.' if args.repository_workspace else 'Isolated Dist-only scratch prototype, not published packages or production dependency changes.'),
+    result = {'scope': ('Packagist-resolved SHA-pinned development data packages; committed core Dist fixtures, no data repository overrides or release tags.' if args.packagist_data else 'Real committed core/provider repositories, actual Dist installs, local version aliases only; no tags or Packagist versions.' if args.repository_workspace else 'Isolated Dist-only scratch prototype, not published packages or production dependency changes.'),
               'php_version': subprocess.check_output([args.php, '-n', '-r', 'echo PHP_VERSION;'], text=True),
               'composer_version': subprocess.check_output([args.composer, '--version', '--no-ansi'], text=True).strip(),
-              'in_place_vendor': baseline_size, 'archives': archive_evidence,
+              'in_place_vendor': baseline_size, 'archives': archive_evidence, 'packagist_data': registry_data,
               'installations': installations, 'future_version_pin_rejected': True, 'unsafe_wildcard_satisfies_future_contract': True, 'extension_matrix': matrix}
     save(args.output / 'opt-out-results.json', result)
     print('All checks passed:', args.output / 'opt-out-results.json', flush=True)
