@@ -16,7 +16,9 @@ for repo, library in [('portable-ascii', 'ASCII'), ('portable-utf8', 'UTF8')]:
     autoload = ((args.autoload_root / 'vendor/autoload.php') if args.autoload_root else (args.workspace / repo / 'vendor/autoload.php'))
     data = []
     for phase, root in [('before', args.baselines / (repo + '-baseline')), ('after', args.workspace / repo)]:
-        process = subprocess.run([args.php, str(probe), str(root), library, str(autoload)], text=True, capture_output=True, check=True)
+        process = subprocess.run([args.php, str(probe), str(root), library, str(autoload)], text=True, capture_output=True)
+        if process.returncode:
+            raise RuntimeError(f"{repo}/{phase}: PHP probe failed ({process.returncode})\n{process.stdout}\n{process.stderr}")
         (args.output / (repo + '-' + phase + '.json')).write_text(process.stdout)
         data.append(json.loads(process.stdout))
     signatures = [name for name in data[0]['signatures'] if data[0]['signatures'][name] != data[1]['signatures'].get(name)]
