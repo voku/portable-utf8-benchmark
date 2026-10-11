@@ -166,3 +166,10 @@ separately versioned, explicitly skippable data model. The [new spike](OPT-OUT.m
 real Composer `replace` consumers, lazy providers, precise missing-data exceptions, pinned
 lock reinstalls and all eight runtime extension profiles. It supports further design/CI
 review; it does not change the production manifests or approve publication.
+
+## Real provider integration
+
+The repositories now exist and the separately versioned development integration has passed
+remote CI across four PHP versions and all eight extension profiles. See
+[PROVIDER-INTEGRATION.md](PROVIDER-INTEGRATION.md) for immutable refs, licensed-package
+footprints, VCS examples and the remaining Packagist/release gates.

@@ -1,6 +1,7 @@
 # S8 follow-up: full by default, explicit slim consumers
 
-Status: promising prototype for design and CI review, not a published architecture.
+Historical spike evidence. The [real provider integration](PROVIDER-INTEGRATION.md) now
+implements this model on separate development branches with successful remote CI.
 No new remote repositories, production requirements, versions, tags or releases were created.
 The in-place compression stays intact. The mandatory split's full-install overhead remains a
 valid result; its earlier NO-GO did not measure an application choosing to omit functionality.

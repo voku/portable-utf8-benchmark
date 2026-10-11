@@ -99,3 +99,10 @@ See [ADR.md](ADR.md) for the measured architecture decision and release review.
 
 See [OPT-OUT.md](OPT-OUT.md) for the reproducible full/slim/failure experiment and next steps.
 Its scratch archives leave both library checkouts and production requirements unchanged.
+
+## Real provider integration
+
+The repositories now exist and the separately versioned development integration has passed
+remote CI across four PHP versions and all eight extension profiles. See
+[PROVIDER-INTEGRATION.md](PROVIDER-INTEGRATION.md) for immutable refs, licensed-package
+footprints, VCS examples and the remaining Packagist/release gates.

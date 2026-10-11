@@ -1,0 +1,160 @@
+{
+  "full": {
+    "exact_vcs_references": true,
+    "probes": {
+      "ascii-pass": {
+        "result": [
+          "value",
+          "czoxNToiUGxhaW4gQVNDSUkgMTIzIjs="
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "utf8-length": {
+        "result": [
+          "value",
+          "aToxMDs="
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "emoji-decode": {
+        "result": [
+          "value",
+          "czo0OiLwn5G5Ijs="
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": true,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "banks-direct": {
+        "result": [
+          "value",
+          "czoxOToiWmhvbmcgV2VuIEtvbmcgQmFpICI7"
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": true
+        }
+      },
+      "html-ascii": {
+        "result": [
+          "value",
+          "YjoxOw=="
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": true,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "utf8-ascii": {
+        "result": [
+          "value",
+          "czoxOToiWmhvbmcgV2VuIEtvbmcgQmFpICI7"
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": true
+        }
+      }
+    }
+  },
+  "both": {
+    "exact_vcs_references": true,
+    "probes": {
+      "ascii-pass": {
+        "result": [
+          "value",
+          "czoxNToiUGxhaW4gQVNDSUkgMTIzIjs="
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "utf8-length": {
+        "result": [
+          "value",
+          "aToxMDs="
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "emoji-decode": {
+        "result": [
+          "exception",
+          "RuntimeException",
+          "Mappings are unavailable. Install voku/portable-utf8-emoji-data and remove its replacement declaration from your root composer.json."
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "banks-direct": {
+        "result": [
+          "exception",
+          "RuntimeException",
+          "Mappings are unavailable. Install voku/portable-ascii-mapping-data and remove its replacement declaration from your root composer.json."
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "html-ascii": {
+        "result": [
+          "exception",
+          "RuntimeException",
+          "Mappings are unavailable. Install voku/portable-utf8-emoji-data and remove its replacement declaration from your root composer.json."
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      },
+      "utf8-ascii": {
+        "result": [
+          "exception",
+          "RuntimeException",
+          "Mappings are unavailable. Install voku/portable-ascii-mapping-data and remove its replacement declaration from your root composer.json."
+        ],
+        "warnings": [],
+        "output": "",
+        "loaded_providers": {
+          "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+          "Voku\\PortableAsciiMappingData\\BankMap": false
+        }
+      }
+    }
+  }
+}
