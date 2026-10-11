@@ -52,7 +52,12 @@ jobs:
         run: |
           PHP_PROFILE="$(command -v php)"
           if [ '${{ matrix.native }}' = 'false' ]; then
-            printf '#!/bin/sh\nexec "%s" -n -d memory_limit=512M -d date.timezone=UTC "$@"\n' "$PHP_PROFILE" > "$RUNNER_TEMP/php-profile"
+            PHP_JSON=""
+            if ! "$PHP_PROFILE" -n -r 'exit(function_exists("json_encode") ? 0 : 1);'; then
+              PHP_JSON=" -d extension=json.so"
+            fi
+            PHP_EXT_DIR="$(php -r 'echo ini_get("extension_dir");')"
+            printf '#!/bin/sh\nexec "%s" -n -d extension_dir="%s"%s -d memory_limit=512M -d date.timezone=UTC "$@"\n' "$PHP_PROFILE" "$PHP_EXT_DIR" "$PHP_JSON" > "$RUNNER_TEMP/php-profile"
             chmod +x "$RUNNER_TEMP/php-profile"
             PHP_PROFILE="$RUNNER_TEMP/php-profile"
           fi

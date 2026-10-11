@@ -92,7 +92,9 @@ if ($library === 'UTF8') {
     $record('support-reference-reset-full', 'getSupportInfo', []);
     // Exercise the validator branch normally bypassed by PCRE Unicode support.
     $support = new ReflectionProperty($class, 'SUPPORT');
-    $support->setAccessible(true);
+    if (PHP_VERSION_ID < 80100) {
+        $support->setAccessible(true);
+    }
     $flags = $support->getValue();
     $flags['pcre_utf8'] = false;
     $support->setValue(null, $flags);
