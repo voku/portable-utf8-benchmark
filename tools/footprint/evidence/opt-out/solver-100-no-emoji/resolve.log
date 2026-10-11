@@ -1,0 +1,15 @@
+Composer could not detect the root package (footprint/consumer) version, defaulting to '1.0.0'. See https://getcomposer.org/root-version
+Loading composer repositories with package information
+Updating dependencies
+Your requirements could not be resolved to an installable set of packages.
+
+  Problem 1
+    - Root composer.json requires voku/portable-utf8 6.1.99 -> satisfiable by voku/portable-utf8[6.1.99].
+    - symfony/polyfill-mbstring v1.43.0 requires ext-iconv * -> the ext-iconv package is disabled by your platform config. Enable it again with "composer config platform.ext-iconv --unset".
+    - voku/portable-utf8 6.1.99 requires symfony/polyfill-mbstring ~1.0 -> satisfiable by symfony/polyfill-mbstring[v1.43.0].
+
+To enable extensions, verify that they are enabled in your .ini files:
+    - /workspace/.onboarding/php.ini
+You can also run `php --ini` in a terminal to see which files are used by PHP in CLI mode.
+Alternatively, you can run Composer with `--ignore-platform-req=ext-iconv` to temporarily ignore these required extensions.
+Running update with --no-dev does not mean require-dev is ignored, it just means the packages will not be installed. If dev requirements are blocking the update you have to resolve those problems.

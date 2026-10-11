@@ -1,6 +1,9 @@
 name: Mapping representation contract
 on:
   workflow_dispatch:
+  push:
+    branches: ['mapping-footprint/evidence']
+    paths: ['tools/footprint/**', '.github/workflows/mapping-contract.yml']
   pull_request:
     paths: ['tools/footprint/**', '.github/workflows/mapping-contract.yml']
 permissions:
@@ -32,7 +35,8 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: ${{ matrix.native && 'intl, mbstring, iconv' || ':intl, :mbstring, :iconv' }}
+          # Keep Composer's own required modules; isolate runtime extension absence below.
+          extensions: intl, mbstring, iconv
           coverage: none
           tools: ${{ matrix.php == '7.1' && 'composer:2.2' || 'composer:v2' }}
       - name: Prepare pinned baselines and supported production dependencies
@@ -46,7 +50,13 @@ jobs:
           composer update --working-dir=consumer --no-dev --no-interaction --prefer-dist
       - name: Compare signatures, outputs and diagnostics
         run: |
-          python3 portable-utf8-benchmark/tools/footprint/verify.py --workspace "$GITHUB_WORKSPACE" --baselines "$GITHUB_WORKSPACE/baselines" --output "$GITHUB_WORKSPACE/results" --autoload-root "$GITHUB_WORKSPACE/consumer"
+          PHP_PROFILE="$(command -v php)"
+          if [ '${{ matrix.native }}' = 'false' ]; then
+            printf '#!/bin/sh\nexec "%s" -n -d memory_limit=512M -d date.timezone=UTC "$@"\n' "$PHP_PROFILE" > "$RUNNER_TEMP/php-profile"
+            chmod +x "$RUNNER_TEMP/php-profile"
+            PHP_PROFILE="$RUNNER_TEMP/php-profile"
+          fi
+          python3 portable-utf8-benchmark/tools/footprint/verify.py --php "$PHP_PROFILE" --workspace "$GITHUB_WORKSPACE" --baselines "$GITHUB_WORKSPACE/baselines" --output "$GITHUB_WORKSPACE/results" --autoload-root "$GITHUB_WORKSPACE/consumer"
           php portable-ascii/build/footprint/compact.php
           php portable-utf8/build/footprint/compact.php
       - uses: actions/upload-artifact@v4
@@ -56,3 +66,45 @@ jobs:
           path: |
             results/
             consumer/composer.lock
+
+  explicit-opt-out:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: portable-utf8-benchmark
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-ascii
+          ref: e745ca2778f90e109275fedb6f23c9ddede400bf
+          path: portable-ascii
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-utf8
+          ref: 151ece0a42390c49a301c602c9986aa86cd7a9e6
+          path: portable-utf8
+          fetch-depth: 0
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: intl, mbstring, iconv
+          coverage: none
+          tools: composer:v2
+      - name: Prepare pinned inventory and actual Composer consumers
+        run: |
+          cp portable-utf8-benchmark/tools/footprint/evidence/locks/utf8-after-composer.lock portable-utf8/composer.lock
+          python3 portable-utf8-benchmark/tools/footprint/measure.py --workspace "$GITHUB_WORKSPACE" --output "$RUNNER_TEMP/mapping-consumers"
+      - name: Verify full, opt-out, failure and extension cases
+        run: |
+          python3 portable-utf8-benchmark/tools/footprint/opt-out-spike.py --consumers "$RUNNER_TEMP/mapping-consumers" --output "$RUNNER_TEMP/mapping-opt-out" --php "$(command -v php)" --extension-dir "$(php -r 'echo ini_get("extension_dir");')"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: explicit-opt-out-php84
+          path: |
+            ${{ runner.temp }}/mapping-opt-out/opt-out-results.json
+            ${{ runner.temp }}/mapping-opt-out/**/composer.json
+            ${{ runner.temp }}/mapping-opt-out/**/composer.lock
+            ${{ runner.temp }}/mapping-opt-out/**/*.log
+            ${{ runner.temp }}/mapping-consumers/measurements.json

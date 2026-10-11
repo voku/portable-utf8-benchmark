@@ -4,6 +4,8 @@
 $root = $argv[1];
 $library = $argv[2];
 $autoload = $argv[3];
+// An extracted package can use an independent immutable corpus without restoring data to its core.
+$corpusRoot = isset($argv[4]) && $argv[4] !== '--signatures-only' ? $argv[4] : $root;
 if ($library === 'UTF8') {
     require $root . '/src/voku/helper/Bootup.php';
 }
@@ -61,7 +63,7 @@ if ($library === 'UTF8') {
             $record('chr-' . $i . '-' . $encoding, 'chr', [$code, $encoding]);
         }
     }
-    $map = include $root . '/src/voku/helper/data/emoji.php';
+    $map = include $corpusRoot . '/src/voku/helper/data/emoji.php';
     $corpus[] = implode(' ', array_values($map));
     $corpus[] = implode(' ', array_keys($map));
     foreach ($corpus as $i => $text) {
@@ -98,7 +100,7 @@ if ($library === 'UTF8') {
         $record('manual-validate-' . $i, 'is_utf8', [$text]);
     }
 } else {
-    foreach (glob($root . '/src/voku/helper/data/x*.php') as $file) {
+    foreach (glob($corpusRoot . '/src/voku/helper/data/x*.php') as $file) {
         $bank = hexdec(substr(basename($file), 1, -4));
         $text = '';
         foreach (include $file as $offset => $value) {

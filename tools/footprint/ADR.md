@@ -21,7 +21,7 @@ larger. Locale operations still have their own existing lazy metadata initializa
 
 S4 is NO-GO for replacing the non-strict table engine with ICU. S8 is NO-GO for mandatory
 mapping packages. An optional slim distribution would change the API/support contract and
-is outside this full-package compatibility work. No extension-conditional dependency,
+is examined separately in the [explicit opt-out follow-up](OPT-OUT.md). No extension-conditional dependency,
 Composer plugin, synthetic production requirement, or new remote repository was added.
 
 ## Immutable inputs and candidate revisions
@@ -29,7 +29,7 @@ Composer plugin, synthetic production requirement, or new remote repository was 
 | Library | master baseline | published stable | measured runtime candidate |
 | --- | --- | --- | --- |
 | ASCII | `180a8d12055eb350859b628c64066a90a895bd10` | 2.1.1, `8e1051fe39379367aecf014f41744ce7539a856f` | `e73c78c` (full SHA in Composer evidence) |
-| UTF8 | `28cb685c22cd829aba819406295c0763204c5c09` | 6.1.1, `837e32cd4b166320cc3e70e3ffe1ba413e81ee46` | `796f909` (full SHA in Composer evidence) |
+| UTF8 | `28cb685c22cd829aba819406295c0763204c5c09` | 6.1.1, `837e32cd4b166320cc3e70e3ffe1ba413e81ee46` | `4303a12` (full SHA in Composer evidence) |
 
 Evidence/documentation commits follow these runtime candidates. Their build/test files are
 excluded from Dist; Source installs of a later evidence revision can include additional
@@ -73,7 +73,7 @@ the significance using all four size dimensions and the runtime trade-offs.
 | In-place representation | Full UTF8 Dist closure saves 235,496 logical / 86,016 allocated bytes; exact mappings and all 8 extension profiles match | Selected candidate |
 | Replace banks with native ICU | ICU 76.1: 48,248 keys in 189 banks, 37,654 raw-ICU/table mismatches and 29,370 strict/table mismatches; 51 language maps also examined | NO-GO; retain strict/native and non-strict/table policies |
 | Mandatory ASCII + emoji mapping packages | Actual Composer Dist prototype: 3,299,679 → 3,301,246 logical bytes, 4,100,096 → 4,116,480 allocated bytes, 330 → 332 files | NO-GO; moves 315,454 mapping bytes and adds overhead |
-| Optional slim/core alternative | Would remove existing guaranteed full-package functionality; not a compatible install mode for the current API | Not selected; needs separate support contract and project approval |
+| Optional slim/core alternative | Would remove existing guaranteed full-package functionality; not a compatible install mode for the current API | Reopened as a separate explicit opt-out spike; see [OPT-OUT.md](OPT-OUT.md) |
 
 The split prototype installs required children and verifies consumer transliteration/emoji
 calls; its copied data is unchanged. It is rejected on footprint before any publication or
@@ -158,3 +158,11 @@ Release is **not approved** by this evidence:
 
 Maintainers can review the measured candidates and all evidence. No release tag, GitHub
 release, package publication or automatic merge has been performed.
+
+## S8 follow-up: explicit consumer opt-out
+
+The mandatory-split NO-GO remains valid for full installations. It does not reject a
+separately versioned, explicitly skippable data model. The [new spike](OPT-OUT.md) verifies
+real Composer `replace` consumers, lazy providers, precise missing-data exceptions, pinned
+lock reinstalls and all eight runtime extension profiles. It supports further design/CI
+review; it does not change the production manifests or approve publication.

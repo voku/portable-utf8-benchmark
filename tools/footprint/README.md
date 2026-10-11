@@ -94,3 +94,8 @@ emoji is required independently of extensions, and byte tables have an extra emp
 entry / array warning contract that raw primitive substitution would erase.
 
 See [ADR.md](ADR.md) for the measured architecture decision and release review.
+
+## Explicit `replace` follow-up
+
+See [OPT-OUT.md](OPT-OUT.md) for the reproducible full/slim/failure experiment and next steps.
+Its scratch archives leave both library checkouts and production requirements unchanged.
