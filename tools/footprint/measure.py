@@ -7,6 +7,8 @@ parser.add_argument('--workspace', type=pathlib.Path, default=pathlib.Path('/wor
 parser.add_argument('--output', type=pathlib.Path, required=True)
 parser.add_argument('--composer', default='composer')
 parser.add_argument('--php', default='php')
+parser.add_argument('--ascii-candidate-ref', help='Measure a pinned in-place revision even when the checkout is extracted')
+parser.add_argument('--utf8-candidate-ref', help='Measure a pinned in-place revision even when the checkout is extracted')
 args = parser.parse_args()
 base, output = args.workspace.resolve(), args.output.resolve()
 output.mkdir(parents=True, exist_ok=True)
@@ -40,7 +42,8 @@ for phase in ['before', 'after']:
     zips = {}
     for repo in ['portable-ascii', 'portable-utf8']:
         root = base / repo
-        ref = baselines[repo] if phase == 'before' else run(['git', '-C', str(root), 'rev-parse', 'HEAD'])
+        candidate = args.ascii_candidate_ref if repo == 'portable-ascii' else args.utf8_candidate_ref
+        ref = baselines[repo] if phase == 'before' else (candidate or run(['git', '-C', str(root), 'rev-parse', 'HEAD']))
         refs[repo] = ref
         archive = output / f'{repo}-{phase}.zip'
         subprocess.run(['git', '-C', str(root), 'archive', '--format=zip', '--prefix=package/', '--output', str(archive), ref], check=True)

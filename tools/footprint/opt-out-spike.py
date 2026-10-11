@@ -137,6 +137,31 @@ def archives(args, original):
     return archives_evidence
 
 
+def repository_archives(args, original):
+    """Use real committed cores/providers; aliases exist only in this local test registry."""
+    packages = original['repositories'][0]['package']
+    evidence = []
+    for library, name in [('ascii', BANKS), ('utf8', EMOJI)]:
+        core_name = 'voku/portable-' + library
+        for package_name, version in [(core_name, '2.1.99' if library == 'ascii' else '6.1.99'), (name, VERSION)]:
+            root = args.repository_workspace / package_name.split('/')[1]
+            ref = subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip()
+            if subprocess.check_output(['git', '-C', str(root), 'status', '--porcelain'], text=True).strip():
+                raise RuntimeError('Repository is not committed and clean: ' + str(root))
+            path = args.output / (package_name.split('/')[1] + '.zip')
+            subprocess.run(['git', '-C', str(root), 'archive', '--format=zip', '--prefix=package/', '--output', str(path), ref], check=True)
+            manifest = json.loads(subprocess.check_output(['git', '-C', str(root), 'show', ref + ':composer.json'], text=True))
+            package = {key: manifest[key] for key in ['name', 'description', 'type', 'license', 'authors', 'require', 'autoload', 'homepage'] if key in manifest}
+            package['version'] = version
+            package['dist'] = {'type': 'zip', 'url': path.as_uri(), 'reference': ref, 'shasum': hashlib.sha1(path.read_bytes()).hexdigest()}
+            package['source'] = {'type': 'git', 'url': 'https://github.com/' + package_name + '.git', 'reference': ref}
+            packages[:] = [p for p in packages if p['name'] != package_name]
+            packages.append(package)
+            evidence.append({'name': package_name, 'reference': ref, 'archive_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                             'local_test_alias': version, 'published_version': False})
+    return evidence
+
+
 def composer(args, directory, operation, label, expect_failure=False, extra=()):
     with (directory / (label + '.log')).open('w') as log:
         process = subprocess.run([args.composer, operation, '--no-dev', '--no-interaction', '--prefer-dist', '--no-progress', *extra], cwd=directory, stdout=log, stderr=subprocess.STDOUT)
@@ -168,6 +193,7 @@ def main():
     parser.add_argument('--composer', default='composer')
     parser.add_argument('--php', default='php', help='Real PHP executable; must honor -n')
     parser.add_argument('--extension-dir', type=pathlib.Path, required=True)
+    parser.add_argument('--repository-workspace', type=pathlib.Path, help='Use four real committed repositories instead of rewriting prototype archives')
     args = parser.parse_args()
     args.consumers = args.consumers.resolve()
     args.output = args.output.resolve()
@@ -175,7 +201,9 @@ def main():
         raise RuntimeError('Refusing to reuse output; use a new empty directory')
     args.output.mkdir(parents=True, exist_ok=True)
     original = json.loads((args.consumers / 'utf8-after-dist/composer.json').read_text())
-    archive_evidence = archives(args, original)
+    if args.repository_workspace:
+        args.repository_workspace = args.repository_workspace.resolve()
+    archive_evidence = repository_archives(args, original) if args.repository_workspace else archives(args, original)
     installations = {}
     modes = {'full': [], 'no-emoji': [EMOJI], 'no-banks': [BANKS], 'both': [EMOJI, BANKS]}
     for mode, omitted in modes.items():
@@ -223,9 +251,14 @@ def main():
     baseline = args.consumers / 'utf8-after-dist'
     baseline_roots = {library: baseline / 'vendor/voku' / ('portable-' + library.lower()) for library in ['ASCII', 'UTF8']}
     matrix = []
+    json_module = []
+    if subprocess.run([args.php, '-n', '-r', 'exit(function_exists("json_encode") ? 0 : 1);']).returncode:
+        json_module = ['-d', 'extension=json.so']
+    polyfill = next(p for p in original['repositories'][0]['package'] if p['name'] == 'symfony/polyfill-mbstring')
+    requires_iconv = 'ext-iconv' in polyfill.get('require', {})
     for flags in itertools.product([0, 1], repeat=3):
         profile = ''.join(map(str, flags))
-        command = [args.php, '-n', '-d', 'extension_dir=' + str(args.extension_dir), '-d', 'memory_limit=512M', '-d', 'date.timezone=UTC']
+        command = [args.php, '-n', '-d', 'extension_dir=' + str(args.extension_dir), '-d', 'memory_limit=512M', '-d', 'date.timezone=UTC', *json_module]
         for enabled, module in zip(flags, ['intl', 'mbstring', 'iconv']):
             if enabled:
                 command += ['-d', 'extension=' + module + '.so']
@@ -245,8 +278,9 @@ def main():
             save(directory / 'composer.json', manifest)
             # Pinned polyfill-mbstring 1.43 requires ext-iconv: this is inherited,
             # independent of data extraction and cannot be solved by replacing data.
-            composer(args, directory, 'update', 'resolve', expect_failure=not flags[2], extra=['--no-install'])
-            if flags[2]:
+            composer(args, directory, 'update', 'resolve', expect_failure=requires_iconv and not flags[2], extra=['--no-install'])
+            resolves = not requires_iconv or bool(flags[2])
+            if resolves:
                 resolved = json.loads((directory / 'composer.lock').read_text())['packages']
                 pinned = json.loads((args.output / mode / 'composer.lock').read_text())['packages']
                 if resolved != pinned:
@@ -255,7 +289,7 @@ def main():
                 failure = (directory / 'resolve.log').read_text()
                 if 'requires ext-iconv' not in failure:
                     raise RuntimeError('Unexpected missing-extension solver failure')
-            solver_results[mode] = {'resolves': bool(flags[2]), 'reason': None if flags[2] else 'Pinned symfony/polyfill-mbstring 1.43 requires ext-iconv'}
+            solver_results[mode] = {'resolves': resolves, 'reason': None if resolves else 'Pinned symfony/polyfill-mbstring ' + polyfill['version'] + ' requires ext-iconv'}
         # Full provider installation must match the complete behavioral/diagnostic corpus.
         full_results = []
         for library in ['ASCII', 'UTF8']:
@@ -286,7 +320,7 @@ def main():
     for install in installations.values():
         install['saved_against_full'] = {key: full_size[key] - install['vendor'][key] for key in full_size}
         install['saved_against_in_place'] = {key: baseline_size[key] - install['vendor'][key] for key in full_size}
-    result = {'scope': 'Isolated Dist-only scratch prototype, not published packages or production dependency changes.',
+    result = {'scope': ('Real committed core/provider repositories, actual Dist installs, local version aliases only; no tags or Packagist versions.' if args.repository_workspace else 'Isolated Dist-only scratch prototype, not published packages or production dependency changes.'),
               'php_version': subprocess.check_output([args.php, '-n', '-r', 'echo PHP_VERSION;'], text=True),
               'composer_version': subprocess.check_output([args.composer, '--version', '--no-ansi'], text=True).strip(),
               'in_place_vendor': baseline_size, 'archives': archive_evidence,

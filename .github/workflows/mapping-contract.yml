@@ -113,3 +113,62 @@ jobs:
             ${{ runner.temp }}/mapping-opt-out/**/composer.lock
             ${{ runner.temp }}/mapping-opt-out/**/*.log
             ${{ runner.temp }}/mapping-consumers/measurements.json
+
+  real-provider-integration:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.1', '7.4', '8.4', '8.5']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: portable-utf8-benchmark
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-ascii
+          ref: e6eaa3caeb3663d2dfe7bb8f72a48c9de3907bee
+          path: portable-ascii
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-utf8
+          ref: 819c7eb57c28bd1e05dddb2b2377dd22f1a2660e
+          path: portable-utf8
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-ascii-mapping-data
+          ref: 3a5ae61a58e31cbad24f7014070e724bf38682fe
+          path: portable-ascii-mapping-data
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-utf8-emoji-data
+          ref: 74c440f6dcaeda3daa9fbef9cd513619d3c4aeae
+          path: portable-utf8-emoji-data
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: intl, mbstring, iconv
+          coverage: none
+          tools: ${{ matrix.php == '7.1' && 'composer:2.2' || 'composer:v2' }}
+      - name: Resolve compatible production inventory and pinned in-place consumers
+        run: |
+          mkdir "$RUNNER_TEMP/provider-inventory"
+          echo '{"require":{"voku/portable-utf8":"6.1.1"}}' > "$RUNNER_TEMP/provider-inventory/composer.json"
+          composer update --working-dir="$RUNNER_TEMP/provider-inventory" --no-dev --no-interaction --prefer-dist
+          cp "$RUNNER_TEMP/provider-inventory/composer.lock" portable-utf8/composer.lock
+          python3 portable-utf8-benchmark/tools/footprint/measure.py --workspace "$GITHUB_WORKSPACE" --ascii-candidate-ref e745ca2778f90e109275fedb6f23c9ddede400bf --utf8-candidate-ref 151ece0a42390c49a301c602c9986aa86cd7a9e6 --output "$RUNNER_TEMP/provider-baseline"
+      - name: Verify real providers, full/slim locks and all eight extension profiles
+        run: |
+          python3 portable-utf8-benchmark/tools/footprint/opt-out-spike.py --consumers "$RUNNER_TEMP/provider-baseline" --repository-workspace "$GITHUB_WORKSPACE" --output "$RUNNER_TEMP/provider-integration" --php "$(command -v php)" --extension-dir "$(php -r 'echo ini_get("extension_dir");')"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-providers-php-${{ matrix.php }}
+          path: |
+            ${{ runner.temp }}/provider-integration/opt-out-results.json
+            ${{ runner.temp }}/provider-integration/**/composer.json
+            ${{ runner.temp }}/provider-integration/**/composer.lock
+            ${{ runner.temp }}/provider-integration/**/*.log
+            ${{ runner.temp }}/provider-baseline/measurements.json
