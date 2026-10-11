@@ -212,6 +212,9 @@ def main():
         manifest = copy.deepcopy(original)
         if omitted:
             manifest['replace'] = {name: VERSION for name in omitted}
+        # Composer 2.2 uses md5(uniqid()) for a clean autoloader unless explicitly
+        # configured. Keep its generated class identity deterministic for byte checks.
+        manifest['config']['autoloader-suffix'] = hashlib.sha256(json.dumps(manifest, sort_keys=True).encode()).hexdigest()[:32]
         save(directory / 'composer.json', manifest)
         # Resolve first, then compare two clean installs from the same lock. Composer
         # 2.2 can choose a provisional autoloader suffix during update before lock write.
