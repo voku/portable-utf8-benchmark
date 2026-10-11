@@ -1,0 +1,190 @@
+name: Mapping representation contract
+on:
+  workflow_dispatch:
+  push:
+    branches: ['mapping-footprint/evidence']
+    paths: ['tools/footprint/**', '.github/workflows/mapping-contract.yml']
+  pull_request:
+    paths: ['tools/footprint/**', '.github/workflows/mapping-contract.yml']
+permissions:
+  contents: read
+jobs:
+  compatibility:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.1', '7.4', '8.4', '8.5']
+        native: [true, false]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: portable-utf8-benchmark
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-ascii
+          ref: 26908ae112324ac424f45f2e9e27ebedd8213014
+          path: portable-ascii
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-utf8
+          ref: 365355dd175013dfd9319fb5944817172fd92a44
+          path: portable-utf8
+          fetch-depth: 0
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          # Keep Composer's own required modules; isolate runtime extension absence below.
+          extensions: intl, mbstring, iconv
+          coverage: none
+          tools: ${{ matrix.php == '7.1' && 'composer:2.2' || 'composer:v2' }}
+      - name: Prepare pinned baselines and supported production dependencies
+        run: |
+          mkdir -p baselines/portable-ascii-baseline baselines/portable-utf8-baseline
+          git -C portable-ascii archive 180a8d12055eb350859b628c64066a90a895bd10 | tar -x -C baselines/portable-ascii-baseline
+          git -C portable-utf8 archive 28cb685c22cd829aba819406295c0763204c5c09 | tar -x -C baselines/portable-utf8-baseline
+          mkdir consumer
+          echo '{"require":{"voku/portable-utf8":"6.1.1"}}' > consumer/composer.json
+          # Resolve against the actual PHP version; newer polyfills do not support PHP 7.1.
+          composer update --working-dir=consumer --no-dev --no-interaction --prefer-dist
+      - name: Compare signatures, outputs and diagnostics
+        run: |
+          PHP_PROFILE="$(command -v php)"
+          if [ '${{ matrix.native }}' = 'false' ]; then
+            PHP_JSON=""
+            if ! "$PHP_PROFILE" -n -r 'exit(function_exists("json_encode") ? 0 : 1);'; then
+              PHP_JSON=" -d extension=json.so"
+            fi
+            PHP_EXT_DIR="$(php -r 'echo ini_get("extension_dir");')"
+            printf '#!/bin/sh\nexec "%s" -n -d extension_dir="%s"%s -d memory_limit=512M -d date.timezone=UTC "$@"\n' "$PHP_PROFILE" "$PHP_EXT_DIR" "$PHP_JSON" > "$RUNNER_TEMP/php-profile"
+            chmod +x "$RUNNER_TEMP/php-profile"
+            PHP_PROFILE="$RUNNER_TEMP/php-profile"
+          fi
+          python3 portable-utf8-benchmark/tools/footprint/verify.py --php "$PHP_PROFILE" --workspace "$GITHUB_WORKSPACE" --baselines "$GITHUB_WORKSPACE/baselines" --output "$GITHUB_WORKSPACE/results" --autoload-root "$GITHUB_WORKSPACE/consumer"
+          php portable-ascii/build/footprint/compact.php
+          php portable-utf8/build/footprint/compact.php
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mapping-php-${{ matrix.php }}-native-${{ matrix.native }}
+          path: |
+            results/
+            consumer/composer.lock
+
+  explicit-opt-out:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: portable-utf8-benchmark
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-ascii
+          ref: 26908ae112324ac424f45f2e9e27ebedd8213014
+          path: portable-ascii
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-utf8
+          ref: 365355dd175013dfd9319fb5944817172fd92a44
+          path: portable-utf8
+          fetch-depth: 0
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: intl, mbstring, iconv
+          coverage: none
+          tools: composer:v2
+      - name: Prepare pinned inventory and actual Composer consumers
+        run: |
+          cp portable-utf8-benchmark/tools/footprint/evidence/locks/utf8-after-composer.lock portable-utf8/composer.lock
+          python3 portable-utf8-benchmark/tools/footprint/measure.py --workspace "$GITHUB_WORKSPACE" --output "$RUNNER_TEMP/mapping-consumers"
+      - name: Verify full, opt-out, failure and extension cases
+        run: |
+          python3 portable-utf8-benchmark/tools/footprint/opt-out-spike.py --consumers "$RUNNER_TEMP/mapping-consumers" --output "$RUNNER_TEMP/mapping-opt-out" --php "$(command -v php)" --extension-dir "$(php -r 'echo ini_get("extension_dir");')"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: explicit-opt-out-php84
+          path: |
+            ${{ runner.temp }}/mapping-opt-out/opt-out-results.json
+            ${{ runner.temp }}/mapping-opt-out/**/reinstall-check.json
+            ${{ runner.temp }}/mapping-opt-out/**/composer.json
+            ${{ runner.temp }}/mapping-opt-out/**/composer.lock
+            ${{ runner.temp }}/mapping-opt-out/**/*.log
+            ${{ runner.temp }}/mapping-consumers/measurements.json
+
+  real-provider-integration:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.1', '7.4', '8.4', '8.5']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: portable-utf8-benchmark
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-ascii
+          ref: 43ca2f9a19feb3a1ea0b1569f96ee525d07782dd
+          path: portable-ascii
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-utf8
+          ref: ab71d32e38c1e29929b5cab2d80d44a2a6217fd3
+          path: portable-utf8
+          fetch-depth: 0
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-ascii-mapping-data
+          ref: 3a5ae61a58e31cbad24f7014070e724bf38682fe
+          path: portable-ascii-mapping-data
+      - uses: actions/checkout@v4
+        with:
+          repository: voku/portable-utf8-emoji-data
+          ref: 74c440f6dcaeda3daa9fbef9cd513619d3c4aeae
+          path: portable-utf8-emoji-data
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: intl, mbstring, iconv
+          coverage: none
+          tools: ${{ matrix.php == '7.1' && 'composer:2.2' || 'composer:v2' }}
+      - name: Resolve compatible production inventory and pinned in-place consumers
+        run: |
+          mkdir "$RUNNER_TEMP/provider-inventory"
+          echo '{"require":{"voku/portable-utf8":"6.1.1"}}' > "$RUNNER_TEMP/provider-inventory/composer.json"
+          composer update --working-dir="$RUNNER_TEMP/provider-inventory" --no-dev --no-interaction --prefer-dist
+          cp "$RUNNER_TEMP/provider-inventory/composer.lock" portable-utf8/composer.lock
+          python3 portable-utf8-benchmark/tools/footprint/measure.py --workspace "$GITHUB_WORKSPACE" --ascii-candidate-ref 26908ae112324ac424f45f2e9e27ebedd8213014 --utf8-candidate-ref 365355dd175013dfd9319fb5944817172fd92a44 --output "$RUNNER_TEMP/provider-baseline"
+      - name: Verify real providers, full/slim locks and all eight extension profiles
+        run: |
+          python3 portable-utf8-benchmark/tools/footprint/opt-out-spike.py --consumers "$RUNNER_TEMP/provider-baseline" --repository-workspace "$GITHUB_WORKSPACE" --output "$RUNNER_TEMP/provider-integration" --php "$(command -v php)" --extension-dir "$(php -r 'echo ini_get("extension_dir");')"
+      - name: Verify registered Packagist data with full/slim locks and eight extension profiles
+        run: |
+          python3 portable-utf8-benchmark/tools/footprint/opt-out-spike.py --consumers "$RUNNER_TEMP/provider-baseline" --repository-workspace "$GITHUB_WORKSPACE" --packagist-data --output "$RUNNER_TEMP/packagist-integration" --php "$(command -v php)" --extension-dir "$(php -r 'echo ini_get("extension_dir");')"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: packagist-providers-php-${{ matrix.php }}
+          path: |
+            ${{ runner.temp }}/packagist-integration/opt-out-results.json
+            ${{ runner.temp }}/packagist-integration/*-packagist.json
+            ${{ runner.temp }}/packagist-integration/**/reinstall-check.json
+            ${{ runner.temp }}/packagist-integration/**/composer.json
+            ${{ runner.temp }}/packagist-integration/**/composer.lock
+            ${{ runner.temp }}/packagist-integration/**/*.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-providers-php-${{ matrix.php }}
+          path: |
+            ${{ runner.temp }}/provider-integration/opt-out-results.json
+            ${{ runner.temp }}/provider-integration/**/reinstall-check.json
+            ${{ runner.temp }}/provider-integration/**/composer.json
+            ${{ runner.temp }}/provider-integration/**/composer.lock
+            ${{ runner.temp }}/provider-integration/**/*.log
+            ${{ runner.temp }}/provider-baseline/measurements.json

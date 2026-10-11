@@ -1,0 +1,344 @@
+{
+  "php": "PHP 8.4.26 (cli) (built: Sep 24 2026 17:16:18) (NTS)\nCopyright (c) The PHP Group\nBuilt by Debian\nZend Engine v4.4.26, Copyright (c) Zend Technologies",
+  "extensions": "[PHP Modules]\nCore\nctype\ncurl\ndate\ndom\nfileinfo\nfilter\nhash\niconv\nintl\njson\nlibxml\nmbstring\nopenssl\npcntl\npcre\nPhar\nrandom\nReflection\nsession\nSimpleXML\nsodium\nSPL\nstandard\ntokenizer\nxml\nxmlreader\nxmlwriter\nzip\nzlib\n\n[Zend Modules]",
+  "composer": "Composer version 2.8.8 2025-04-04 16:56:46",
+  "note": "2.1.99/6.1.99 are temporary consumer aliases, never published requirements. Git archives honor existing export-ignore rules. Source includes Git metadata/tests. Dependencies are pinned to exact lock versions/references. Allocated bytes depend on filesystem.",
+  "rows": [
+    {
+      "phase": "before",
+      "target": "ascii",
+      "preference": "dist",
+      "refs": {
+        "portable-ascii": "180a8d12055eb350859b628c64066a90a895bd10",
+        "portable-utf8": "28cb685c22cd829aba819406295c0763204c5c09"
+      },
+      "vendor": {
+        "logical_bytes": 601634,
+        "allocated_bytes": 1077248,
+        "files": 214
+      },
+      "packages": {
+        "voku/portable-ascii": {
+          "version": "2.1.99",
+          "reference": "180a8d12055eb350859b628c64066a90a895bd10",
+          "installation_source": "dist"
+        }
+      },
+      "library": {
+        "logical_bytes": 561035,
+        "allocated_bytes": 999424,
+        "files": 202
+      },
+      "library_zip_bytes": 166582
+    },
+    {
+      "phase": "before",
+      "target": "ascii",
+      "preference": "source",
+      "refs": {
+        "portable-ascii": "180a8d12055eb350859b628c64066a90a895bd10",
+        "portable-utf8": "28cb685c22cd829aba819406295c0763204c5c09"
+      },
+      "vendor": {
+        "logical_bytes": 2482902,
+        "allocated_bytes": 4009984,
+        "files": 513
+      },
+      "packages": {
+        "voku/portable-ascii": {
+          "version": "2.1.99",
+          "reference": "180a8d12055eb350859b628c64066a90a895bd10",
+          "installation_source": "source"
+        }
+      },
+      "library": {
+        "logical_bytes": 2442301,
+        "allocated_bytes": 3932160,
+        "files": 501
+      },
+      "library_zip_bytes": 166582
+    },
+    {
+      "phase": "before",
+      "target": "utf8",
+      "preference": "dist",
+      "refs": {
+        "portable-ascii": "180a8d12055eb350859b628c64066a90a895bd10",
+        "portable-utf8": "28cb685c22cd829aba819406295c0763204c5c09"
+      },
+      "vendor": {
+        "logical_bytes": 3535175,
+        "allocated_bytes": 4186112,
+        "files": 330
+      },
+      "packages": {
+        "symfony/polyfill-iconv": {
+          "version": "v1.43.0",
+          "reference": "254724d95fe01b679cd97d88786e9623ee00bfb7",
+          "installation_source": "dist"
+        },
+        "symfony/polyfill-intl-grapheme": {
+          "version": "v1.43.0",
+          "reference": "5cac8f4db97208823aa353f59a01faad2da52c75",
+          "installation_source": "dist"
+        },
+        "symfony/polyfill-intl-normalizer": {
+          "version": "v1.43.0",
+          "reference": "ebd57ccc7edb93d632e184efbe7693d2517bab3b",
+          "installation_source": "dist"
+        },
+        "symfony/polyfill-mbstring": {
+          "version": "v1.43.0",
+          "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
+          "installation_source": "dist"
+        },
+        "symfony/polyfill-php72": {
+          "version": "v1.31.0",
+          "reference": "fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce",
+          "installation_source": "dist"
+        },
+        "voku/portable-ascii": {
+          "version": "2.1.99",
+          "reference": "180a8d12055eb350859b628c64066a90a895bd10",
+          "installation_source": "dist"
+        },
+        "voku/portable-utf8": {
+          "version": "6.1.99",
+          "reference": "28cb685c22cd829aba819406295c0763204c5c09",
+          "installation_source": "dist"
+        }
+      },
+      "library": {
+        "logical_bytes": 925027,
+        "allocated_bytes": 974848,
+        "files": 19
+      },
+      "library_zip_bytes": 167787
+    },
+    {
+      "phase": "before",
+      "target": "utf8",
+      "preference": "source",
+      "refs": {
+        "portable-ascii": "180a8d12055eb350859b628c64066a90a895bd10",
+        "portable-utf8": "28cb685c22cd829aba819406295c0763204c5c09"
+      },
+      "vendor": {
+        "logical_bytes": 31361506,
+        "allocated_bytes": 34152448,
+        "files": 994
+      },
+      "packages": {
+        "symfony/polyfill-iconv": {
+          "version": "v1.43.0",
+          "reference": "254724d95fe01b679cd97d88786e9623ee00bfb7",
+          "installation_source": "source"
+        },
+        "symfony/polyfill-intl-grapheme": {
+          "version": "v1.43.0",
+          "reference": "5cac8f4db97208823aa353f59a01faad2da52c75",
+          "installation_source": "source"
+        },
+        "symfony/polyfill-intl-normalizer": {
+          "version": "v1.43.0",
+          "reference": "ebd57ccc7edb93d632e184efbe7693d2517bab3b",
+          "installation_source": "source"
+        },
+        "symfony/polyfill-mbstring": {
+          "version": "v1.43.0",
+          "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
+          "installation_source": "source"
+        },
+        "symfony/polyfill-php72": {
+          "version": "v1.31.0",
+          "reference": "fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce",
+          "installation_source": "source"
+        },
+        "voku/portable-ascii": {
+          "version": "2.1.99",
+          "reference": "180a8d12055eb350859b628c64066a90a895bd10",
+          "installation_source": "source"
+        },
+        "voku/portable-utf8": {
+          "version": "6.1.99",
+          "reference": "28cb685c22cd829aba819406295c0763204c5c09",
+          "installation_source": "source"
+        }
+      },
+      "library": {
+        "logical_bytes": 25275613,
+        "allocated_bytes": 25931776,
+        "files": 229
+      },
+      "library_zip_bytes": 167787
+    },
+    {
+      "phase": "after",
+      "target": "ascii",
+      "preference": "dist",
+      "refs": {
+        "portable-ascii": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+        "portable-utf8": "4303a126130782bef38ce9cb1b69b492b9b9f605"
+      },
+      "vendor": {
+        "logical_bytes": 455726,
+        "allocated_bytes": 1077248,
+        "files": 214
+      },
+      "packages": {
+        "voku/portable-ascii": {
+          "version": "2.1.99",
+          "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+          "installation_source": "dist"
+        }
+      },
+      "library": {
+        "logical_bytes": 415128,
+        "allocated_bytes": 999424,
+        "files": 202
+      },
+      "library_zip_bytes": 162780
+    },
+    {
+      "phase": "after",
+      "target": "ascii",
+      "preference": "source",
+      "refs": {
+        "portable-ascii": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+        "portable-utf8": "4303a126130782bef38ce9cb1b69b492b9b9f605"
+      },
+      "vendor": {
+        "logical_bytes": 2372132,
+        "allocated_bytes": 4055040,
+        "files": 518
+      },
+      "packages": {
+        "voku/portable-ascii": {
+          "version": "2.1.99",
+          "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+          "installation_source": "source"
+        }
+      },
+      "library": {
+        "logical_bytes": 2331532,
+        "allocated_bytes": 3977216,
+        "files": 506
+      },
+      "library_zip_bytes": 162780
+    },
+    {
+      "phase": "after",
+      "target": "utf8",
+      "preference": "dist",
+      "refs": {
+        "portable-ascii": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+        "portable-utf8": "4303a126130782bef38ce9cb1b69b492b9b9f605"
+      },
+      "vendor": {
+        "logical_bytes": 3299679,
+        "allocated_bytes": 4100096,
+        "files": 330
+      },
+      "packages": {
+        "symfony/polyfill-iconv": {
+          "version": "v1.43.0",
+          "reference": "254724d95fe01b679cd97d88786e9623ee00bfb7",
+          "installation_source": "dist"
+        },
+        "symfony/polyfill-intl-grapheme": {
+          "version": "v1.43.0",
+          "reference": "5cac8f4db97208823aa353f59a01faad2da52c75",
+          "installation_source": "dist"
+        },
+        "symfony/polyfill-intl-normalizer": {
+          "version": "v1.43.0",
+          "reference": "ebd57ccc7edb93d632e184efbe7693d2517bab3b",
+          "installation_source": "dist"
+        },
+        "symfony/polyfill-mbstring": {
+          "version": "v1.43.0",
+          "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
+          "installation_source": "dist"
+        },
+        "symfony/polyfill-php72": {
+          "version": "v1.31.0",
+          "reference": "fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce",
+          "installation_source": "dist"
+        },
+        "voku/portable-ascii": {
+          "version": "2.1.99",
+          "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+          "installation_source": "dist"
+        },
+        "voku/portable-utf8": {
+          "version": "6.1.99",
+          "reference": "4303a126130782bef38ce9cb1b69b492b9b9f605",
+          "installation_source": "dist"
+        }
+      },
+      "library": {
+        "logical_bytes": 835440,
+        "allocated_bytes": 888832,
+        "files": 19
+      },
+      "library_zip_bytes": 164362
+    },
+    {
+      "phase": "after",
+      "target": "utf8",
+      "preference": "source",
+      "refs": {
+        "portable-ascii": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+        "portable-utf8": "4303a126130782bef38ce9cb1b69b492b9b9f605"
+      },
+      "vendor": {
+        "logical_bytes": 31170919,
+        "allocated_bytes": 34131968,
+        "files": 1004
+      },
+      "packages": {
+        "symfony/polyfill-iconv": {
+          "version": "v1.43.0",
+          "reference": "254724d95fe01b679cd97d88786e9623ee00bfb7",
+          "installation_source": "source"
+        },
+        "symfony/polyfill-intl-grapheme": {
+          "version": "v1.43.0",
+          "reference": "5cac8f4db97208823aa353f59a01faad2da52c75",
+          "installation_source": "source"
+        },
+        "symfony/polyfill-intl-normalizer": {
+          "version": "v1.43.0",
+          "reference": "ebd57ccc7edb93d632e184efbe7693d2517bab3b",
+          "installation_source": "source"
+        },
+        "symfony/polyfill-mbstring": {
+          "version": "v1.43.0",
+          "reference": "4d5d331bf731e0aedbc6b2f5e61135b7b7996a72",
+          "installation_source": "source"
+        },
+        "symfony/polyfill-php72": {
+          "version": "v1.31.0",
+          "reference": "fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce",
+          "installation_source": "source"
+        },
+        "voku/portable-ascii": {
+          "version": "2.1.99",
+          "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886",
+          "installation_source": "source"
+        },
+        "voku/portable-utf8": {
+          "version": "6.1.99",
+          "reference": "4303a126130782bef38ce9cb1b69b492b9b9f605",
+          "installation_source": "source"
+        }
+      },
+      "library": {
+        "logical_bytes": 25195797,
+        "allocated_bytes": 25866240,
+        "files": 234
+      },
+      "library_zip_bytes": 164362
+    }
+  ]
+}

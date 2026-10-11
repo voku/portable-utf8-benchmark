@@ -1,0 +1,18 @@
+PHPUnit 11.5.57 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.26
+Configuration: /workspace/portable-ascii/phpunit.xml
+
+
+portable-ascii performance profile (median µs/op)
+- mapping_decode_ascii_ord.php                  55.845
+- mapping_decode_x000.php                       28.272
+- mapping_decode_x04e.php                       30.006
+- mapping_decode_x1f1.php                       18.156
+
+.                                                                   1 / 1 (100%)
+
+Time: 00:00.691, Memory: 10.00 MB
+
+OK, but there were issues!
+Tests: 1, Assertions: 4, PHPUnit Deprecations: 4.

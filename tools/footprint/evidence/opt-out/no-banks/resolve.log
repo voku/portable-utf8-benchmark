@@ -1,0 +1,25 @@
+Composer could not detect the root package (footprint/consumer) version, defaulting to '1.0.0'. See https://getcomposer.org/root-version
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 8 installs, 0 updates, 0 removals
+  - Locking symfony/polyfill-iconv (v1.43.0)
+  - Locking symfony/polyfill-intl-grapheme (v1.43.0)
+  - Locking symfony/polyfill-intl-normalizer (v1.43.0)
+  - Locking symfony/polyfill-mbstring (v1.43.0)
+  - Locking symfony/polyfill-php72 (v1.31.0)
+  - Locking voku/portable-ascii (2.1.99)
+  - Locking voku/portable-utf8 (6.1.99)
+  - Locking voku/portable-utf8-emoji-data (1.0.0)
+Writing lock file
+Installing dependencies from lock file
+Package operations: 8 installs, 0 updates, 0 removals
+  - Installing voku/portable-utf8-emoji-data (1.0.0): Extracting archive
+  - Installing voku/portable-ascii (2.1.99): Extracting archive
+  - Installing symfony/polyfill-php72 (v1.31.0): Extracting archive
+  - Installing symfony/polyfill-mbstring (v1.43.0): Extracting archive
+  - Installing symfony/polyfill-intl-normalizer (v1.43.0): Extracting archive
+  - Installing symfony/polyfill-intl-grapheme (v1.43.0): Extracting archive
+  - Installing symfony/polyfill-iconv (v1.43.0): Extracting archive
+  - Installing voku/portable-utf8 (6.1.99): Extracting archive
+Generating autoload files
+No security vulnerability advisories found.

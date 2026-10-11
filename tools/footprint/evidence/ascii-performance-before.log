@@ -1,0 +1,62 @@
+PHPUnit 11.5.57 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.4.26
+Configuration: /workspace/portable-ascii/phpunit.xml
+
+.
+portable-ascii performance profile (median µs/op)
+- to_ascii_ascii_short                           0.114
+- to_transliterate_ascii_short                   0.212
+- to_ascii_latin_short                           1.204
+- to_transliterate_latin_short                   0.978
+- to_ascii_german_short                          0.991
+- to_ascii_mixed_short                           1.367
+- to_slugify_ascii_short                         0.838
+- to_slugify_latin_short                         2.337
+- to_ascii_ascii_long                            1.364
+- to_transliterate_ascii_long                    1.248
+- to_ascii_greek_long                           55.188
+- to_ascii_greek_long_single_char_only          47.280
+- to_ascii_myanmar_long                         66.726
+- to_ascii_myanmar_long_single_char_only        29.100
+- to_ascii_chinese_long_transliterate           15.978
+- to_transliterate_chinese_long                 16.550
+- to_transliterate_unknown_long_fixed_fallback    11.117
+- to_transliterate_unknown_long_changing_fallback    80.805
+- to_slugify_en_n1                               0.954
+- to_slugify_en_n10                              0.811
+- to_slugify_en_n100                             0.761
+- to_slugify_en_n1000                            0.856
+- to_slugify_en_n10000                           0.810
+- to_slugify_de_n1                               1.907
+- to_slugify_de_n10                              1.717
+- to_slugify_de_n100                             1.721
+- to_slugify_de_n1000                            2.109
+- to_slugify_de_n10000                           2.059
+- to_slugify_fr_n1                               2.146
+- to_slugify_fr_n10                              2.003
+- to_slugify_fr_n100                             3.419
+- to_slugify_fr_n1000                            2.419
+- to_slugify_fr_n10000                           2.478
+- to_slugify_es_n1                               1.907
+- to_slugify_es_n10                              2.217
+- to_slugify_es_n100                             2.501
+- to_slugify_es_n1000                            2.487
+- to_slugify_es_n10000                           2.500
+- to_slugify_ru_n1                               6.199
+- to_slugify_ru_n10                              7.010
+- to_slugify_ru_n100                             7.169
+- to_slugify_ru_n1000                            7.689
+- to_slugify_ru_n10000                           6.982
+- to_slugify_tr_n1                               1.907
+- to_slugify_tr_n10                              1.788
+- to_slugify_tr_n100                             1.779
+- to_slugify_tr_n1000                            2.047
+- to_slugify_tr_n10000                           2.176
+
+.                                                                  2 / 2 (100%)
+
+Time: 00:03.888, Memory: 16.00 MB
+
+OK, but there were issues!
+Tests: 2, Assertions: 26, PHPUnit Deprecations: 4.

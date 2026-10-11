@@ -1,0 +1,183 @@
+# Real data repositories and development integration
+
+The explicit opt-out architecture is implemented on separate development branches. The earlier
+in-place candidates remain available. No library default branch was merged, no version was
+released, and no tags were created. The owner subsequently registered both data packages
+on Packagist; their reviewed `dev-main` commits are now indexed.
+
+## Repositories and immutable inputs
+
+| Repository | Branch | Verified commit |
+| --- | --- | --- |
+| [ASCII data](https://github.com/voku/portable-ascii-mapping-data) | main | `3a5ae61` |
+| [Emoji data](https://github.com/voku/portable-utf8-emoji-data) | main | `74c440f` |
+| [ASCII core integration](https://github.com/voku/portable-ascii/tree/mapping-footprint/providers) | mapping-footprint/providers | `e6eaa3c` |
+| [UTF8 core integration](https://github.com/voku/portable-utf8/tree/mapping-footprint/providers) | mapping-footprint/providers | `819c7eb` |
+
+Complete SHAs are recorded in the examples, lockfiles and CI evidence. The data repositories
+retain original licenses, attribution, exact ordered-array/hash fixtures, provenance and
+reproducible imports. Build/tests/CI are excluded from their Dist archives. Providers are
+PSR-4 autoloaded and load data only when called; no plugin or runtime download is involved.
+
+The core candidates require their data providers at `^1.0`. Full default behavior matches
+the in-place baseline. A missing provider throws an actionable RuntimeException. Unknown
+valid banks retain the old empty-array behavior, whereas damaged known files and malformed
+provider bank identifiers fail explicitly. Data and policy versioning are independent;
+raise the core's minimum data version whenever new behavior actually requires newer data.
+
+Byte/language/support metadata stays in core. This does not introduce an extension-driven
+Composer switch or treat intl as a replacement for the non-strict ASCII engine. Internal
+mapping files move in this candidate; direct-file consumers need migration. Each core branch
+ships `MAPPING-MIGRATION.md`. This requires separate release/migration review rather than
+silently replacing the compatible in-place candidate with a patch release.
+
+## Actual remote CI
+
+- [ASCII provider CI](https://github.com/voku/portable-ascii-mapping-data/actions/runs/38099326156): successful PHP 7.1, 7.4, 8.4 and 8.5 provider contracts and exported-archive checks.
+- [Emoji provider CI](https://github.com/voku/portable-utf8-emoji-data/actions/runs/38099350133): successful on the same four PHP versions.
+- [Coordinator CI](https://github.com/voku/portable-utf8-benchmark/actions/runs/38099868434): all 13 jobs successful, benchmark runtime commit `2ba7d31`.
+
+Four real-provider jobs each test all eight native intl/mbstring/iconv combinations. Each
+profile compares 11,500 ASCII and 7,437 UTF8 scenarios with no signature, result, warning,
+exception or echo differences. Additionally, 20 fresh-process path probes × four install
+modes × eight profiles verify retained paths, lazy loading and missing-data failures per
+PHP version. These are comparisons against the unchanged in-place revision under the same
+PHP/polyfill profile, not claims that every behavior matches a published older release.
+
+Full, no-emoji, no-banks and both-omitted consumers resolve pinned locks and pass two clean
+Dist reinstalls with equal package metadata, footprint and every vendor file's content hash.
+Composer 2.2 normally randomizes a fresh autoloader's class suffix; test consumers explicitly
+set a manifest-derived `config.autoloader-suffix` so byte-level reproducibility is meaningful
+on that Composer version too. No files are excluded from the vendor-content comparison.
+The PHP 7 fallback harness loads its JSON serializer while keeping the three tested text
+extensions absent. The probe avoids deprecated reflection setup on newer PHP versions.
+
+The test registry's 2.1.99/6.1.99/1.0.0 aliases are local test versions, not published releases.
+Separate normal VCS consumers also resolve the real branches with SHA-pinned development
+aliases and validate both full and both-omitted paths. They use local Git URLs to avoid
+registry/API variability; the public examples use the corresponding GitHub repository URLs.
+The local library development helpers installed the data providers from their actual GitHub
+VCS repositories without Packagist or tags.
+
+Evidence is retained under [evidence/providers](evidence/providers): remote job summaries,
+all four PHP matrix results, application manifests/locks, reinstall reports/logs and local
+full-suite/static-analysis/performance logs. Complete solver logs remain in the linked CI
+artifacts. Expected missing-iconv solver rejections are recorded independently of successful
+runtime fallback checks; those dependency platform requirements are inherited.
+
+## Footprint of the licensed real packages
+
+The minimal spike omitted the eventual repositories' provenance, licensing and migration
+material. The real full split therefore adds more overhead. Use these measured values rather
+than promoting the spike's earlier savings as the final package result.
+
+PHP 8.4 remote Dist results, covering the full production UTF8 vendor closure:
+
+| Installation | Logical bytes | Allocated bytes | Files | Logical saving vs in-place | Allocated saving vs in-place |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| In-place baseline | 3,300,497 | 4,100,096 | 330 | — | — |
+| Full split | 3,353,074 | 4,198,400 | 345 | −52,577 | −98,304 |
+| Omit emoji | 3,227,722 | 4,046,848 | 337 | 72,775 | 53,248 |
+| Omit banks | 3,118,338 | 3,391,488 | 150 | 182,159 | 708,608 |
+| Omit both | 2,992,944 | 3,248,128 | 142 | 307,553 | 851,968 |
+
+Allocated bytes depend on the filesystem. Composer version, installation URLs and inventory
+metadata can change logical counts slightly. Original mappings remain identical. Full-default
+installation is larger; the optional footprint saving is real and conditional on consumers
+accepting reduced functionality. No uniform CPU improvement is claimed for extraction.
+
+## Registered Packagist experiment
+
+[Packagist coordinator CI](https://github.com/voku/portable-utf8-benchmark/actions/runs/38119228774)
+passed all 13 jobs at runtime commit `6f59987`, including all four PHP registry matrices.
+Each registry matrix compares 151,496 full-corpus scenarios and 640 opt-out path probes
+across eight extension profiles, plus all four modes’ lock/reinstall checks.
+
+The subsequent registry experiment uses the same reviewed code, with data metadata and
+Dist URLs supplied by Packagist. PHP 8.4 remote production-closure measurements:
+
+| Installation | Logical bytes | Allocated bytes | Files | Logical saving vs in-place |
+| --- | ---: | ---: | ---: | ---: |
+| In-place baseline | 3,300,497 | 4,100,096 | 330 | — |
+| Full split | 3,354,204 | 4,198,400 | 345 | −53,707 |
+| Omit emoji | 3,228,291 | 4,046,848 | 337 | 72,206 |
+| Omit banks | 3,118,901 | 3,391,488 | 150 | 181,596 |
+| Omit both | 2,992,946 | 3,248,128 | 142 | 307,551 |
+
+The both-omitted saving is 851,968 allocated bytes and 188 files against in-place. Small
+logical differences from the previous fixture registry reflect actual installed metadata.
+Full installation remains larger. Public full/slim examples install successfully and all
+40 fresh-process path comparisons pass under the same local PHP profile. Their resolved
+locks and outputs are retained in [evidence/packagist](evidence/packagist).
+
+The corrected older scratch spike removes a duplicate inherited core alias that could
+bypass its provider requirement. Its future-version rejection now checks dependency
+resolution before installation and verifies the intended contract diagnostic. This
+supersedes the previous scratch spike's version-guard claim; real repository and Packagist
+modes already replaced the duplicate core metadata.
+
+## Try the development branches through Packagist, without tags
+
+Use [examples/providers-full.composer.json](examples/providers-full.composer.json) for full
+functionality or [examples/providers-slim.composer.json](examples/providers-slim.composer.json)
+for the deliberately restricted application. Copy the selected file to a new application's
+`composer.json`, run `composer update --no-dev`, then commit its generated lockfile. The
+examples pin the four reviewed commits with explicit development aliases. Only the two
+core development branches use VCS repositories; data packages resolve through Packagist,
+with no data repository overrides and no global minimum-stability change.
+Composer reads branch metadata, so retain the reviewed manifests and lock in addition to
+commit pins. Aliases do not turn a development branch into a stable published version.
+
+For a selective opt-out, omit that provider from the application's explicit require list and
+add a version-pinned root replacement declaration. Never use `"*"`. Audit indirect calls:
+nonempty `strrev` and `is_html` reach emoji even for ASCII text; UTF8 `to_ascii` and filenames
+with transliteration can need ASCII banks. Existing [opt-out path evidence](OPT-OUT.md)
+remains applicable. The table describes tested paths/options, not a universal application
+whitelist. Full and incorrectly reduced installs must be tested separately.
+
+## Remaining publication and release gates
+
+Both names are registered and publicly indexed on Packagist at the reviewed data commits.
+Registration exposes `dev-main` and its `1.0.x-dev` branch alias; it does not produce a stable
+release. The examples explicitly allow and pin these development versions. Ordinary stable
+`^1.0` consumers still require a separately approved stable data release. No tag is needed
+for the experiment, and none has been created.
+
+The coordinator now also runs `opt-out-spike.py --packagist-data` on PHP 7.1, 7.4, 8.4 and
+8.5. This enables Packagist, removes both data packages from the fixture registry, checks
+registry source/dist references against the reviewed commits, and verifies the installed
+packages actually match that metadata. Core archives and polyfill inventory remain pinned
+fixtures so this experiment isolates the new registry resolution. All four installation
+modes, byte-identical lock reinstalls, complete behavior corpus, 20 indirect-call probes and
+eight extension profiles are retained. Registry metadata, manifests, locks and logs are
+uploaded in separate `packagist-providers-php-*` artifacts. The public examples additionally
+exercise ordinary core VCS resolution with data packages supplied by Packagist.
+
+The local core suites pass: ASCII 336 tests / 3,370 assertions (two opt-in skips, four existing
+PHPUnit deprecations); UTF8 2,004 tests / 429,268 assertions. ASCII PHPStan passes both configs.
+UTF8 PHPStan still reports the same six inherited errors. The opt-in ASCII performance ratio
+fails once at 1.2619 versus a 1.25 threshold; it remains an explicit gate, with thresholds
+unchanged and its raw log retained. The legacy formatter limitation in the original ADR also
+remains. These issues are not represented as a green full release gate by successful
+compatibility/integration CI. No core versions, release tags, releases or merges were made.
+
+## CI review follow-up
+
+The five review PRs are ASCII #172/#173, UTF8 #276/#277 and benchmark #4. The provider
+reviews stay stacked on their respective in-place branches. Their full library CI now
+runs on those base branches and selects the existing temporary development manifest to
+install reviewed Packagist data versions, including on Windows. Production dependency
+constraints and global stability remain unchanged.
+
+Review fixes add missing test documentation, correct formatting and make locale assertions
+work on runners without intl. UTF8 encoding conversion casts make existing weak string
+coercions explicit; the legacy PHP-version search guards are retained with a narrowly counted
+PHP 7 static-analysis exception. Intentional repeated array-data includes are documented as
+Sonar false positives: switching them to include_once would return true instead of fresh data
+or invalidate decode benchmarks. PHPMD's static-access warning is scoped out only for the
+deliberately static ASCII provider contract. No assertions or quality thresholds are relaxed.
+
+The coordinator and public examples now pin ASCII in-place `26908ae`, UTF8 in-place
+`365355d`, ASCII provider `43ca2f9` and UTF8 provider `ab71d32`. Earlier evidence above
+remains historical evidence for its recorded commits; current pipeline results are checked
+separately. No merges or tags are authorized by this CI follow-up.

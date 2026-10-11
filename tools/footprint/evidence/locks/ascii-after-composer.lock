@@ -1,0 +1,42 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e7d1c00cdb97c150ac2e676b792dbc97",
+    "packages": [
+        {
+            "name": "voku/portable-ascii",
+            "version": "2.1.99",
+            "source": {
+                "type": "git",
+                "url": "/workspace/portable-ascii",
+                "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "file:///workspace/shared/mapping-footprint/consumers-verified/portable-ascii-after.zip",
+                "reference": "e73c78c8b976e09bceeb248ed2cdc07118e3a886"
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "voku\\": "src/voku/"
+                }
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}

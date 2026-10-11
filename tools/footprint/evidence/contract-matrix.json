@@ -1,0 +1,98 @@
+[
+  {
+    "repo": "portable-ascii",
+    "intl_mbstring_iconv": "000",
+    "cases": 11500,
+    "differences": []
+  },
+  {
+    "repo": "portable-utf8",
+    "intl_mbstring_iconv": "000",
+    "cases": 7437,
+    "differences": []
+  },
+  {
+    "repo": "portable-ascii",
+    "intl_mbstring_iconv": "001",
+    "cases": 11500,
+    "differences": []
+  },
+  {
+    "repo": "portable-utf8",
+    "intl_mbstring_iconv": "001",
+    "cases": 7437,
+    "differences": []
+  },
+  {
+    "repo": "portable-ascii",
+    "intl_mbstring_iconv": "010",
+    "cases": 11500,
+    "differences": []
+  },
+  {
+    "repo": "portable-utf8",
+    "intl_mbstring_iconv": "010",
+    "cases": 7437,
+    "differences": []
+  },
+  {
+    "repo": "portable-ascii",
+    "intl_mbstring_iconv": "011",
+    "cases": 11500,
+    "differences": []
+  },
+  {
+    "repo": "portable-utf8",
+    "intl_mbstring_iconv": "011",
+    "cases": 7437,
+    "differences": []
+  },
+  {
+    "repo": "portable-ascii",
+    "intl_mbstring_iconv": "100",
+    "cases": 11500,
+    "differences": []
+  },
+  {
+    "repo": "portable-utf8",
+    "intl_mbstring_iconv": "100",
+    "cases": 7437,
+    "differences": []
+  },
+  {
+    "repo": "portable-ascii",
+    "intl_mbstring_iconv": "101",
+    "cases": 11500,
+    "differences": []
+  },
+  {
+    "repo": "portable-utf8",
+    "intl_mbstring_iconv": "101",
+    "cases": 7437,
+    "differences": []
+  },
+  {
+    "repo": "portable-ascii",
+    "intl_mbstring_iconv": "110",
+    "cases": 11500,
+    "differences": []
+  },
+  {
+    "repo": "portable-utf8",
+    "intl_mbstring_iconv": "110",
+    "cases": 7437,
+    "differences": []
+  },
+  {
+    "repo": "portable-ascii",
+    "intl_mbstring_iconv": "111",
+    "cases": 11500,
+    "differences": []
+  },
+  {
+    "repo": "portable-utf8",
+    "intl_mbstring_iconv": "111",
+    "cases": 7437,
+    "differences": []
+  }
+]

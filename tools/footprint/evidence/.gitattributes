@@ -1,0 +1,2 @@
+# Preserve terminal padding and blank lines in recorded tool output.
+*.log -whitespace

@@ -1,0 +1,24 @@
+{
+  "name": "footprint/vcs-consumer",
+  "require": {
+    "voku/portable-ascii": "dev-mapping-footprint/providers#43ca2f9a19feb3a1ea0b1569f96ee525d07782dd as 2.1.99",
+    "voku/portable-utf8": "dev-mapping-footprint/providers#ab71d32e38c1e29929b5cab2d80d44a2a6217fd3 as 6.1.99"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/voku/portable-ascii"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/voku/portable-utf8"
+    }
+  ],
+  "config": {
+    "allow-plugins": false
+  },
+  "replace": {
+    "voku/portable-ascii-mapping-data": "1.0.0",
+    "voku/portable-utf8-emoji-data": "1.0.0"
+  }
+}

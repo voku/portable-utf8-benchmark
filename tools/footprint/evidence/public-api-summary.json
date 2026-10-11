@@ -1,0 +1,16 @@
+[
+  {
+    "library": "ascii",
+    "public_methods": 15,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  {
+    "library": "utf8",
+    "public_methods": 266,
+    "added": [],
+    "removed": [],
+    "changed": []
+  }
+]

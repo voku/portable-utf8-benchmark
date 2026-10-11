@@ -1,0 +1,32 @@
+{
+  "name": "footprint/vcs-consumer",
+  "require": {
+    "voku/portable-ascii": "dev-mapping-footprint/providers#e6eaa3caeb3663d2dfe7bb8f72a48c9de3907bee as 2.1.99",
+    "voku/portable-utf8": "dev-mapping-footprint/providers#819c7eb57c28bd1e05dddb2b2377dd22f1a2660e as 6.1.99"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "/workspace/portable-ascii"
+    },
+    {
+      "type": "vcs",
+      "url": "/workspace/portable-utf8"
+    },
+    {
+      "type": "vcs",
+      "url": "/workspace/portable-ascii-mapping-data"
+    },
+    {
+      "type": "vcs",
+      "url": "/workspace/portable-utf8-emoji-data"
+    }
+  ],
+  "config": {
+    "allow-plugins": false
+  },
+  "replace": {
+    "voku/portable-ascii-mapping-data": "1.0.0",
+    "voku/portable-utf8-emoji-data": "1.0.0"
+  }
+}

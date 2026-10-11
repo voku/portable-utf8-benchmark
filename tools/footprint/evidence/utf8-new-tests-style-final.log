@@ -1,0 +1,12 @@
+You are running PHP CS Fixer on PHP 8.4.26, but the minimum PHP version supported by your project in composer.json is PHP 7.1. Executing PHP CS Fixer on newer PHP versions may introduce syntax or features not yet available in PHP 7.1, which could cause issues under that version. It is recommended to run PHP CS Fixer on PHP 7.1, to fit your project specifics.
+If you need help while solving warnings, ask at https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/discussions/, we will help you!
+
+PHP CS Fixer 3.95.27 Adalbertus by Fabien Potencier, Dariusz Ruminski and contributors.
+PHP runtime: 8.4.26
+Loaded config default from "/workspace/shared/mapping-footprint/portable-utf8-style-config.php".
+Running analysis on 4 cores with 10 files per process.
+ 0/2 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   0%
+ 2/2 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
+
+
+Found 0 of 2 files that can be fixed in 0.059 seconds, 16.00 MB memory used

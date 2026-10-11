@@ -1,0 +1,496 @@
+{
+  "full": {
+    "ascii-pass": {
+      "result": [
+        "value",
+        "czoxNToiUGxhaW4gQVNDSUkgMTIzIjs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "language-map": {
+      "result": [
+        "value",
+        "czoxOToiRHVlc3NlbGRvcmYgU3RyYXNzZSI7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-length": {
+      "result": [
+        "value",
+        "aToxMDs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-repair": {
+      "result": [
+        "value",
+        "czoyOiLDgyI7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-ord": {
+      "result": [
+        "value",
+        "aToyNDY7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "support-key": {
+      "result": [
+        "value",
+        "YjoxOw=="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "support-full": {
+      "result": [
+        "value",
+        "YToxMzp7czozMzoiYWxyZWFkeV9jaGVja2VkX3ZpYV9wb3J0YWJsZV91dGY4IjtiOjE7czo4OiJtYnN0cmluZyI7YjoxO3M6MjI6Im1ic3RyaW5nX2Z1bmNfb3ZlcmxvYWQiO2I6MDtzOjE0OiJtYnN0cmluZ19yZWdleCI7YjoxO3M6NToiaWNvbnYiO2I6MTtzOjQ6ImludGwiO2I6MTtzOjg6ImludGxDaGFyIjtiOjE7czo1OiJjdHlwZSI7YjoxO3M6NToiZmluZm8iO2I6MTtzOjQ6Impzb24iO2I6MTtzOjk6InBjcmVfdXRmOCI7YjoxO3M6MjE6InN5bWZvbnlfcG9seWZpbGxfdXNlZCI7YjowO3M6MjY6Im1ic3RyaW5nX2ludGVybmFsX2VuY29kaW5nIjtzOjU6IlVURi04Ijt9"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "html-empty": {
+      "result": [
+        "value",
+        "YjowOw=="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "emoji-encode": {
+      "result": [
+        "value",
+        "czoxNDoiQ0hBUkFDVEVSX09HUkUiOw=="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": true,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "emoji-decode": {
+      "result": [
+        "value",
+        "czo0OiLwn5G5Ijs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": true,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "reverse-ascii": {
+      "result": [
+        "value",
+        "czo1OiJvbGxlaCI7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": true,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "reverse-unicode": {
+      "result": [
+        "value",
+        "czoxNjoi8J+RuSBmcm9kbGVzc8O8RCI7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": true,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "html-ascii": {
+      "result": [
+        "value",
+        "YjoxOw=="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": true,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "banks-direct": {
+      "result": [
+        "value",
+        "czoxOToiWmhvbmcgV2VuIEtvbmcgQmFpICI7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": true
+      }
+    },
+    "banks-strict": {
+      "result": [
+        "value",
+        "czoxODoiemhvbmcgd2VuIGtvbmcgYmFpIjs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-ascii": {
+      "result": [
+        "value",
+        "czoxOToiWmhvbmcgV2VuIEtvbmcgQmFpICI7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": true
+      }
+    },
+    "ascii-filename": {
+      "result": [
+        "value",
+        "czoxNDoiWmhvbmctV2VuLS50eHQiOw=="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": true
+      }
+    },
+    "utf8-filename": {
+      "result": [
+        "value",
+        "czoxNDoiWmhvbmctV2VuLS50eHQiOw=="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": true
+      }
+    },
+    "utf8-filename-default": {
+      "result": [
+        "value",
+        "czo0OiIudHh0Ijs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "unmapped-bank": {
+      "result": [
+        "value",
+        "czoxOiI/Ijs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": true
+      }
+    }
+  },
+  "slim": {
+    "ascii-pass": {
+      "result": [
+        "value",
+        "czoxNToiUGxhaW4gQVNDSUkgMTIzIjs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "language-map": {
+      "result": [
+        "value",
+        "czoxOToiRHVlc3NlbGRvcmYgU3RyYXNzZSI7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-length": {
+      "result": [
+        "value",
+        "aToxMDs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-repair": {
+      "result": [
+        "value",
+        "czoyOiLDgyI7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-ord": {
+      "result": [
+        "value",
+        "aToyNDY7"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "support-key": {
+      "result": [
+        "value",
+        "YjoxOw=="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "support-full": {
+      "result": [
+        "value",
+        "YToxMzp7czozMzoiYWxyZWFkeV9jaGVja2VkX3ZpYV9wb3J0YWJsZV91dGY4IjtiOjE7czo4OiJtYnN0cmluZyI7YjoxO3M6MjI6Im1ic3RyaW5nX2Z1bmNfb3ZlcmxvYWQiO2I6MDtzOjE0OiJtYnN0cmluZ19yZWdleCI7YjoxO3M6NToiaWNvbnYiO2I6MTtzOjQ6ImludGwiO2I6MTtzOjg6ImludGxDaGFyIjtiOjE7czo1OiJjdHlwZSI7YjoxO3M6NToiZmluZm8iO2I6MTtzOjQ6Impzb24iO2I6MTtzOjk6InBjcmVfdXRmOCI7YjoxO3M6MjE6InN5bWZvbnlfcG9seWZpbGxfdXNlZCI7YjowO3M6MjY6Im1ic3RyaW5nX2ludGVybmFsX2VuY29kaW5nIjtzOjU6IlVURi04Ijt9"
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "html-empty": {
+      "result": [
+        "value",
+        "YjowOw=="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "emoji-encode": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-utf8-emoji-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "emoji-decode": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-utf8-emoji-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "reverse-ascii": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-utf8-emoji-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "reverse-unicode": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-utf8-emoji-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "html-ascii": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-utf8-emoji-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "banks-direct": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-ascii-mapping-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "banks-strict": {
+      "result": [
+        "value",
+        "czoxODoiemhvbmcgd2VuIGtvbmcgYmFpIjs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-ascii": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-ascii-mapping-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "ascii-filename": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-ascii-mapping-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-filename": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-ascii-mapping-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "utf8-filename-default": {
+      "result": [
+        "value",
+        "czo0OiIudHh0Ijs="
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    },
+    "unmapped-bank": {
+      "result": [
+        "exception",
+        "RuntimeException",
+        "Mappings are unavailable. Install voku/portable-ascii-mapping-data and remove its replacement declaration from your root composer.json."
+      ],
+      "warnings": [],
+      "output": "",
+      "loaded_providers": {
+        "Voku\\PortableUtf8EmojiData\\EmojiMap": false,
+        "Voku\\PortableAsciiMappingData\\BankMap": false
+      }
+    }
+  }
+}
