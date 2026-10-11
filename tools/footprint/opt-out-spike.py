@@ -78,6 +78,10 @@ def archives(args, original):
     locked = {p['name']: p for p in json.loads((args.consumers / 'utf8-after-dist/composer.lock').read_text())['packages']}
     for library, name in [('ascii', BANKS), ('utf8', EMOJI)]:
         package = next(p for p in packages if p['name'] == 'voku/portable-' + library)
+        # The inventory can contain the same core alias twice (selected candidate
+        # and inherited lock metadata). Keep only the rewritten candidate; otherwise
+        # the solver can bypass its provider requirement using the stale duplicate.
+        packages[:] = [p for p in packages if p['name'] != package['name'] or p is package]
         source = args.consumers / ('portable-' + library + '-after.zip')
         child = {'name': name, 'version': VERSION, 'require': {'php': '>=7.1'},
                  'autoload': {'psr-4': {'Voku\\' + ('PortableUtf8EmojiData' if library == 'utf8' else 'PortableAsciiMappingData') + '\\': 'src/'}}}
@@ -283,7 +287,7 @@ def main():
     future['replace'] = {EMOJI: VERSION}
     next(p for p in future['repositories'][0]['package'] if p['name'] == 'voku/portable-utf8')['require'][EMOJI] = '1.1.0'
     save(directory / 'composer.json', future)
-    composer(args, directory, 'update', 'resolve', expect_failure=True)
+    composer(args, directory, 'update', 'resolve', expect_failure=True, extra=['--no-install'])
     if EMOJI + ' 1.1.0' not in (directory / 'resolve.log').read_text():
         raise RuntimeError('Future-version guard failed for an unrelated dependency')
     directory = args.output / 'unsafe-wildcard-control'
